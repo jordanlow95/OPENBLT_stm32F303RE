@@ -2,7 +2,7 @@ App/app.o: ../App/app.c \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/boot.h \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/types.h \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/asserts.h \
- C:/Users/User/Desktop/openblt_Test/Boot_OpenBLT/App/blt_conf.h \
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Boot_OpenBLT/App/blt_conf.h \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/plausibility.h \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/cpu.h \
  C:/Users/User/Documents/GitHub/openblt/Target/Source/cop.h \
@@ -16,7 +16,7 @@ App/app.o: ../App/app.c \
 C:/Users/User/Documents/GitHub/openblt/Target/Source/boot.h:
 C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/types.h:
 C:/Users/User/Documents/GitHub/openblt/Target/Source/asserts.h:
-C:/Users/User/Desktop/openblt_Test/Boot_OpenBLT/App/blt_conf.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Boot_OpenBLT/App/blt_conf.h:
 C:/Users/User/Documents/GitHub/openblt/Target/Source/plausibility.h:
 C:/Users/User/Documents/GitHub/openblt/Target/Source/cpu.h:
 C:/Users/User/Documents/GitHub/openblt/Target/Source/cop.h:

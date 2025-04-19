@@ -1,5 +1,5 @@
 App/boot.o: ../App/boot.c ../App/header.h \
- ../App/../../Boot_OpenBLT/App/blt_conf.h \
+ ../Core/Inc/../../../Boot_OpenBLT/App/blt_conf.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -31,7 +31,7 @@ App/boot.o: ../App/boot.c ../App/header.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h ../App/app.h \
  ../App/boot.h ../App/led.h ../App/timer.h
 ../App/header.h:
-../App/../../Boot_OpenBLT/App/blt_conf.h:
+../Core/Inc/../../../Boot_OpenBLT/App/blt_conf.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h:
 ../Drivers/CMSIS/Include/core_cm4.h:

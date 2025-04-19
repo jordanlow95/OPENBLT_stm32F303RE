@@ -28,12 +28,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/header.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/../../Boot_OpenBLT/App/blt_conf.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/app.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/boot.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/led.h \
- C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/timer.h
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/header.h \
+ ../Core/Inc/../../../Boot_OpenBLT/App/blt_conf.h \
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/app.h \
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/boot.h \
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/led.h \
+ C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/timer.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -64,9 +64,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/header.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/../../Boot_OpenBLT/App/blt_conf.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/app.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/boot.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/led.h:
-C:/Users/User/Desktop/openblt_Test/Prog_OpenBLT/App/timer.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/header.h:
+../Core/Inc/../../../Boot_OpenBLT/App/blt_conf.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/app.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/boot.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/led.h:
+C:/Users/User/Desktop/openblt_Test/OPENBLT_stm32F303RE/Prog_OpenBLT/App/timer.h:

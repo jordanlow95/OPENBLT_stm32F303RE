@@ -31,7 +31,7 @@
 /****************************************************************************************
 * Include files
 ****************************************************************************************/
-#include "../../Boot_OpenBLT/App/blt_conf.h"                   /* bootloader configuration     */
+#include "../../../Boot_OpenBLT/App/blt_conf.h"                   /* bootloader configuration     */
 #include "stm32f3xx.h"                                 /* STM32 CPU and HAL header     */
 #include "app.h"                                       /* application header           */
 #include "boot.h"                                      /* bootloader interface driver  */
