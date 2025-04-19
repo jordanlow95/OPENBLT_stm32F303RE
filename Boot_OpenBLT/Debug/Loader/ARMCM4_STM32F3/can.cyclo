@@ -1,0 +1,4 @@
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:113:17:CanGetSpeedConfig	5
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:154:6:CanInit	3
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:242:6:CanTransmitPacket	5
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:299:10:CanReceivePacket	8

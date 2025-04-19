@@ -1,0 +1,11 @@
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:234:6:FlashInit	4	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:252:10:FlashWrite	32	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:289:10:FlashErase	48	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:369:10:FlashWriteChecksum	16	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:438:10:FlashVerifyChecksum	16	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:468:10:FlashDone	8	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:498:10:FlashGetUserProgBaseAddress	4	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:512:17:FlashInitBlock	16	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:541:25:FlashSwitchBlock	16	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:593:17:FlashAddToBlock	40	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/flash.c:664:17:FlashWriteBlock	40	static

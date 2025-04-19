@@ -1,0 +1,7 @@
+../Drivers/CMSIS/Include/core_cm4.h:1939:34:__NVIC_SystemReset	1
+../App/boot.c:52:6:BootComInit	1
+../App/boot.c:69:6:BootComCheckActivationRequest	1
+../App/boot.c:85:6:BootActivate	0
+../App/boot.c:332:22:CanGetSpeedConfig	5
+../App/boot.c:370:13:BootComCanInit	2
+../App/boot.c:440:13:BootComCanCheckActivationRequest	10

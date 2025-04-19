@@ -1,0 +1,7 @@
+../Drivers/CMSIS/Include/core_cm4.h:1939:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
+../App/boot.c:52:6:BootComInit	8	static
+../App/boot.c:69:6:BootComCheckActivationRequest	8	static
+../App/boot.c:85:6:BootActivate	8	static
+../App/boot.c:332:22:CanGetSpeedConfig	32	static
+../App/boot.c:370:13:BootComCanInit	64	static
+../App/boot.c:440:13:BootComCanCheckActivationRequest	56	static

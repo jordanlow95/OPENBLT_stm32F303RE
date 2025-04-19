@@ -1,0 +1,5 @@
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:878:22:LL_GPIO_SetOutputPin	1
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:907:22:LL_GPIO_ResetOutputPin	1
+../App/led.c:51:6:LedBlinkInit	1
+../App/led.c:63:6:LedBlinkTask	3
+../App/led.c:94:6:LedBlinkExit	1
