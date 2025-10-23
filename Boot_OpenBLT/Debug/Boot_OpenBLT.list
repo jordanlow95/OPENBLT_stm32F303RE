@@ -5,49 +5,49 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   00000194  08000000  08000000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00003e1c  08000194  08000194  00001194  2**2
+  1 .text         00003db0  08000194  08000194  00001194  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000000d4  08003fb0  08003fb0  00004fb0  2**2
+  2 .rodata       000000d4  08003f44  08003f44  00004f44  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08004084  08004084  0000600c  2**0
+  3 .ARM.extab    00000000  08004018  08004018  0000600c  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000000  08004084  08004084  0000600c  2**0
+  4 .ARM          00000000  08004018  08004018  0000600c  2**0
                   CONTENTS, READONLY
-  5 .preinit_array 00000000  08004084  08004084  0000600c  2**0
+  5 .preinit_array 00000000  08004018  08004018  0000600c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08004084  08004084  00005084  2**2
+  6 .init_array   00000004  08004018  08004018  00005018  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08004088  08004088  00005088  2**2
+  7 .fini_array   00000004  0800401c  0800401c  0000501c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000000c  20000000  0800408c  00006000  2**2
+  8 .data         0000000c  20000000  08004020  00006000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   9 .ccmram       00000000  10000000  10000000  0000600c  2**0
                   CONTENTS
- 10 .bss          000005b0  20000010  20000010  00006010  2**3
+ 10 .bss          000004bc  20000010  20000010  00006010  2**3
                   ALLOC
- 11 ._user_heap_stack 00000600  200005c0  200005c0  00006010  2**0
+ 11 ._user_heap_stack 00000604  200004cc  200004cc  00006010  2**0
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  0000600c  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0000a3f0  00000000  00000000  0000603c  2**0
+ 13 .debug_info   0000a3ee  00000000  00000000  0000603c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 0000321d  00000000  00000000  0001042c  2**0
+ 14 .debug_abbrev 0000321e  00000000  00000000  0001042a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000e88  00000000  00000000  00013650  2**3
+ 15 .debug_aranges 00000e88  00000000  00000000  00013648  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000a81  00000000  00000000  000144d8  2**0
+ 16 .debug_rnglists 00000a81  00000000  00000000  000144d0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00022a63  00000000  00000000  00014f59  2**0
+ 17 .debug_macro  00022a58  00000000  00000000  00014f51  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000f62e  00000000  00000000  000379bc  2**0
+ 18 .debug_line   0000f62e  00000000  00000000  000379a9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000c8850  00000000  00000000  00046fea  2**0
+ 19 .debug_str    000c8830  00000000  00000000  00046fd7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  0010f83a  2**0
+ 20 .comment      00000043  00000000  00000000  0010f807  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000035e0  00000000  00000000  0010f880  2**2
+ 21 .debug_frame  000035e0  00000000  00000000  0010f84c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000072  00000000  00000000  00112e60  2**0
+ 22 .debug_line_str 00000072  00000000  00000000  00112e2c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -66,7 +66,7 @@ Disassembly of section .text:
  80001aa:	bd10      	pop	{r4, pc}
  80001ac:	20000010 	.word	0x20000010
  80001b0:	00000000 	.word	0x00000000
- 80001b4:	08003f98 	.word	0x08003f98
+ 80001b4:	08003f2c 	.word	0x08003f2c
 
 080001b8 <frame_dummy>:
  80001b8:	b508      	push	{r3, lr}
@@ -78,7 +78,7 @@ Disassembly of section .text:
  80001c6:	bd08      	pop	{r3, pc}
  80001c8:	00000000 	.word	0x00000000
  80001cc:	20000014 	.word	0x20000014
- 80001d0:	08003f98 	.word	0x08003f98
+ 80001d0:	08003f2c 	.word	0x08003f2c
 
 080001d4 <AppInit>:
 **            software program initialization.
@@ -1723,7 +1723,7 @@ LoopFillZerobss:
 
 /* Call static constructors */
     bl __libc_init_array
- 80009fa:	f003 faa9 	bl	8003f50 <__libc_init_array>
+ 80009fa:	f003 fa73 	bl	8003ee4 <__libc_init_array>
 /* Call the application's entry point.*/
 	bl	main
  80009fe:	f7ff fe79 	bl	80006f4 <main>
@@ -1740,11 +1740,11 @@ LoopForever:
   ldr r1, =_edata
  8000a0c:	2000000c 	.word	0x2000000c
   ldr r2, =_sidata
- 8000a10:	0800408c 	.word	0x0800408c
+ 8000a10:	08004020 	.word	0x08004020
   ldr r2, =_sbss
  8000a14:	20000010 	.word	0x20000010
   ldr r4, =_ebss
- 8000a18:	200005c0 	.word	0x200005c0
+ 8000a18:	200004cc 	.word	0x200004cc
 
 08000a1c <ADC1_2_IRQHandler>:
  * @retval : None
@@ -6422,7 +6422,7 @@ uint32_t RCC_GetHCLKClockFreq(uint32_t SYSCLK_Frequency)
  800249a:	46bd      	mov	sp, r7
  800249c:	bd80      	pop	{r7, pc}
  800249e:	bf00      	nop
- 80024a0:	08004040 	.word	0x08004040
+ 80024a0:	08003fd4 	.word	0x08003fd4
 
 080024a4 <RCC_GetPCLK1ClockFreq>:
   * @brief  Return PCLK1 clock frequency
@@ -6451,7 +6451,7 @@ uint32_t RCC_GetPCLK1ClockFreq(uint32_t HCLK_Frequency)
  80024c2:	46bd      	mov	sp, r7
  80024c4:	bd80      	pop	{r7, pc}
  80024c6:	bf00      	nop
- 80024c8:	08004050 	.word	0x08004050
+ 80024c8:	08003fe4 	.word	0x08003fe4
 
 080024cc <RCC_GetPCLK2ClockFreq>:
   * @brief  Return PCLK2 clock frequency
@@ -6480,7 +6480,7 @@ uint32_t RCC_GetPCLK2ClockFreq(uint32_t HCLK_Frequency)
  80024ea:	46bd      	mov	sp, r7
  80024ec:	bd80      	pop	{r7, pc}
  80024ee:	bf00      	nop
- 80024f0:	08004050 	.word	0x08004050
+ 80024f0:	08003fe4 	.word	0x08003fe4
 
 080024f4 <RCC_PLL_GetFreqDomain_SYS>:
 /**
@@ -6770,7 +6770,7 @@ static blt_bool CanGetSpeedConfig(blt_int16u baud, blt_int16u *prescaler,
  8002694:	bd80      	pop	{r7, pc}
  8002696:	bf00      	nop
  8002698:	10624dd3 	.word	0x10624dd3
- 800269c:	08004058 	.word	0x08004058
+ 800269c:	08003fec 	.word	0x08003fec
 
 080026a0 <CanInit>:
 ** \brief     Initializes the CAN controller and synchronizes it to the CAN bus.
@@ -6970,7 +6970,7 @@ void CanInit(void)
  80027a6:	46bd      	mov	sp, r7
  80027a8:	bd80      	pop	{r7, pc}
  80027aa:	bf00      	nop
- 80027ac:	08003fb0 	.word	0x08003fb0
+ 80027ac:	08003f44 	.word	0x08003f44
  80027b0:	20000060 	.word	0x20000060
  80027b4:	40006400 	.word	0x40006400
  80027b8:	ffe00004 	.word	0xffe00004
@@ -8720,7 +8720,7 @@ void TimerInit(void)
  800306c:	bd90      	pop	{r4, r7, pc}
  800306e:	bf00      	nop
  8003070:	20000000 	.word	0x20000000
- 8003074:	08004050 	.word	0x08004050
+ 8003074:	08003fe4 	.word	0x08003fe4
  8003078:	0a7c5ac5 	.word	0x0a7c5ac5
  800307c:	20000490 	.word	0x20000490
  8003080:	20000494 	.word	0x20000494
@@ -9184,7 +9184,7 @@ void ComTask(void)
  8003268:	79fb      	ldrb	r3, [r7, #7]
  800326a:	4619      	mov	r1, r3
  800326c:	4803      	ldr	r0, [pc, #12]	@ (800327c <ComTask+0x30>)
- 800326e:	f000 f9af 	bl	80035d0 <XcpPacketReceived>
+ 800326e:	f000 f9a5 	bl	80035bc <XcpPacketReceived>
     comActiveInterface = COM_IF_NET;
     /* process packet */
     XcpPacketReceived(&xcpCtoReqPacket[0], xcpPacketLen);
@@ -9254,7 +9254,7 @@ void ComTransmitPacket(blt_int8u *data, blt_int16u len)
 
   /* send signal that the packet was transmitted */
   XcpPacketTransmitted();
- 80032b4:	f000 f97e 	bl	80035b4 <XcpPacketTransmitted>
+ 80032b4:	f000 f976 	bl	80035a4 <XcpPacketTransmitted>
 } /*** end of ComTransmitPacket ***/
  80032b8:	bf00      	nop
  80032ba:	3708      	adds	r7, #8
@@ -9297,7 +9297,7 @@ blt_int16u ComGetActiveInterfaceMaxRxLen(void)
 
     case COM_IF_MBRTU:
       result = BOOT_COM_MBRTU_RX_MAX_DATA;
- 80032f2:	2300      	movs	r3, #0
+ 80032f2:	2381      	movs	r3, #129	@ 0x81
  80032f4:	80fb      	strh	r3, [r7, #6]
       break;
  80032f6:	e00b      	b.n	8003310 <ComGetActiveInterfaceMaxRxLen+0x4c>
@@ -9318,14 +9318,14 @@ blt_int16u ComGetActiveInterfaceMaxRxLen(void)
 
     case COM_IF_NET:
       result = BOOT_COM_NET_RX_MAX_DATA;
- 8003304:	2300      	movs	r3, #0
+ 8003304:	2381      	movs	r3, #129	@ 0x81
  8003306:	80fb      	strh	r3, [r7, #6]
       break;
  8003308:	e002      	b.n	8003310 <ComGetActiveInterfaceMaxRxLen+0x4c>
 
     default:
       result = BOOT_COM_RX_MAX_DATA;
- 800330a:	2381      	movs	r3, #129	@ 0x81
+ 800330a:	2308      	movs	r3, #8
  800330c:	80fb      	strh	r3, [r7, #6]
       break;
  800330e:	bf00      	nop
@@ -9377,7 +9377,7 @@ blt_int16u ComGetActiveInterfaceMaxTxLen(void)
 
     case COM_IF_MBRTU:
       result = BOOT_COM_MBRTU_TX_MAX_DATA;
- 8003352:	2300      	movs	r3, #0
+ 8003352:	2381      	movs	r3, #129	@ 0x81
  8003354:	80fb      	strh	r3, [r7, #6]
       break;
  8003356:	e00b      	b.n	8003370 <ComGetActiveInterfaceMaxTxLen+0x4c>
@@ -9398,14 +9398,14 @@ blt_int16u ComGetActiveInterfaceMaxTxLen(void)
 
     case COM_IF_NET:
       result = BOOT_COM_NET_TX_MAX_DATA;
- 8003364:	2300      	movs	r3, #0
+ 8003364:	2381      	movs	r3, #129	@ 0x81
  8003366:	80fb      	strh	r3, [r7, #6]
       break;
  8003368:	e002      	b.n	8003370 <ComGetActiveInterfaceMaxTxLen+0x4c>
 
     default:
       result = BOOT_COM_TX_MAX_DATA;
- 800336a:	2381      	movs	r3, #129	@ 0x81
+ 800336a:	2308      	movs	r3, #8
  800336c:	80fb      	strh	r3, [r7, #6]
       break;
  800336e:	bf00      	nop
@@ -9440,7 +9440,7 @@ blt_bool ComIsConnected(void)
    * is in the connection state. 
    */  
   if (XcpIsConnected())
- 800338e:	f000 f8ff 	bl	8003590 <XcpIsConnected>
+ 800338e:	f000 f8f9 	bl	8003584 <XcpIsConnected>
  8003392:	4603      	mov	r3, r0
  8003394:	2b00      	cmp	r3, #0
  8003396:	d001      	beq.n	800339c <ComIsConnected+0x18>
@@ -9517,8 +9517,8 @@ void InfoTableInit(void)
 } /*** end of InfoTableInit ***/
  80033d0:	bf00      	nop
  80033d2:	bd80      	pop	{r7, pc}
- 80033d4:	20000530 	.word	0x20000530
- 80033d8:	20000524 	.word	0x20000524
+ 80033d4:	200004b4 	.word	0x200004b4
+ 80033d8:	200004a8 	.word	0x200004a8
 
 080033dc <InfoTableCheck>:
 ** \return    BLT_TRUE if the info table check passed and the firmware update is allowed
@@ -9627,7 +9627,7 @@ blt_addr InfoTableGetPtr(tInfoTableId infoTableId)
  8003438:	46bd      	mov	sp, r7
  800343a:	f85d 7b04 	ldr.w	r7, [sp], #4
  800343e:	4770      	bx	lr
- 8003440:	20000524 	.word	0x20000524
+ 8003440:	200004a8 	.word	0x200004a8
  8003444:	0800a200 	.word	0x0800a200
 
 08003448 <InfoTableClear>:
@@ -9690,9 +9690,9 @@ void InfoTableClear(tInfoTableId infoTableId)
  800348a:	46bd      	mov	sp, r7
  800348c:	bd80      	pop	{r7, pc}
  800348e:	bf00      	nop
- 8003490:	08003ffc 	.word	0x08003ffc
- 8003494:	20000524 	.word	0x20000524
- 8003498:	20000530 	.word	0x20000530
+ 8003490:	08003f90 	.word	0x08003f90
+ 8003494:	200004a8 	.word	0x200004a8
+ 8003498:	200004b4 	.word	0x200004b4
 
 0800349c <InfoTableCurrentSize>:
 **            be changed.
@@ -9753,8 +9753,8 @@ blt_int16u InfoTableCurrentSize(tInfoTableId infoTableId)
  80034d4:	f85d 7b04 	ldr.w	r7, [sp], #4
  80034d8:	4770      	bx	lr
  80034da:	bf00      	nop
- 80034dc:	20000530 	.word	0x20000530
- 80034e0:	20000524 	.word	0x20000524
+ 80034dc:	200004b4 	.word	0x200004b4
+ 80034e0:	200004a8 	.word	0x200004a8
 
 080034e4 <InfoTableAddData>:
 ** \return    BLT_TRUE if the data could be added to the info table, BLT_FALSE otherwise.
@@ -9831,7 +9831,7 @@ blt_bool InfoTableAddData(tInfoTableId infoTableId, blt_int8u const * data,
  8003542:	46bd      	mov	sp, r7
  8003544:	bd80      	pop	{r7, pc}
  8003546:	bf00      	nop
- 8003548:	20000530 	.word	0x20000530
+ 8003548:	200004b4 	.word	0x200004b4
 
 0800354c <XcpInit>:
 ** \brief     Initializes the XCP driver. Should be called once upon system startup.
@@ -9844,1972 +9844,1967 @@ void XcpInit(void)
  800354e:	af00      	add	r7, sp, #0
   /* reset xcp module info */
   xcpInfo.connected = 0;
- 8003550:	4b0e      	ldr	r3, [pc, #56]	@ (800358c <XcpInit+0x40>)
+ 8003550:	4b0b      	ldr	r3, [pc, #44]	@ (8003580 <XcpInit+0x34>)
  8003552:	2200      	movs	r2, #0
- 8003554:	f883 2081 	strb.w	r2, [r3, #129]	@ 0x81
+ 8003554:	721a      	strb	r2, [r3, #8]
   xcpInfo.mta = 0;
- 8003558:	4b0c      	ldr	r3, [pc, #48]	@ (800358c <XcpInit+0x40>)
- 800355a:	2200      	movs	r2, #0
- 800355c:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+ 8003556:	4b0a      	ldr	r3, [pc, #40]	@ (8003580 <XcpInit+0x34>)
+ 8003558:	2200      	movs	r2, #0
+ 800355a:	611a      	str	r2, [r3, #16]
   xcpInfo.ctoPending = 0;
- 8003560:	4b0a      	ldr	r3, [pc, #40]	@ (800358c <XcpInit+0x40>)
- 8003562:	2200      	movs	r2, #0
- 8003564:	f883 2084 	strb.w	r2, [r3, #132]	@ 0x84
+ 800355c:	4b08      	ldr	r3, [pc, #32]	@ (8003580 <XcpInit+0x34>)
+ 800355e:	2200      	movs	r2, #0
+ 8003560:	72da      	strb	r2, [r3, #11]
   xcpInfo.ctoLen = 0;
- 8003568:	4b08      	ldr	r3, [pc, #32]	@ (800358c <XcpInit+0x40>)
- 800356a:	2200      	movs	r2, #0
- 800356c:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003562:	4b07      	ldr	r3, [pc, #28]	@ (8003580 <XcpInit+0x34>)
+ 8003564:	2200      	movs	r2, #0
+ 8003566:	819a      	strh	r2, [r3, #12]
   xcpInfo.s_n_k_resource = 0;
- 8003570:	4b06      	ldr	r3, [pc, #24]	@ (800358c <XcpInit+0x40>)
- 8003572:	2200      	movs	r2, #0
- 8003574:	f883 2083 	strb.w	r2, [r3, #131]	@ 0x83
+ 8003568:	4b05      	ldr	r3, [pc, #20]	@ (8003580 <XcpInit+0x34>)
+ 800356a:	2200      	movs	r2, #0
+ 800356c:	729a      	strb	r2, [r3, #10]
   xcpInfo.protection = 0;
- 8003578:	4b04      	ldr	r3, [pc, #16]	@ (800358c <XcpInit+0x40>)
- 800357a:	2200      	movs	r2, #0
- 800357c:	f883 2082 	strb.w	r2, [r3, #130]	@ 0x82
+ 800356e:	4b04      	ldr	r3, [pc, #16]	@ (8003580 <XcpInit+0x34>)
+ 8003570:	2200      	movs	r2, #0
+ 8003572:	725a      	strb	r2, [r3, #9]
 } /*** end of XcpInit ***/
- 8003580:	bf00      	nop
- 8003582:	46bd      	mov	sp, r7
- 8003584:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8003588:	4770      	bx	lr
- 800358a:	bf00      	nop
- 800358c:	20000534 	.word	0x20000534
+ 8003574:	bf00      	nop
+ 8003576:	46bd      	mov	sp, r7
+ 8003578:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800357c:	4770      	bx	lr
+ 800357e:	bf00      	nop
+ 8003580:	200004b8 	.word	0x200004b8
 
-08003590 <XcpIsConnected>:
+08003584 <XcpIsConnected>:
 ** \brief     Obtains information about the XCP connection state.
 ** \return    BLT_TRUE is an XCP connection is established, BLT_FALSE otherwise.
 **
 ****************************************************************************************/
 blt_bool XcpIsConnected(void)
 {
- 8003590:	b480      	push	{r7}
- 8003592:	af00      	add	r7, sp, #0
+ 8003584:	b480      	push	{r7}
+ 8003586:	af00      	add	r7, sp, #0
   if (xcpInfo.connected == 0)
- 8003594:	4b06      	ldr	r3, [pc, #24]	@ (80035b0 <XcpIsConnected+0x20>)
- 8003596:	f893 3081 	ldrb.w	r3, [r3, #129]	@ 0x81
- 800359a:	2b00      	cmp	r3, #0
- 800359c:	d101      	bne.n	80035a2 <XcpIsConnected+0x12>
+ 8003588:	4b05      	ldr	r3, [pc, #20]	@ (80035a0 <XcpIsConnected+0x1c>)
+ 800358a:	7a1b      	ldrb	r3, [r3, #8]
+ 800358c:	2b00      	cmp	r3, #0
+ 800358e:	d101      	bne.n	8003594 <XcpIsConnected+0x10>
   {
     return BLT_FALSE;
- 800359e:	2300      	movs	r3, #0
- 80035a0:	e000      	b.n	80035a4 <XcpIsConnected+0x14>
+ 8003590:	2300      	movs	r3, #0
+ 8003592:	e000      	b.n	8003596 <XcpIsConnected+0x12>
   }
   return BLT_TRUE;
- 80035a2:	2301      	movs	r3, #1
+ 8003594:	2301      	movs	r3, #1
 } /*** end of XcpIsConnected ***/
- 80035a4:	4618      	mov	r0, r3
- 80035a6:	46bd      	mov	sp, r7
- 80035a8:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80035ac:	4770      	bx	lr
- 80035ae:	bf00      	nop
- 80035b0:	20000534 	.word	0x20000534
+ 8003596:	4618      	mov	r0, r3
+ 8003598:	46bd      	mov	sp, r7
+ 800359a:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800359e:	4770      	bx	lr
+ 80035a0:	200004b8 	.word	0x200004b8
 
-080035b4 <XcpPacketTransmitted>:
+080035a4 <XcpPacketTransmitted>:
 **            the transport layer.
 ** \return    none
 **
 ****************************************************************************************/
 void XcpPacketTransmitted(void)
 {
- 80035b4:	b480      	push	{r7}
- 80035b6:	af00      	add	r7, sp, #0
+ 80035a4:	b480      	push	{r7}
+ 80035a6:	af00      	add	r7, sp, #0
   /* reset packet transmission pending flag */
   xcpInfo.ctoPending = 0;
- 80035b8:	4b04      	ldr	r3, [pc, #16]	@ (80035cc <XcpPacketTransmitted+0x18>)
- 80035ba:	2200      	movs	r2, #0
- 80035bc:	f883 2084 	strb.w	r2, [r3, #132]	@ 0x84
+ 80035a8:	4b03      	ldr	r3, [pc, #12]	@ (80035b8 <XcpPacketTransmitted+0x14>)
+ 80035aa:	2200      	movs	r2, #0
+ 80035ac:	72da      	strb	r2, [r3, #11]
 } /*** end of XcpPacketTransmitted ***/
- 80035c0:	bf00      	nop
- 80035c2:	46bd      	mov	sp, r7
- 80035c4:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80035c8:	4770      	bx	lr
- 80035ca:	bf00      	nop
- 80035cc:	20000534 	.word	0x20000534
+ 80035ae:	bf00      	nop
+ 80035b0:	46bd      	mov	sp, r7
+ 80035b2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80035b6:	4770      	bx	lr
+ 80035b8:	200004b8 	.word	0x200004b8
 
-080035d0 <XcpPacketReceived>:
+080035bc <XcpPacketReceived>:
 ** \param     len Number of bytes in the packet.
 ** \return    none
 **
 ****************************************************************************************/
 void XcpPacketReceived(blt_int8u *data, blt_int8u len)
 {
- 80035d0:	b580      	push	{r7, lr}
- 80035d2:	b082      	sub	sp, #8
- 80035d4:	af00      	add	r7, sp, #0
- 80035d6:	6078      	str	r0, [r7, #4]
- 80035d8:	460b      	mov	r3, r1
- 80035da:	70fb      	strb	r3, [r7, #3]
+ 80035bc:	b580      	push	{r7, lr}
+ 80035be:	b082      	sub	sp, #8
+ 80035c0:	af00      	add	r7, sp, #0
+ 80035c2:	6078      	str	r0, [r7, #4]
+ 80035c4:	460b      	mov	r3, r1
+ 80035c6:	70fb      	strb	r3, [r7, #3]
     /* packet processed by hook function so no need to continue. */
     return;
   }
 #endif
   /* was this a connect command? */
   if (data[0] == XCP_CMD_CONNECT)
- 80035dc:	687b      	ldr	r3, [r7, #4]
- 80035de:	781b      	ldrb	r3, [r3, #0]
- 80035e0:	2bff      	cmp	r3, #255	@ 0xff
- 80035e2:	d103      	bne.n	80035ec <XcpPacketReceived+0x1c>
+ 80035c8:	687b      	ldr	r3, [r7, #4]
+ 80035ca:	781b      	ldrb	r3, [r3, #0]
+ 80035cc:	2bff      	cmp	r3, #255	@ 0xff
+ 80035ce:	d103      	bne.n	80035d8 <XcpPacketReceived+0x1c>
   {
     /* process the connect command */
     XcpCmdConnect(data);
- 80035e4:	6878      	ldr	r0, [r7, #4]
- 80035e6:	f000 f97d 	bl	80038e4 <XcpCmdConnect>
- 80035ea:	e0bb      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80035d0:	6878      	ldr	r0, [r7, #4]
+ 80035d2:	f000 f975 	bl	80038c0 <XcpCmdConnect>
+ 80035d6:	e0b9      	b.n	800374c <XcpPacketReceived+0x190>
   }
   /* only continue if connected */
   else if (xcpInfo.connected == 1)
- 80035ec:	4b6c      	ldr	r3, [pc, #432]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 80035ee:	f893 3081 	ldrb.w	r3, [r3, #129]	@ 0x81
- 80035f2:	2b01      	cmp	r3, #1
- 80035f4:	f040 80cf 	bne.w	8003796 <XcpPacketReceived+0x1c6>
+ 80035d8:	4b6a      	ldr	r3, [pc, #424]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 80035da:	7a1b      	ldrb	r3, [r3, #8]
+ 80035dc:	2b01      	cmp	r3, #1
+ 80035de:	f040 80cc 	bne.w	800377a <XcpPacketReceived+0x1be>
   {
     switch (data[0])
- 80035f8:	687b      	ldr	r3, [r7, #4]
- 80035fa:	781b      	ldrb	r3, [r3, #0]
- 80035fc:	3bc9      	subs	r3, #201	@ 0xc9
- 80035fe:	2b35      	cmp	r3, #53	@ 0x35
- 8003600:	f200 80ac 	bhi.w	800375c <XcpPacketReceived+0x18c>
- 8003604:	a201      	add	r2, pc, #4	@ (adr r2, 800360c <XcpPacketReceived+0x3c>)
- 8003606:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 800360a:	bf00      	nop
- 800360c:	08003725 	.word	0x08003725
- 8003610:	0800375d 	.word	0x0800375d
- 8003614:	0800375d 	.word	0x0800375d
- 8003618:	0800374d 	.word	0x0800374d
- 800361c:	0800375d 	.word	0x0800375d
- 8003620:	0800375d 	.word	0x0800375d
+ 80035e2:	687b      	ldr	r3, [r7, #4]
+ 80035e4:	781b      	ldrb	r3, [r3, #0]
+ 80035e6:	3bc9      	subs	r3, #201	@ 0xc9
+ 80035e8:	2b35      	cmp	r3, #53	@ 0x35
+ 80035ea:	f200 80ab 	bhi.w	8003744 <XcpPacketReceived+0x188>
+ 80035ee:	a201      	add	r2, pc, #4	@ (adr r2, 80035f4 <XcpPacketReceived+0x38>)
+ 80035f0:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 80035f4:	0800370d 	.word	0x0800370d
+ 80035f8:	08003745 	.word	0x08003745
+ 80035fc:	08003745 	.word	0x08003745
+ 8003600:	08003735 	.word	0x08003735
+ 8003604:	08003745 	.word	0x08003745
+ 8003608:	08003745 	.word	0x08003745
+ 800360c:	0800372d 	.word	0x0800372d
+ 8003610:	08003715 	.word	0x08003715
+ 8003614:	08003725 	.word	0x08003725
+ 8003618:	0800371d 	.word	0x0800371d
+ 800361c:	08003745 	.word	0x08003745
+ 8003620:	08003745 	.word	0x08003745
  8003624:	08003745 	.word	0x08003745
- 8003628:	0800372d 	.word	0x0800372d
- 800362c:	0800373d 	.word	0x0800373d
- 8003630:	08003735 	.word	0x08003735
- 8003634:	0800375d 	.word	0x0800375d
- 8003638:	0800375d 	.word	0x0800375d
- 800363c:	0800375d 	.word	0x0800375d
- 8003640:	0800375d 	.word	0x0800375d
- 8003644:	0800375d 	.word	0x0800375d
- 8003648:	0800375d 	.word	0x0800375d
- 800364c:	0800375d 	.word	0x0800375d
- 8003650:	0800375d 	.word	0x0800375d
- 8003654:	0800375d 	.word	0x0800375d
- 8003658:	0800375d 	.word	0x0800375d
- 800365c:	0800375d 	.word	0x0800375d
- 8003660:	0800375d 	.word	0x0800375d
- 8003664:	0800375d 	.word	0x0800375d
- 8003668:	0800375d 	.word	0x0800375d
- 800366c:	0800375d 	.word	0x0800375d
- 8003670:	0800375d 	.word	0x0800375d
- 8003674:	0800375d 	.word	0x0800375d
- 8003678:	0800375d 	.word	0x0800375d
- 800367c:	0800375d 	.word	0x0800375d
- 8003680:	0800375d 	.word	0x0800375d
- 8003684:	0800375d 	.word	0x0800375d
- 8003688:	0800375d 	.word	0x0800375d
- 800368c:	0800375d 	.word	0x0800375d
- 8003690:	0800375d 	.word	0x0800375d
- 8003694:	0800375d 	.word	0x0800375d
- 8003698:	0800375d 	.word	0x0800375d
- 800369c:	0800375d 	.word	0x0800375d
- 80036a0:	0800375d 	.word	0x0800375d
- 80036a4:	0800375d 	.word	0x0800375d
- 80036a8:	0800375d 	.word	0x0800375d
- 80036ac:	08003755 	.word	0x08003755
- 80036b0:	0800375d 	.word	0x0800375d
- 80036b4:	080036fd 	.word	0x080036fd
+ 8003628:	08003745 	.word	0x08003745
+ 800362c:	08003745 	.word	0x08003745
+ 8003630:	08003745 	.word	0x08003745
+ 8003634:	08003745 	.word	0x08003745
+ 8003638:	08003745 	.word	0x08003745
+ 800363c:	08003745 	.word	0x08003745
+ 8003640:	08003745 	.word	0x08003745
+ 8003644:	08003745 	.word	0x08003745
+ 8003648:	08003745 	.word	0x08003745
+ 800364c:	08003745 	.word	0x08003745
+ 8003650:	08003745 	.word	0x08003745
+ 8003654:	08003745 	.word	0x08003745
+ 8003658:	08003745 	.word	0x08003745
+ 800365c:	08003745 	.word	0x08003745
+ 8003660:	08003745 	.word	0x08003745
+ 8003664:	08003745 	.word	0x08003745
+ 8003668:	08003745 	.word	0x08003745
+ 800366c:	08003745 	.word	0x08003745
+ 8003670:	08003745 	.word	0x08003745
+ 8003674:	08003745 	.word	0x08003745
+ 8003678:	08003745 	.word	0x08003745
+ 800367c:	08003745 	.word	0x08003745
+ 8003680:	08003745 	.word	0x08003745
+ 8003684:	08003745 	.word	0x08003745
+ 8003688:	08003745 	.word	0x08003745
+ 800368c:	08003745 	.word	0x08003745
+ 8003690:	08003745 	.word	0x08003745
+ 8003694:	0800373d 	.word	0x0800373d
+ 8003698:	08003745 	.word	0x08003745
+ 800369c:	080036e5 	.word	0x080036e5
+ 80036a0:	080036d5 	.word	0x080036d5
+ 80036a4:	080036cd 	.word	0x080036cd
+ 80036a8:	080036dd 	.word	0x080036dd
+ 80036ac:	08003745 	.word	0x08003745
+ 80036b0:	08003745 	.word	0x08003745
+ 80036b4:	08003745 	.word	0x08003745
  80036b8:	080036ed 	.word	0x080036ed
- 80036bc:	080036e5 	.word	0x080036e5
+ 80036bc:	08003745 	.word	0x08003745
  80036c0:	080036f5 	.word	0x080036f5
- 80036c4:	0800375d 	.word	0x0800375d
- 80036c8:	0800375d 	.word	0x0800375d
- 80036cc:	0800375d 	.word	0x0800375d
- 80036d0:	08003705 	.word	0x08003705
- 80036d4:	0800375d 	.word	0x0800375d
- 80036d8:	0800370d 	.word	0x0800370d
- 80036dc:	08003715 	.word	0x08003715
- 80036e0:	0800371d 	.word	0x0800371d
+ 80036c4:	080036fd 	.word	0x080036fd
+ 80036c8:	08003705 	.word	0x08003705
     {
       case XCP_CMD_UPLOAD:
         XcpCmdUpload(data);
- 80036e4:	6878      	ldr	r0, [r7, #4]
- 80036e6:	f000 f9cb 	bl	8003a80 <XcpCmdUpload>
+ 80036cc:	6878      	ldr	r0, [r7, #4]
+ 80036ce:	f000 f9bb 	bl	8003a48 <XcpCmdUpload>
         break;
- 80036ea:	e03b      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036d2:	e03b      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_SHORT_UPLOAD:
         XcpCmdShortUpload(data);
- 80036ec:	6878      	ldr	r0, [r7, #4]
- 80036ee:	f000 fa03 	bl	8003af8 <XcpCmdShortUpload>
+ 80036d4:	6878      	ldr	r0, [r7, #4]
+ 80036d6:	f000 f9ef 	bl	8003ab8 <XcpCmdShortUpload>
         break;
- 80036f2:	e037      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036da:	e037      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_SET_MTA:
         XcpCmdSetMta(data);
- 80036f4:	6878      	ldr	r0, [r7, #4]
- 80036f6:	f000 f9a9 	bl	8003a4c <XcpCmdSetMta>
+ 80036dc:	6878      	ldr	r0, [r7, #4]
+ 80036de:	f000 f99b 	bl	8003a18 <XcpCmdSetMta>
         break;
- 80036fa:	e033      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036e2:	e033      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_BUILD_CHECKSUM:
         XcpCmdBuildCheckSum(data);
- 80036fc:	6878      	ldr	r0, [r7, #4]
- 80036fe:	f000 fa41 	bl	8003b84 <XcpCmdBuildCheckSum>
+ 80036e4:	6878      	ldr	r0, [r7, #4]
+ 80036e6:	f000 fa27 	bl	8003b38 <XcpCmdBuildCheckSum>
         break;
- 8003702:	e02f      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036ea:	e02f      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_GET_ID:
         XcpCmdGetId(data);
- 8003704:	6878      	ldr	r0, [r7, #4]
- 8003706:	f000 f979 	bl	80039fc <XcpCmdGetId>
+ 80036ec:	6878      	ldr	r0, [r7, #4]
+ 80036ee:	f000 f96d 	bl	80039cc <XcpCmdGetId>
         break;
- 800370a:	e02b      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036f2:	e02b      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_SYNCH:
         XcpCmdSynch(data);
- 800370c:	6878      	ldr	r0, [r7, #4]
- 800370e:	f000 f969 	bl	80039e4 <XcpCmdSynch>
+ 80036f4:	6878      	ldr	r0, [r7, #4]
+ 80036f6:	f000 f95d 	bl	80039b4 <XcpCmdSynch>
         break;
- 8003712:	e027      	b.n	8003764 <XcpPacketReceived+0x194>
+ 80036fa:	e027      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_GET_STATUS:
         XcpCmdGetStatus(data);
- 8003714:	6878      	ldr	r0, [r7, #4]
- 8003716:	f000 f941 	bl	800399c <XcpCmdGetStatus>
+ 80036fc:	6878      	ldr	r0, [r7, #4]
+ 80036fe:	f000 f937 	bl	8003970 <XcpCmdGetStatus>
         break;
- 800371a:	e023      	b.n	8003764 <XcpPacketReceived+0x194>
+ 8003702:	e023      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_DISCONNECT:
         XcpCmdDisconnect(data);
- 800371c:	6878      	ldr	r0, [r7, #4]
- 800371e:	f000 f925 	bl	800396c <XcpCmdDisconnect>
+ 8003704:	6878      	ldr	r0, [r7, #4]
+ 8003706:	f000 f91d 	bl	8003944 <XcpCmdDisconnect>
         break;
- 8003722:	e01f      	b.n	8003764 <XcpPacketReceived+0x194>
+ 800370a:	e01f      	b.n	800374c <XcpPacketReceived+0x190>
         XcpCmdDownloadMax(data);
         break;
 #endif
 #if (XCP_RES_PROGRAMMING_EN == 1)
       case XCP_CMD_PROGRAM_MAX:
         XcpCmdProgramMax(data);
- 8003724:	6878      	ldr	r0, [r7, #4]
- 8003726:	f000 fa87 	bl	8003c38 <XcpCmdProgramMax>
+ 800370c:	6878      	ldr	r0, [r7, #4]
+ 800370e:	f000 fa6b 	bl	8003be8 <XcpCmdProgramMax>
         break;
- 800372a:	e01b      	b.n	8003764 <XcpPacketReceived+0x194>
+ 8003712:	e01b      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_PROGRAM:
         XcpCmdProgram(data);
- 800372c:	6878      	ldr	r0, [r7, #4]
- 800372e:	f000 fab3 	bl	8003c98 <XcpCmdProgram>
+ 8003714:	6878      	ldr	r0, [r7, #4]
+ 8003716:	f000 fa93 	bl	8003c40 <XcpCmdProgram>
         break;
- 8003732:	e017      	b.n	8003764 <XcpPacketReceived+0x194>
+ 800371a:	e017      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_PROGRAM_START:
         XcpCmdProgramStart(data);
- 8003734:	6878      	ldr	r0, [r7, #4]
- 8003736:	f000 fa59 	bl	8003bec <XcpCmdProgramStart>
+ 800371c:	6878      	ldr	r0, [r7, #4]
+ 800371e:	f000 fa3d 	bl	8003b9c <XcpCmdProgramStart>
         break;
- 800373a:	e013      	b.n	8003764 <XcpPacketReceived+0x194>
+ 8003722:	e013      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_PROGRAM_CLEAR:
         XcpCmdProgramClear(data);
- 800373c:	6878      	ldr	r0, [r7, #4]
- 800373e:	f000 faf5 	bl	8003d2c <XcpCmdProgramClear>
+ 8003724:	6878      	ldr	r0, [r7, #4]
+ 8003726:	f000 fad1 	bl	8003ccc <XcpCmdProgramClear>
         break;
- 8003742:	e00f      	b.n	8003764 <XcpPacketReceived+0x194>
+ 800372a:	e00f      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_PROGRAM_RESET:
         XcpCmdProgramReset(data);
- 8003744:	6878      	ldr	r0, [r7, #4]
- 8003746:	f000 fb17 	bl	8003d78 <XcpCmdProgramReset>
+ 800372c:	6878      	ldr	r0, [r7, #4]
+ 800372e:	f000 faf1 	bl	8003d14 <XcpCmdProgramReset>
         break;
- 800374a:	e00b      	b.n	8003764 <XcpPacketReceived+0x194>
+ 8003732:	e00b      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_PROGRAM_PREPARE:
         XcpCmdProgramPrepare(data);
- 800374c:	6878      	ldr	r0, [r7, #4]
- 800374e:	f000 fb27 	bl	8003da0 <XcpCmdProgramPrepare>
+ 8003734:	6878      	ldr	r0, [r7, #4]
+ 8003736:	f000 faff 	bl	8003d38 <XcpCmdProgramPrepare>
         break;
- 8003752:	e007      	b.n	8003764 <XcpPacketReceived+0x194>
+ 800373a:	e007      	b.n	800374c <XcpPacketReceived+0x190>
       case XCP_CMD_GET_CAL_PAGE:
         XcpCmdGetCalPage(data);
         break;
 #endif
       case XCP_CMD_USER:
         XcpCmdUser(data);
- 8003754:	6878      	ldr	r0, [r7, #4]
- 8003756:	f000 fb2e 	bl	8003db6 <XcpCmdUser>
+ 800373c:	6878      	ldr	r0, [r7, #4]
+ 800373e:	f000 fb06 	bl	8003d4e <XcpCmdUser>
         break;
- 800375a:	e003      	b.n	8003764 <XcpPacketReceived+0x194>
+ 8003742:	e003      	b.n	800374c <XcpPacketReceived+0x190>
       default:
         XcpSetCtoError(XCP_ERR_CMD_UNKNOWN);
- 800375c:	2020      	movs	r0, #32
- 800375e:	f000 f85f 	bl	8003820 <XcpSetCtoError>
+ 8003744:	2020      	movs	r0, #32
+ 8003746:	f000 f85b 	bl	8003800 <XcpSetCtoError>
         break;
- 8003762:	bf00      	nop
+ 800374a:	bf00      	nop
     /* return to make sure response packet is not send because we are not connected */
     return;
   }
 
   /* make sure the previous command was completed */
   if (xcpInfo.ctoPending == 1)
- 8003764:	4b0e      	ldr	r3, [pc, #56]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 8003766:	f893 3084 	ldrb.w	r3, [r3, #132]	@ 0x84
- 800376a:	2b01      	cmp	r3, #1
- 800376c:	d102      	bne.n	8003774 <XcpPacketReceived+0x1a4>
+ 800374c:	4b0d      	ldr	r3, [pc, #52]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 800374e:	7adb      	ldrb	r3, [r3, #11]
+ 8003750:	2b01      	cmp	r3, #1
+ 8003752:	d102      	bne.n	800375a <XcpPacketReceived+0x19e>
   {
     /* command overrun occurred */
     XcpSetCtoError(XCP_ERR_CMD_BUSY);
- 800376e:	2010      	movs	r0, #16
- 8003770:	f000 f856 	bl	8003820 <XcpSetCtoError>
+ 8003754:	2010      	movs	r0, #16
+ 8003756:	f000 f853 	bl	8003800 <XcpSetCtoError>
   }
 
   /* send the response if it contains something */
   if (xcpInfo.ctoLen > 0)
- 8003774:	4b0a      	ldr	r3, [pc, #40]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 8003776:	f9b3 3086 	ldrsh.w	r3, [r3, #134]	@ 0x86
- 800377a:	2b00      	cmp	r3, #0
- 800377c:	dd0c      	ble.n	8003798 <XcpPacketReceived+0x1c8>
+ 800375a:	4b0a      	ldr	r3, [pc, #40]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 800375c:	f9b3 300c 	ldrsh.w	r3, [r3, #12]
+ 8003760:	2b00      	cmp	r3, #0
+ 8003762:	dd0b      	ble.n	800377c <XcpPacketReceived+0x1c0>
   {
     /* set cto packet transmission pending flag */
     xcpInfo.ctoPending = 1;
- 800377e:	4b08      	ldr	r3, [pc, #32]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 8003780:	2201      	movs	r2, #1
- 8003782:	f883 2084 	strb.w	r2, [r3, #132]	@ 0x84
+ 8003764:	4b07      	ldr	r3, [pc, #28]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 8003766:	2201      	movs	r2, #1
+ 8003768:	72da      	strb	r2, [r3, #11]
 
     /* transmit the cto response packet */
     XcpTransmitPacket(xcpInfo.ctoData, xcpInfo.ctoLen);
- 8003786:	4b06      	ldr	r3, [pc, #24]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 8003788:	f9b3 3086 	ldrsh.w	r3, [r3, #134]	@ 0x86
- 800378c:	4619      	mov	r1, r3
- 800378e:	4804      	ldr	r0, [pc, #16]	@ (80037a0 <XcpPacketReceived+0x1d0>)
- 8003790:	f000 f808 	bl	80037a4 <XcpTransmitPacket>
- 8003794:	e000      	b.n	8003798 <XcpPacketReceived+0x1c8>
+ 800376a:	4b06      	ldr	r3, [pc, #24]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 800376c:	f9b3 300c 	ldrsh.w	r3, [r3, #12]
+ 8003770:	4619      	mov	r1, r3
+ 8003772:	4804      	ldr	r0, [pc, #16]	@ (8003784 <XcpPacketReceived+0x1c8>)
+ 8003774:	f000 f808 	bl	8003788 <XcpTransmitPacket>
+ 8003778:	e000      	b.n	800377c <XcpPacketReceived+0x1c0>
     return;
- 8003796:	bf00      	nop
+ 800377a:	bf00      	nop
   }
 } /*** end of XcpPacketReceived ***/
- 8003798:	3708      	adds	r7, #8
- 800379a:	46bd      	mov	sp, r7
- 800379c:	bd80      	pop	{r7, pc}
- 800379e:	bf00      	nop
- 80037a0:	20000534 	.word	0x20000534
+ 800377c:	3708      	adds	r7, #8
+ 800377e:	46bd      	mov	sp, r7
+ 8003780:	bd80      	pop	{r7, pc}
+ 8003782:	bf00      	nop
+ 8003784:	200004b8 	.word	0x200004b8
 
-080037a4 <XcpTransmitPacket>:
+08003788 <XcpTransmitPacket>:
 ** \param     len  Number of data bytes that need to be transmitted.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpTransmitPacket(blt_int8u *data, blt_int16s len)
 {
- 80037a4:	b580      	push	{r7, lr}
- 80037a6:	b082      	sub	sp, #8
- 80037a8:	af00      	add	r7, sp, #0
- 80037aa:	6078      	str	r0, [r7, #4]
- 80037ac:	460b      	mov	r3, r1
- 80037ae:	807b      	strh	r3, [r7, #2]
+ 8003788:	b580      	push	{r7, lr}
+ 800378a:	b082      	sub	sp, #8
+ 800378c:	af00      	add	r7, sp, #0
+ 800378e:	6078      	str	r0, [r7, #4]
+ 8003790:	460b      	mov	r3, r1
+ 8003792:	807b      	strh	r3, [r7, #2]
   /* submit packet to the communication interface for transmission */
 #if (BOOT_COM_ENABLE == 0)
   XcpTransmitPacketHook(data, len);
 #else
   ComTransmitPacket(data, len);
- 80037b0:	887b      	ldrh	r3, [r7, #2]
- 80037b2:	4619      	mov	r1, r3
- 80037b4:	6878      	ldr	r0, [r7, #4]
- 80037b6:	f7ff fd6d 	bl	8003294 <ComTransmitPacket>
+ 8003794:	887b      	ldrh	r3, [r7, #2]
+ 8003796:	4619      	mov	r1, r3
+ 8003798:	6878      	ldr	r0, [r7, #4]
+ 800379a:	f7ff fd7b 	bl	8003294 <ComTransmitPacket>
 #endif
 
 } /*** end of XcpTransmitPacket ***/
- 80037ba:	bf00      	nop
- 80037bc:	3708      	adds	r7, #8
- 80037be:	46bd      	mov	sp, r7
- 80037c0:	bd80      	pop	{r7, pc}
+ 800379e:	bf00      	nop
+ 80037a0:	3708      	adds	r7, #8
+ 80037a2:	46bd      	mov	sp, r7
+ 80037a4:	bd80      	pop	{r7, pc}
 
-080037c2 <XcpComputeChecksum>:
+080037a6 <XcpComputeChecksum>:
 ** \return    Checksum type that was used during the checksum calculation.
 **
 ****************************************************************************************/
 static blt_int8u XcpComputeChecksum(blt_int32u address, blt_int32u length,
                                     blt_int32u *checksum)
 {
- 80037c2:	b580      	push	{r7, lr}
- 80037c4:	b086      	sub	sp, #24
- 80037c6:	af00      	add	r7, sp, #0
- 80037c8:	60f8      	str	r0, [r7, #12]
- 80037ca:	60b9      	str	r1, [r7, #8]
- 80037cc:	607a      	str	r2, [r7, #4]
+ 80037a6:	b580      	push	{r7, lr}
+ 80037a8:	b086      	sub	sp, #24
+ 80037aa:	af00      	add	r7, sp, #0
+ 80037ac:	60f8      	str	r0, [r7, #12]
+ 80037ae:	60b9      	str	r1, [r7, #8]
+ 80037b0:	607a      	str	r2, [r7, #4]
   blt_int8u cs = 0;
- 80037ce:	2300      	movs	r3, #0
- 80037d0:	75fb      	strb	r3, [r7, #23]
+ 80037b2:	2300      	movs	r3, #0
+ 80037b4:	75fb      	strb	r3, [r7, #23]
 
   /* this example computes the checksum using the add byte to byte algorithm */
   while (length-- > 0)
- 80037d2:	e009      	b.n	80037e8 <XcpComputeChecksum+0x26>
+ 80037b6:	e009      	b.n	80037cc <XcpComputeChecksum+0x26>
   {
     /* add the next byte value */
     cs += *((blt_int8u *)(blt_addr)address);
- 80037d4:	68fb      	ldr	r3, [r7, #12]
- 80037d6:	781a      	ldrb	r2, [r3, #0]
- 80037d8:	7dfb      	ldrb	r3, [r7, #23]
- 80037da:	4413      	add	r3, r2
- 80037dc:	75fb      	strb	r3, [r7, #23]
+ 80037b8:	68fb      	ldr	r3, [r7, #12]
+ 80037ba:	781a      	ldrb	r2, [r3, #0]
+ 80037bc:	7dfb      	ldrb	r3, [r7, #23]
+ 80037be:	4413      	add	r3, r2
+ 80037c0:	75fb      	strb	r3, [r7, #23]
     /* increment address */
     address++;
- 80037de:	68fb      	ldr	r3, [r7, #12]
- 80037e0:	3301      	adds	r3, #1
- 80037e2:	60fb      	str	r3, [r7, #12]
+ 80037c2:	68fb      	ldr	r3, [r7, #12]
+ 80037c4:	3301      	adds	r3, #1
+ 80037c6:	60fb      	str	r3, [r7, #12]
     /* service the watchdog */
     CopService();
- 80037e4:	f7ff fde5 	bl	80033b2 <CopService>
+ 80037c8:	f7ff fdf3 	bl	80033b2 <CopService>
   while (length-- > 0)
- 80037e8:	68bb      	ldr	r3, [r7, #8]
- 80037ea:	1e5a      	subs	r2, r3, #1
- 80037ec:	60ba      	str	r2, [r7, #8]
- 80037ee:	2b00      	cmp	r3, #0
- 80037f0:	d1f0      	bne.n	80037d4 <XcpComputeChecksum+0x12>
+ 80037cc:	68bb      	ldr	r3, [r7, #8]
+ 80037ce:	1e5a      	subs	r2, r3, #1
+ 80037d0:	60ba      	str	r2, [r7, #8]
+ 80037d2:	2b00      	cmp	r3, #0
+ 80037d4:	d1f0      	bne.n	80037b8 <XcpComputeChecksum+0x12>
   }
   /* store the computed checksum value */
   *checksum = cs;
- 80037f2:	7dfa      	ldrb	r2, [r7, #23]
- 80037f4:	687b      	ldr	r3, [r7, #4]
- 80037f6:	601a      	str	r2, [r3, #0]
+ 80037d6:	7dfa      	ldrb	r2, [r7, #23]
+ 80037d8:	687b      	ldr	r3, [r7, #4]
+ 80037da:	601a      	str	r2, [r3, #0]
   /* inform the caller of the uses checksum computation algorithm */
   return XCP_CS_ADD11;
- 80037f8:	2301      	movs	r3, #1
+ 80037dc:	2301      	movs	r3, #1
 } /*** end of XcpComputeChecksum ***/
- 80037fa:	4618      	mov	r0, r3
- 80037fc:	3718      	adds	r7, #24
- 80037fe:	46bd      	mov	sp, r7
- 8003800:	bd80      	pop	{r7, pc}
+ 80037de:	4618      	mov	r0, r3
+ 80037e0:	3718      	adds	r7, #24
+ 80037e2:	46bd      	mov	sp, r7
+ 80037e4:	bd80      	pop	{r7, pc}
 	...
 
-08003804 <XcpProtectResources>:
+080037e8 <XcpProtectResources>:
 ** \brief     Utility function to protects all the available resources.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpProtectResources(void)
 {
- 8003804:	b480      	push	{r7}
- 8003806:	af00      	add	r7, sp, #0
+ 80037e8:	b480      	push	{r7}
+ 80037ea:	af00      	add	r7, sp, #0
   xcpInfo.protection = 0;
- 8003808:	4b04      	ldr	r3, [pc, #16]	@ (800381c <XcpProtectResources+0x18>)
- 800380a:	2200      	movs	r2, #0
- 800380c:	f883 2082 	strb.w	r2, [r3, #130]	@ 0x82
+ 80037ec:	4b03      	ldr	r3, [pc, #12]	@ (80037fc <XcpProtectResources+0x14>)
+ 80037ee:	2200      	movs	r2, #0
+ 80037f0:	725a      	strb	r2, [r3, #9]
 
 #if (XCP_RES_DATA_STIMULATION_EN == 1)
   xcpInfo.protection |= XCP_RES_STIM;
 #endif
 #endif /* XCP_SEED_KEY_PROTECTION_EN == 1 */
 } /*** end of XcpProtectResources ***/
- 8003810:	bf00      	nop
- 8003812:	46bd      	mov	sp, r7
- 8003814:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8003818:	4770      	bx	lr
- 800381a:	bf00      	nop
- 800381c:	20000534 	.word	0x20000534
+ 80037f2:	bf00      	nop
+ 80037f4:	46bd      	mov	sp, r7
+ 80037f6:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80037fa:	4770      	bx	lr
+ 80037fc:	200004b8 	.word	0x200004b8
 
-08003820 <XcpSetCtoError>:
+08003800 <XcpSetCtoError>:
 ** \param     error XCP error code (XCP_ERR_XXX).
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpSetCtoError(blt_int8u error)
 {
- 8003820:	b480      	push	{r7}
- 8003822:	b083      	sub	sp, #12
- 8003824:	af00      	add	r7, sp, #0
- 8003826:	4603      	mov	r3, r0
- 8003828:	71fb      	strb	r3, [r7, #7]
+ 8003800:	b480      	push	{r7}
+ 8003802:	b083      	sub	sp, #12
+ 8003804:	af00      	add	r7, sp, #0
+ 8003806:	4603      	mov	r3, r0
+ 8003808:	71fb      	strb	r3, [r7, #7]
   /* prepare the error packet */
   xcpInfo.ctoData[0] = XCP_PID_ERR;
- 800382a:	4b08      	ldr	r3, [pc, #32]	@ (800384c <XcpSetCtoError+0x2c>)
- 800382c:	22fe      	movs	r2, #254	@ 0xfe
- 800382e:	701a      	strb	r2, [r3, #0]
+ 800380a:	4b07      	ldr	r3, [pc, #28]	@ (8003828 <XcpSetCtoError+0x28>)
+ 800380c:	22fe      	movs	r2, #254	@ 0xfe
+ 800380e:	701a      	strb	r2, [r3, #0]
   xcpInfo.ctoData[1] = error;
- 8003830:	4a06      	ldr	r2, [pc, #24]	@ (800384c <XcpSetCtoError+0x2c>)
- 8003832:	79fb      	ldrb	r3, [r7, #7]
- 8003834:	7053      	strb	r3, [r2, #1]
+ 8003810:	4a05      	ldr	r2, [pc, #20]	@ (8003828 <XcpSetCtoError+0x28>)
+ 8003812:	79fb      	ldrb	r3, [r7, #7]
+ 8003814:	7053      	strb	r3, [r2, #1]
   xcpInfo.ctoLen = 2;
- 8003836:	4b05      	ldr	r3, [pc, #20]	@ (800384c <XcpSetCtoError+0x2c>)
- 8003838:	2202      	movs	r2, #2
- 800383a:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003816:	4b04      	ldr	r3, [pc, #16]	@ (8003828 <XcpSetCtoError+0x28>)
+ 8003818:	2202      	movs	r2, #2
+ 800381a:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpSetCtoError ***/
- 800383e:	bf00      	nop
- 8003840:	370c      	adds	r7, #12
- 8003842:	46bd      	mov	sp, r7
- 8003844:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8003848:	4770      	bx	lr
- 800384a:	bf00      	nop
- 800384c:	20000534 	.word	0x20000534
+ 800381c:	bf00      	nop
+ 800381e:	370c      	adds	r7, #12
+ 8003820:	46bd      	mov	sp, r7
+ 8003822:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8003826:	4770      	bx	lr
+ 8003828:	200004b8 	.word	0x200004b8
 
-08003850 <XcpGetOrderedLong>:
+0800382c <XcpGetOrderedLong>:
 ** \param     data Array to the buffer with the 32-bit value stored as bytes.
 ** \return    The 32-bit value.
 **
 ****************************************************************************************/
 static blt_int32u XcpGetOrderedLong(blt_int8u const * data)
 {
- 8003850:	b480      	push	{r7}
- 8003852:	b085      	sub	sp, #20
- 8003854:	af00      	add	r7, sp, #0
- 8003856:	6078      	str	r0, [r7, #4]
+ 800382c:	b480      	push	{r7}
+ 800382e:	b085      	sub	sp, #20
+ 8003830:	af00      	add	r7, sp, #0
+ 8003832:	6078      	str	r0, [r7, #4]
   blt_int32u result = 0;
- 8003858:	2300      	movs	r3, #0
- 800385a:	60fb      	str	r3, [r7, #12]
+ 8003834:	2300      	movs	r3, #0
+ 8003836:	60fb      	str	r3, [r7, #12]
 
 #if (BOOT_CPU_BYTE_ORDER_MOTOROLA	== 0)
   result |= (blt_int32u)data[0];
- 800385c:	687b      	ldr	r3, [r7, #4]
- 800385e:	781b      	ldrb	r3, [r3, #0]
- 8003860:	461a      	mov	r2, r3
- 8003862:	68fb      	ldr	r3, [r7, #12]
- 8003864:	4313      	orrs	r3, r2
- 8003866:	60fb      	str	r3, [r7, #12]
+ 8003838:	687b      	ldr	r3, [r7, #4]
+ 800383a:	781b      	ldrb	r3, [r3, #0]
+ 800383c:	461a      	mov	r2, r3
+ 800383e:	68fb      	ldr	r3, [r7, #12]
+ 8003840:	4313      	orrs	r3, r2
+ 8003842:	60fb      	str	r3, [r7, #12]
   result |= (blt_int32u)((blt_int32u)data[1] << 8);
- 8003868:	687b      	ldr	r3, [r7, #4]
- 800386a:	3301      	adds	r3, #1
- 800386c:	781b      	ldrb	r3, [r3, #0]
- 800386e:	021b      	lsls	r3, r3, #8
- 8003870:	68fa      	ldr	r2, [r7, #12]
- 8003872:	4313      	orrs	r3, r2
- 8003874:	60fb      	str	r3, [r7, #12]
+ 8003844:	687b      	ldr	r3, [r7, #4]
+ 8003846:	3301      	adds	r3, #1
+ 8003848:	781b      	ldrb	r3, [r3, #0]
+ 800384a:	021b      	lsls	r3, r3, #8
+ 800384c:	68fa      	ldr	r2, [r7, #12]
+ 800384e:	4313      	orrs	r3, r2
+ 8003850:	60fb      	str	r3, [r7, #12]
   result |= (blt_int32u)((blt_int32u)data[2] << 16);
- 8003876:	687b      	ldr	r3, [r7, #4]
- 8003878:	3302      	adds	r3, #2
- 800387a:	781b      	ldrb	r3, [r3, #0]
- 800387c:	041b      	lsls	r3, r3, #16
- 800387e:	68fa      	ldr	r2, [r7, #12]
- 8003880:	4313      	orrs	r3, r2
- 8003882:	60fb      	str	r3, [r7, #12]
+ 8003852:	687b      	ldr	r3, [r7, #4]
+ 8003854:	3302      	adds	r3, #2
+ 8003856:	781b      	ldrb	r3, [r3, #0]
+ 8003858:	041b      	lsls	r3, r3, #16
+ 800385a:	68fa      	ldr	r2, [r7, #12]
+ 800385c:	4313      	orrs	r3, r2
+ 800385e:	60fb      	str	r3, [r7, #12]
   result |= (blt_int32u)((blt_int32u)data[3] << 24);
- 8003884:	687b      	ldr	r3, [r7, #4]
- 8003886:	3303      	adds	r3, #3
- 8003888:	781b      	ldrb	r3, [r3, #0]
- 800388a:	061b      	lsls	r3, r3, #24
- 800388c:	68fa      	ldr	r2, [r7, #12]
- 800388e:	4313      	orrs	r3, r2
- 8003890:	60fb      	str	r3, [r7, #12]
+ 8003860:	687b      	ldr	r3, [r7, #4]
+ 8003862:	3303      	adds	r3, #3
+ 8003864:	781b      	ldrb	r3, [r3, #0]
+ 8003866:	061b      	lsls	r3, r3, #24
+ 8003868:	68fa      	ldr	r2, [r7, #12]
+ 800386a:	4313      	orrs	r3, r2
+ 800386c:	60fb      	str	r3, [r7, #12]
   result |= (blt_int32u)((blt_int32u)data[2] << 8);
   result |= (blt_int32u)((blt_int32u)data[1] << 16);
   result |= (blt_int32u)((blt_int32u)data[0] << 24);
 #endif
   /* Give the result back to the caller. */
   return result;
- 8003892:	68fb      	ldr	r3, [r7, #12]
+ 800386e:	68fb      	ldr	r3, [r7, #12]
 } /*** end of XcpGetOrderedLong ***/
- 8003894:	4618      	mov	r0, r3
- 8003896:	3714      	adds	r7, #20
- 8003898:	46bd      	mov	sp, r7
- 800389a:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800389e:	4770      	bx	lr
+ 8003870:	4618      	mov	r0, r3
+ 8003872:	3714      	adds	r7, #20
+ 8003874:	46bd      	mov	sp, r7
+ 8003876:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800387a:	4770      	bx	lr
 
-080038a0 <XcpSetOrderedLong>:
+0800387c <XcpSetOrderedLong>:
 ** \param     value The 32-bit value to store in the buffer.
 ** \param     data Array to the buffer for storage.
 **
 ****************************************************************************************/
 static void XcpSetOrderedLong(blt_int32u value, blt_int8u *data)
 {
- 80038a0:	b480      	push	{r7}
- 80038a2:	b083      	sub	sp, #12
- 80038a4:	af00      	add	r7, sp, #0
- 80038a6:	6078      	str	r0, [r7, #4]
- 80038a8:	6039      	str	r1, [r7, #0]
+ 800387c:	b480      	push	{r7}
+ 800387e:	b083      	sub	sp, #12
+ 8003880:	af00      	add	r7, sp, #0
+ 8003882:	6078      	str	r0, [r7, #4]
+ 8003884:	6039      	str	r1, [r7, #0]
 #if (BOOT_CPU_BYTE_ORDER_MOTOROLA	== 0)
   data[0] = (blt_int8u) value;
- 80038aa:	687b      	ldr	r3, [r7, #4]
- 80038ac:	b2da      	uxtb	r2, r3
- 80038ae:	683b      	ldr	r3, [r7, #0]
- 80038b0:	701a      	strb	r2, [r3, #0]
+ 8003886:	687b      	ldr	r3, [r7, #4]
+ 8003888:	b2da      	uxtb	r2, r3
+ 800388a:	683b      	ldr	r3, [r7, #0]
+ 800388c:	701a      	strb	r2, [r3, #0]
   data[1] = (blt_int8u)(value >>  8);
- 80038b2:	687b      	ldr	r3, [r7, #4]
- 80038b4:	0a1a      	lsrs	r2, r3, #8
- 80038b6:	683b      	ldr	r3, [r7, #0]
- 80038b8:	3301      	adds	r3, #1
- 80038ba:	b2d2      	uxtb	r2, r2
- 80038bc:	701a      	strb	r2, [r3, #0]
+ 800388e:	687b      	ldr	r3, [r7, #4]
+ 8003890:	0a1a      	lsrs	r2, r3, #8
+ 8003892:	683b      	ldr	r3, [r7, #0]
+ 8003894:	3301      	adds	r3, #1
+ 8003896:	b2d2      	uxtb	r2, r2
+ 8003898:	701a      	strb	r2, [r3, #0]
   data[2] = (blt_int8u)(value >> 16);
- 80038be:	687b      	ldr	r3, [r7, #4]
- 80038c0:	0c1a      	lsrs	r2, r3, #16
- 80038c2:	683b      	ldr	r3, [r7, #0]
- 80038c4:	3302      	adds	r3, #2
- 80038c6:	b2d2      	uxtb	r2, r2
- 80038c8:	701a      	strb	r2, [r3, #0]
+ 800389a:	687b      	ldr	r3, [r7, #4]
+ 800389c:	0c1a      	lsrs	r2, r3, #16
+ 800389e:	683b      	ldr	r3, [r7, #0]
+ 80038a0:	3302      	adds	r3, #2
+ 80038a2:	b2d2      	uxtb	r2, r2
+ 80038a4:	701a      	strb	r2, [r3, #0]
   data[3] = (blt_int8u)(value >> 24);
- 80038ca:	687b      	ldr	r3, [r7, #4]
- 80038cc:	0e1a      	lsrs	r2, r3, #24
- 80038ce:	683b      	ldr	r3, [r7, #0]
- 80038d0:	3303      	adds	r3, #3
- 80038d2:	b2d2      	uxtb	r2, r2
- 80038d4:	701a      	strb	r2, [r3, #0]
+ 80038a6:	687b      	ldr	r3, [r7, #4]
+ 80038a8:	0e1a      	lsrs	r2, r3, #24
+ 80038aa:	683b      	ldr	r3, [r7, #0]
+ 80038ac:	3303      	adds	r3, #3
+ 80038ae:	b2d2      	uxtb	r2, r2
+ 80038b0:	701a      	strb	r2, [r3, #0]
   data[3] = (blt_int8u) value;
   data[2] = (blt_int8u)(value >>  8);
   data[1] = (blt_int8u)(value >> 16);
   data[0] = (blt_int8u)(value >> 24);
 #endif
 } /*** end of XcpSetOrderedLong ***/
- 80038d6:	bf00      	nop
- 80038d8:	370c      	adds	r7, #12
- 80038da:	46bd      	mov	sp, r7
- 80038dc:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80038e0:	4770      	bx	lr
+ 80038b2:	bf00      	nop
+ 80038b4:	370c      	adds	r7, #12
+ 80038b6:	46bd      	mov	sp, r7
+ 80038b8:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80038bc:	4770      	bx	lr
 	...
 
-080038e4 <XcpCmdConnect>:
+080038c0 <XcpCmdConnect>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdConnect(blt_int8u *data)
 {
- 80038e4:	b580      	push	{r7, lr}
- 80038e6:	b082      	sub	sp, #8
- 80038e8:	af00      	add	r7, sp, #0
- 80038ea:	6078      	str	r0, [r7, #4]
+ 80038c0:	b580      	push	{r7, lr}
+ 80038c2:	b082      	sub	sp, #8
+ 80038c4:	af00      	add	r7, sp, #0
+ 80038c6:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* enable resource protection */
   XcpProtectResources();
- 80038ec:	f7ff ff8a 	bl	8003804 <XcpProtectResources>
+ 80038c8:	f7ff ff8e 	bl	80037e8 <XcpProtectResources>
 
   /* indicate that the connection is established */
   xcpInfo.connected = 1;
- 80038f0:	4b1d      	ldr	r3, [pc, #116]	@ (8003968 <XcpCmdConnect+0x84>)
- 80038f2:	2201      	movs	r2, #1
- 80038f4:	f883 2081 	strb.w	r2, [r3, #129]	@ 0x81
+ 80038cc:	4b1c      	ldr	r3, [pc, #112]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038ce:	2201      	movs	r2, #1
+ 80038d0:	721a      	strb	r2, [r3, #8]
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 80038f8:	4b1b      	ldr	r3, [pc, #108]	@ (8003968 <XcpCmdConnect+0x84>)
- 80038fa:	22ff      	movs	r2, #255	@ 0xff
- 80038fc:	701a      	strb	r2, [r3, #0]
+ 80038d2:	4b1b      	ldr	r3, [pc, #108]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038d4:	22ff      	movs	r2, #255	@ 0xff
+ 80038d6:	701a      	strb	r2, [r3, #0]
 
   /* report available resources */
   xcpInfo.ctoData[1] = 0;
- 80038fe:	4b1a      	ldr	r3, [pc, #104]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003900:	2200      	movs	r2, #0
- 8003902:	705a      	strb	r2, [r3, #1]
+ 80038d8:	4b19      	ldr	r3, [pc, #100]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038da:	2200      	movs	r2, #0
+ 80038dc:	705a      	strb	r2, [r3, #1]
 #if (XCP_RES_PAGING_EN == 1)
   xcpInfo.ctoData[1] |= XCP_RES_CALPAG;
 #endif
 
 #if (XCP_RES_PROGRAMMING_EN == 1)
   xcpInfo.ctoData[1] |= XCP_RES_PGM;
- 8003904:	4b18      	ldr	r3, [pc, #96]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003906:	785b      	ldrb	r3, [r3, #1]
- 8003908:	f043 0310 	orr.w	r3, r3, #16
- 800390c:	b2da      	uxtb	r2, r3
- 800390e:	4b16      	ldr	r3, [pc, #88]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003910:	705a      	strb	r2, [r3, #1]
+ 80038de:	4b18      	ldr	r3, [pc, #96]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038e0:	785b      	ldrb	r3, [r3, #1]
+ 80038e2:	f043 0310 	orr.w	r3, r3, #16
+ 80038e6:	b2da      	uxtb	r2, r3
+ 80038e8:	4b15      	ldr	r3, [pc, #84]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038ea:	705a      	strb	r2, [r3, #1]
 #if (XCP_RES_DATA_STIMULATION_EN == 1)
   xcpInfo.ctoData[1] |= XCP_RES_STIM;
 #endif
 
   /* report communication mode info. only byte granularity is supported */
   xcpInfo.ctoData[2] = 0;
- 8003912:	4b15      	ldr	r3, [pc, #84]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003914:	2200      	movs	r2, #0
- 8003916:	709a      	strb	r2, [r3, #2]
+ 80038ec:	4b14      	ldr	r3, [pc, #80]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038ee:	2200      	movs	r2, #0
+ 80038f0:	709a      	strb	r2, [r3, #2]
   /* configure for motorola or intel byte ordering */
   xcpInfo.ctoData[2] |= XCP_MOTOROLA_FORMAT;
- 8003918:	4b13      	ldr	r3, [pc, #76]	@ (8003968 <XcpCmdConnect+0x84>)
- 800391a:	789a      	ldrb	r2, [r3, #2]
- 800391c:	4b12      	ldr	r3, [pc, #72]	@ (8003968 <XcpCmdConnect+0x84>)
- 800391e:	709a      	strb	r2, [r3, #2]
+ 80038f2:	4b13      	ldr	r3, [pc, #76]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038f4:	789a      	ldrb	r2, [r3, #2]
+ 80038f6:	4b12      	ldr	r3, [pc, #72]	@ (8003940 <XcpCmdConnect+0x80>)
+ 80038f8:	709a      	strb	r2, [r3, #2]
 
   /* report max cto data length */
   xcpInfo.ctoData[3] = (blt_int8u)XCP_CTO_PACKET_LEN;
- 8003920:	f7ff fcd0 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003924:	4603      	mov	r3, r0
- 8003926:	b2da      	uxtb	r2, r3
- 8003928:	4b0f      	ldr	r3, [pc, #60]	@ (8003968 <XcpCmdConnect+0x84>)
- 800392a:	70da      	strb	r2, [r3, #3]
+ 80038fa:	f7ff fce3 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 80038fe:	4603      	mov	r3, r0
+ 8003900:	b2da      	uxtb	r2, r3
+ 8003902:	4b0f      	ldr	r3, [pc, #60]	@ (8003940 <XcpCmdConnect+0x80>)
+ 8003904:	70da      	strb	r2, [r3, #3]
 
   /* report max dto data length */
 #if (XCP_MOTOROLA_FORMAT == 0)
   xcpInfo.ctoData[4] = (blt_int8u)XCP_DTO_PACKET_LEN;
- 800392c:	f7ff fcfa 	bl	8003324 <ComGetActiveInterfaceMaxTxLen>
- 8003930:	4603      	mov	r3, r0
- 8003932:	b2da      	uxtb	r2, r3
- 8003934:	4b0c      	ldr	r3, [pc, #48]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003936:	711a      	strb	r2, [r3, #4]
+ 8003906:	f7ff fd0d 	bl	8003324 <ComGetActiveInterfaceMaxTxLen>
+ 800390a:	4603      	mov	r3, r0
+ 800390c:	b2da      	uxtb	r2, r3
+ 800390e:	4b0c      	ldr	r3, [pc, #48]	@ (8003940 <XcpCmdConnect+0x80>)
+ 8003910:	711a      	strb	r2, [r3, #4]
   xcpInfo.ctoData[5] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
- 8003938:	f7ff fcf4 	bl	8003324 <ComGetActiveInterfaceMaxTxLen>
- 800393c:	4603      	mov	r3, r0
- 800393e:	0a1b      	lsrs	r3, r3, #8
- 8003940:	b29b      	uxth	r3, r3
- 8003942:	b2da      	uxtb	r2, r3
- 8003944:	4b08      	ldr	r3, [pc, #32]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003946:	715a      	strb	r2, [r3, #5]
+ 8003912:	f7ff fd07 	bl	8003324 <ComGetActiveInterfaceMaxTxLen>
+ 8003916:	4603      	mov	r3, r0
+ 8003918:	0a1b      	lsrs	r3, r3, #8
+ 800391a:	b29b      	uxth	r3, r3
+ 800391c:	b2da      	uxtb	r2, r3
+ 800391e:	4b08      	ldr	r3, [pc, #32]	@ (8003940 <XcpCmdConnect+0x80>)
+ 8003920:	715a      	strb	r2, [r3, #5]
   xcpInfo.ctoData[4] = (blt_int8u)(XCP_DTO_PACKET_LEN >> 8);
   xcpInfo.ctoData[5] = (blt_int8u)XCP_DTO_PACKET_LEN;
 #endif
 
   /* report msb of protocol layer version number */
   xcpInfo.ctoData[6] = XCP_VERSION_PROTOCOL_LAYER >> 8;
- 8003948:	4b07      	ldr	r3, [pc, #28]	@ (8003968 <XcpCmdConnect+0x84>)
- 800394a:	2201      	movs	r2, #1
- 800394c:	719a      	strb	r2, [r3, #6]
+ 8003922:	4b07      	ldr	r3, [pc, #28]	@ (8003940 <XcpCmdConnect+0x80>)
+ 8003924:	2201      	movs	r2, #1
+ 8003926:	719a      	strb	r2, [r3, #6]
 
   /* report msb of transport layer version number */
   xcpInfo.ctoData[7] = XCP_VERSION_TRANSPORT_LAYER >> 8;
- 800394e:	4b06      	ldr	r3, [pc, #24]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003950:	2201      	movs	r2, #1
- 8003952:	71da      	strb	r2, [r3, #7]
+ 8003928:	4b05      	ldr	r3, [pc, #20]	@ (8003940 <XcpCmdConnect+0x80>)
+ 800392a:	2201      	movs	r2, #1
+ 800392c:	71da      	strb	r2, [r3, #7]
 
   /* set packet length */
   xcpInfo.ctoLen = 8;
- 8003954:	4b04      	ldr	r3, [pc, #16]	@ (8003968 <XcpCmdConnect+0x84>)
- 8003956:	2208      	movs	r2, #8
- 8003958:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 800392e:	4b04      	ldr	r3, [pc, #16]	@ (8003940 <XcpCmdConnect+0x80>)
+ 8003930:	2208      	movs	r2, #8
+ 8003932:	819a      	strh	r2, [r3, #12]
 
   /* reinit the NVM driver because a new firmware update is about the start */
   NvmInit();
- 800395c:	f7ff fa9f 	bl	8002e9e <NvmInit>
+ 8003934:	f7ff fab3 	bl	8002e9e <NvmInit>
 } /*** end of XcpCmdConnect ***/
- 8003960:	bf00      	nop
- 8003962:	3708      	adds	r7, #8
- 8003964:	46bd      	mov	sp, r7
- 8003966:	bd80      	pop	{r7, pc}
- 8003968:	20000534 	.word	0x20000534
+ 8003938:	bf00      	nop
+ 800393a:	3708      	adds	r7, #8
+ 800393c:	46bd      	mov	sp, r7
+ 800393e:	bd80      	pop	{r7, pc}
+ 8003940:	200004b8 	.word	0x200004b8
 
-0800396c <XcpCmdDisconnect>:
+08003944 <XcpCmdDisconnect>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdDisconnect(blt_int8u *data)
 {
- 800396c:	b580      	push	{r7, lr}
- 800396e:	b082      	sub	sp, #8
- 8003970:	af00      	add	r7, sp, #0
- 8003972:	6078      	str	r0, [r7, #4]
+ 8003944:	b580      	push	{r7, lr}
+ 8003946:	b082      	sub	sp, #8
+ 8003948:	af00      	add	r7, sp, #0
+ 800394a:	6078      	str	r0, [r7, #4]
   /* suppress compiler warning for unused parameter */
   data = data;
 
   /* indicate that the xcp connection is disconnected */
   xcpInfo.connected = 0;
- 8003974:	4b08      	ldr	r3, [pc, #32]	@ (8003998 <XcpCmdDisconnect+0x2c>)
- 8003976:	2200      	movs	r2, #0
- 8003978:	f883 2081 	strb.w	r2, [r3, #129]	@ 0x81
+ 800394c:	4b07      	ldr	r3, [pc, #28]	@ (800396c <XcpCmdDisconnect+0x28>)
+ 800394e:	2200      	movs	r2, #0
+ 8003950:	721a      	strb	r2, [r3, #8]
 
   /* enable resource protection */
   XcpProtectResources();
- 800397c:	f7ff ff42 	bl	8003804 <XcpProtectResources>
+ 8003952:	f7ff ff49 	bl	80037e8 <XcpProtectResources>
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003980:	4b05      	ldr	r3, [pc, #20]	@ (8003998 <XcpCmdDisconnect+0x2c>)
- 8003982:	22ff      	movs	r2, #255	@ 0xff
- 8003984:	701a      	strb	r2, [r3, #0]
+ 8003956:	4b05      	ldr	r3, [pc, #20]	@ (800396c <XcpCmdDisconnect+0x28>)
+ 8003958:	22ff      	movs	r2, #255	@ 0xff
+ 800395a:	701a      	strb	r2, [r3, #0]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003986:	4b04      	ldr	r3, [pc, #16]	@ (8003998 <XcpCmdDisconnect+0x2c>)
- 8003988:	2201      	movs	r2, #1
- 800398a:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 800395c:	4b03      	ldr	r3, [pc, #12]	@ (800396c <XcpCmdDisconnect+0x28>)
+ 800395e:	2201      	movs	r2, #1
+ 8003960:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdDisconnect ***/
- 800398e:	bf00      	nop
- 8003990:	3708      	adds	r7, #8
- 8003992:	46bd      	mov	sp, r7
- 8003994:	bd80      	pop	{r7, pc}
- 8003996:	bf00      	nop
- 8003998:	20000534 	.word	0x20000534
+ 8003962:	bf00      	nop
+ 8003964:	3708      	adds	r7, #8
+ 8003966:	46bd      	mov	sp, r7
+ 8003968:	bd80      	pop	{r7, pc}
+ 800396a:	bf00      	nop
+ 800396c:	200004b8 	.word	0x200004b8
 
-0800399c <XcpCmdGetStatus>:
+08003970 <XcpCmdGetStatus>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdGetStatus(blt_int8u *data)
 {
- 800399c:	b480      	push	{r7}
- 800399e:	b083      	sub	sp, #12
- 80039a0:	af00      	add	r7, sp, #0
- 80039a2:	6078      	str	r0, [r7, #4]
+ 8003970:	b480      	push	{r7}
+ 8003972:	b083      	sub	sp, #12
+ 8003974:	af00      	add	r7, sp, #0
+ 8003976:	6078      	str	r0, [r7, #4]
   /* suppress compiler warning for unused parameter */
   data = data;
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 80039a4:	4b0e      	ldr	r3, [pc, #56]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039a6:	22ff      	movs	r2, #255	@ 0xff
- 80039a8:	701a      	strb	r2, [r3, #0]
+ 8003978:	4b0d      	ldr	r3, [pc, #52]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 800397a:	22ff      	movs	r2, #255	@ 0xff
+ 800397c:	701a      	strb	r2, [r3, #0]
 
   /* report session status */
   xcpInfo.ctoData[1] = 0;
- 80039aa:	4b0d      	ldr	r3, [pc, #52]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039ac:	2200      	movs	r2, #0
- 80039ae:	705a      	strb	r2, [r3, #1]
+ 800397e:	4b0c      	ldr	r3, [pc, #48]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 8003980:	2200      	movs	r2, #0
+ 8003982:	705a      	strb	r2, [r3, #1]
 
   /* report current resource protection status */
   xcpInfo.ctoData[2] = xcpInfo.protection;
- 80039b0:	4b0b      	ldr	r3, [pc, #44]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039b2:	f893 2082 	ldrb.w	r2, [r3, #130]	@ 0x82
- 80039b6:	4b0a      	ldr	r3, [pc, #40]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039b8:	709a      	strb	r2, [r3, #2]
+ 8003984:	4b0a      	ldr	r3, [pc, #40]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 8003986:	7a5a      	ldrb	r2, [r3, #9]
+ 8003988:	4b09      	ldr	r3, [pc, #36]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 800398a:	709a      	strb	r2, [r3, #2]
 
   /* reset reserved and session configuration id values */
   xcpInfo.ctoData[3] = 0;
- 80039ba:	4b09      	ldr	r3, [pc, #36]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039bc:	2200      	movs	r2, #0
- 80039be:	70da      	strb	r2, [r3, #3]
+ 800398c:	4b08      	ldr	r3, [pc, #32]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 800398e:	2200      	movs	r2, #0
+ 8003990:	70da      	strb	r2, [r3, #3]
   xcpInfo.ctoData[4] = 0;
- 80039c0:	4b07      	ldr	r3, [pc, #28]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039c2:	2200      	movs	r2, #0
- 80039c4:	711a      	strb	r2, [r3, #4]
+ 8003992:	4b07      	ldr	r3, [pc, #28]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 8003994:	2200      	movs	r2, #0
+ 8003996:	711a      	strb	r2, [r3, #4]
   xcpInfo.ctoData[5] = 0;
- 80039c6:	4b06      	ldr	r3, [pc, #24]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039c8:	2200      	movs	r2, #0
- 80039ca:	715a      	strb	r2, [r3, #5]
+ 8003998:	4b05      	ldr	r3, [pc, #20]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 800399a:	2200      	movs	r2, #0
+ 800399c:	715a      	strb	r2, [r3, #5]
 
   /* set packet length */
   xcpInfo.ctoLen = 6;
- 80039cc:	4b04      	ldr	r3, [pc, #16]	@ (80039e0 <XcpCmdGetStatus+0x44>)
- 80039ce:	2206      	movs	r2, #6
- 80039d0:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 800399e:	4b04      	ldr	r3, [pc, #16]	@ (80039b0 <XcpCmdGetStatus+0x40>)
+ 80039a0:	2206      	movs	r2, #6
+ 80039a2:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdGetStatus ***/
- 80039d4:	bf00      	nop
- 80039d6:	370c      	adds	r7, #12
- 80039d8:	46bd      	mov	sp, r7
- 80039da:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80039de:	4770      	bx	lr
- 80039e0:	20000534 	.word	0x20000534
+ 80039a4:	bf00      	nop
+ 80039a6:	370c      	adds	r7, #12
+ 80039a8:	46bd      	mov	sp, r7
+ 80039aa:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80039ae:	4770      	bx	lr
+ 80039b0:	200004b8 	.word	0x200004b8
 
-080039e4 <XcpCmdSynch>:
+080039b4 <XcpCmdSynch>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdSynch(blt_int8u *data)
 {
- 80039e4:	b580      	push	{r7, lr}
- 80039e6:	b082      	sub	sp, #8
- 80039e8:	af00      	add	r7, sp, #0
- 80039ea:	6078      	str	r0, [r7, #4]
+ 80039b4:	b580      	push	{r7, lr}
+ 80039b6:	b082      	sub	sp, #8
+ 80039b8:	af00      	add	r7, sp, #0
+ 80039ba:	6078      	str	r0, [r7, #4]
   /* suppress compiler warning for unused parameter */
   data = data;
 
   /* synch requires a negative response */
   XcpSetCtoError(XCP_ERR_CMD_SYNCH);
- 80039ec:	2000      	movs	r0, #0
- 80039ee:	f7ff ff17 	bl	8003820 <XcpSetCtoError>
+ 80039bc:	2000      	movs	r0, #0
+ 80039be:	f7ff ff1f 	bl	8003800 <XcpSetCtoError>
 } /*** end of XcpCmdSynch ***/
- 80039f2:	bf00      	nop
- 80039f4:	3708      	adds	r7, #8
- 80039f6:	46bd      	mov	sp, r7
- 80039f8:	bd80      	pop	{r7, pc}
+ 80039c2:	bf00      	nop
+ 80039c4:	3708      	adds	r7, #8
+ 80039c6:	46bd      	mov	sp, r7
+ 80039c8:	bd80      	pop	{r7, pc}
 	...
 
-080039fc <XcpCmdGetId>:
+080039cc <XcpCmdGetId>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdGetId(blt_int8u *data)
 {
- 80039fc:	b580      	push	{r7, lr}
- 80039fe:	b084      	sub	sp, #16
- 8003a00:	af00      	add	r7, sp, #0
- 8003a02:	6078      	str	r0, [r7, #4]
+ 80039cc:	b580      	push	{r7, lr}
+ 80039ce:	b084      	sub	sp, #16
+ 80039d0:	af00      	add	r7, sp, #0
+ 80039d2:	6078      	str	r0, [r7, #4]
   
   /* suppress compiler warning for unused parameter */
   data = data;
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003a04:	4b0e      	ldr	r3, [pc, #56]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a06:	22ff      	movs	r2, #255	@ 0xff
- 8003a08:	701a      	strb	r2, [r3, #0]
+ 80039d4:	4b0d      	ldr	r3, [pc, #52]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 80039d6:	22ff      	movs	r2, #255	@ 0xff
+ 80039d8:	701a      	strb	r2, [r3, #0]
 
   /* point mta to start of station id string */
   xcpInfo.mta = (blt_int32u)&xcpStationId[0];
- 8003a0a:	4a0e      	ldr	r2, [pc, #56]	@ (8003a44 <XcpCmdGetId+0x48>)
- 8003a0c:	4b0c      	ldr	r3, [pc, #48]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a0e:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+ 80039da:	4a0d      	ldr	r2, [pc, #52]	@ (8003a10 <XcpCmdGetId+0x44>)
+ 80039dc:	4b0b      	ldr	r3, [pc, #44]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 80039de:	611a      	str	r2, [r3, #16]
 
   /* set station id mode to 0 */
   xcpInfo.ctoData[1] = 0;
- 8003a12:	4b0b      	ldr	r3, [pc, #44]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a14:	2200      	movs	r2, #0
- 8003a16:	705a      	strb	r2, [r3, #1]
+ 80039e0:	4b0a      	ldr	r3, [pc, #40]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 80039e2:	2200      	movs	r2, #0
+ 80039e4:	705a      	strb	r2, [r3, #1]
 
   /* reset reserved values */
   xcpInfo.ctoData[2] = 0;
- 8003a18:	4b09      	ldr	r3, [pc, #36]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a1a:	2200      	movs	r2, #0
- 8003a1c:	709a      	strb	r2, [r3, #2]
+ 80039e6:	4b09      	ldr	r3, [pc, #36]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 80039e8:	2200      	movs	r2, #0
+ 80039ea:	709a      	strb	r2, [r3, #2]
   xcpInfo.ctoData[3] = 0;
- 8003a1e:	4b08      	ldr	r3, [pc, #32]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a20:	2200      	movs	r2, #0
- 8003a22:	70da      	strb	r2, [r3, #3]
+ 80039ec:	4b07      	ldr	r3, [pc, #28]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 80039ee:	2200      	movs	r2, #0
+ 80039f0:	70da      	strb	r2, [r3, #3]
 
   /* store station id length (excl. null termination) for response packet */
   stationIdLen = (sizeof(xcpStationId)/sizeof(xcpStationId[0])) - 1;
- 8003a24:	2307      	movs	r3, #7
- 8003a26:	60fb      	str	r3, [r7, #12]
+ 80039f2:	2307      	movs	r3, #7
+ 80039f4:	60fb      	str	r3, [r7, #12]
   XcpSetOrderedLong(stationIdLen, &xcpInfo.ctoData[4]);
- 8003a28:	4907      	ldr	r1, [pc, #28]	@ (8003a48 <XcpCmdGetId+0x4c>)
- 8003a2a:	68f8      	ldr	r0, [r7, #12]
- 8003a2c:	f7ff ff38 	bl	80038a0 <XcpSetOrderedLong>
+ 80039f6:	4907      	ldr	r1, [pc, #28]	@ (8003a14 <XcpCmdGetId+0x48>)
+ 80039f8:	68f8      	ldr	r0, [r7, #12]
+ 80039fa:	f7ff ff3f 	bl	800387c <XcpSetOrderedLong>
 
   /* set packet length */
   xcpInfo.ctoLen = 8;
- 8003a30:	4b03      	ldr	r3, [pc, #12]	@ (8003a40 <XcpCmdGetId+0x44>)
- 8003a32:	2208      	movs	r2, #8
- 8003a34:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 80039fe:	4b03      	ldr	r3, [pc, #12]	@ (8003a0c <XcpCmdGetId+0x40>)
+ 8003a00:	2208      	movs	r2, #8
+ 8003a02:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdGetId ***/
- 8003a38:	bf00      	nop
- 8003a3a:	3710      	adds	r7, #16
- 8003a3c:	46bd      	mov	sp, r7
- 8003a3e:	bd80      	pop	{r7, pc}
- 8003a40:	20000534 	.word	0x20000534
- 8003a44:	0800407c 	.word	0x0800407c
- 8003a48:	20000538 	.word	0x20000538
+ 8003a04:	bf00      	nop
+ 8003a06:	3710      	adds	r7, #16
+ 8003a08:	46bd      	mov	sp, r7
+ 8003a0a:	bd80      	pop	{r7, pc}
+ 8003a0c:	200004b8 	.word	0x200004b8
+ 8003a10:	08004010 	.word	0x08004010
+ 8003a14:	200004bc 	.word	0x200004bc
 
-08003a4c <XcpCmdSetMta>:
+08003a18 <XcpCmdSetMta>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdSetMta(blt_int8u *data)
 {
- 8003a4c:	b580      	push	{r7, lr}
- 8003a4e:	b082      	sub	sp, #8
- 8003a50:	af00      	add	r7, sp, #0
- 8003a52:	6078      	str	r0, [r7, #4]
+ 8003a18:	b580      	push	{r7, lr}
+ 8003a1a:	b082      	sub	sp, #8
+ 8003a1c:	af00      	add	r7, sp, #0
+ 8003a1e:	6078      	str	r0, [r7, #4]
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003a54:	4b09      	ldr	r3, [pc, #36]	@ (8003a7c <XcpCmdSetMta+0x30>)
- 8003a56:	22ff      	movs	r2, #255	@ 0xff
- 8003a58:	701a      	strb	r2, [r3, #0]
+ 8003a20:	4b08      	ldr	r3, [pc, #32]	@ (8003a44 <XcpCmdSetMta+0x2c>)
+ 8003a22:	22ff      	movs	r2, #255	@ 0xff
+ 8003a24:	701a      	strb	r2, [r3, #0]
 
   /* update mta. current implementation ignores address extension */
   xcpInfo.mta = XcpGetOrderedLong(&data[4]);
- 8003a5a:	687b      	ldr	r3, [r7, #4]
- 8003a5c:	3304      	adds	r3, #4
- 8003a5e:	4618      	mov	r0, r3
- 8003a60:	f7ff fef6 	bl	8003850 <XcpGetOrderedLong>
- 8003a64:	4603      	mov	r3, r0
- 8003a66:	4a05      	ldr	r2, [pc, #20]	@ (8003a7c <XcpCmdSetMta+0x30>)
- 8003a68:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8003a26:	687b      	ldr	r3, [r7, #4]
+ 8003a28:	3304      	adds	r3, #4
+ 8003a2a:	4618      	mov	r0, r3
+ 8003a2c:	f7ff fefe 	bl	800382c <XcpGetOrderedLong>
+ 8003a30:	4603      	mov	r3, r0
+ 8003a32:	4a04      	ldr	r2, [pc, #16]	@ (8003a44 <XcpCmdSetMta+0x2c>)
+ 8003a34:	6113      	str	r3, [r2, #16]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003a6c:	4b03      	ldr	r3, [pc, #12]	@ (8003a7c <XcpCmdSetMta+0x30>)
- 8003a6e:	2201      	movs	r2, #1
- 8003a70:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003a36:	4b03      	ldr	r3, [pc, #12]	@ (8003a44 <XcpCmdSetMta+0x2c>)
+ 8003a38:	2201      	movs	r2, #1
+ 8003a3a:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdSetMta ***/
- 8003a74:	bf00      	nop
- 8003a76:	3708      	adds	r7, #8
- 8003a78:	46bd      	mov	sp, r7
- 8003a7a:	bd80      	pop	{r7, pc}
- 8003a7c:	20000534 	.word	0x20000534
+ 8003a3c:	bf00      	nop
+ 8003a3e:	3708      	adds	r7, #8
+ 8003a40:	46bd      	mov	sp, r7
+ 8003a42:	bd80      	pop	{r7, pc}
+ 8003a44:	200004b8 	.word	0x200004b8
 
-08003a80 <XcpCmdUpload>:
+08003a48 <XcpCmdUpload>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUpload(blt_int8u *data)
 {
- 8003a80:	b580      	push	{r7, lr}
- 8003a82:	b084      	sub	sp, #16
- 8003a84:	af00      	add	r7, sp, #0
- 8003a86:	6078      	str	r0, [r7, #4]
+ 8003a48:	b580      	push	{r7, lr}
+ 8003a4a:	b084      	sub	sp, #16
+ 8003a4c:	af00      	add	r7, sp, #0
+ 8003a4e:	6078      	str	r0, [r7, #4]
   blt_int16u len;
   blt_int8u *destPtr;
 
   /* validate length of upload request */
   if (data[1] > (XCP_CTO_PACKET_LEN-1))
- 8003a88:	f7ff fc1c 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003a8c:	4603      	mov	r3, r0
- 8003a8e:	461a      	mov	r2, r3
- 8003a90:	687b      	ldr	r3, [r7, #4]
- 8003a92:	3301      	adds	r3, #1
- 8003a94:	781b      	ldrb	r3, [r3, #0]
- 8003a96:	429a      	cmp	r2, r3
- 8003a98:	d803      	bhi.n	8003aa2 <XcpCmdUpload+0x22>
+ 8003a50:	f7ff fc38 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003a54:	4603      	mov	r3, r0
+ 8003a56:	461a      	mov	r2, r3
+ 8003a58:	687b      	ldr	r3, [r7, #4]
+ 8003a5a:	3301      	adds	r3, #1
+ 8003a5c:	781b      	ldrb	r3, [r3, #0]
+ 8003a5e:	429a      	cmp	r2, r3
+ 8003a60:	d803      	bhi.n	8003a6a <XcpCmdUpload+0x22>
   {
     /* requested data length is too long */
     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
- 8003a9a:	2022      	movs	r0, #34	@ 0x22
- 8003a9c:	f7ff fec0 	bl	8003820 <XcpSetCtoError>
+ 8003a62:	2022      	movs	r0, #34	@ 0x22
+ 8003a64:	f7ff fecc 	bl	8003800 <XcpSetCtoError>
     return;
- 8003aa0:	e023      	b.n	8003aea <XcpCmdUpload+0x6a>
+ 8003a68:	e01f      	b.n	8003aaa <XcpCmdUpload+0x62>
   }
 
   /* read out the length of the requested upload operation */
   len = data[1];
- 8003aa2:	687b      	ldr	r3, [r7, #4]
- 8003aa4:	3301      	adds	r3, #1
- 8003aa6:	781b      	ldrb	r3, [r3, #0]
- 8003aa8:	81fb      	strh	r3, [r7, #14]
+ 8003a6a:	687b      	ldr	r3, [r7, #4]
+ 8003a6c:	3301      	adds	r3, #1
+ 8003a6e:	781b      	ldrb	r3, [r3, #0]
+ 8003a70:	81fb      	strh	r3, [r7, #14]
   /* set the destination pointer */
   destPtr = (blt_int8u *)((blt_addr)(blt_int32u)&xcpInfo.ctoData[1]);
- 8003aaa:	4b11      	ldr	r3, [pc, #68]	@ (8003af0 <XcpCmdUpload+0x70>)
- 8003aac:	60bb      	str	r3, [r7, #8]
+ 8003a72:	4b0f      	ldr	r3, [pc, #60]	@ (8003ab0 <XcpCmdUpload+0x68>)
+ 8003a74:	60bb      	str	r3, [r7, #8]
     /* copy the data from memory to the data packet */
     CpuMemCopy((blt_addr)destPtr,(blt_addr)xcpInfo.mta, len);
   }
   #else
   /* copy the data from memory to the data packet */
   CpuMemCopy((blt_addr)destPtr,(blt_addr)xcpInfo.mta, len);
- 8003aae:	68bb      	ldr	r3, [r7, #8]
- 8003ab0:	4a10      	ldr	r2, [pc, #64]	@ (8003af4 <XcpCmdUpload+0x74>)
- 8003ab2:	f8d2 1088 	ldr.w	r1, [r2, #136]	@ 0x88
- 8003ab6:	89fa      	ldrh	r2, [r7, #14]
- 8003ab8:	4618      	mov	r0, r3
- 8003aba:	f7fe ff43 	bl	8002944 <CpuMemCopy>
+ 8003a76:	68bb      	ldr	r3, [r7, #8]
+ 8003a78:	4a0e      	ldr	r2, [pc, #56]	@ (8003ab4 <XcpCmdUpload+0x6c>)
+ 8003a7a:	6911      	ldr	r1, [r2, #16]
+ 8003a7c:	89fa      	ldrh	r2, [r7, #14]
+ 8003a7e:	4618      	mov	r0, r3
+ 8003a80:	f7fe ff60 	bl	8002944 <CpuMemCopy>
   /* uploads are disabled, so return zero values for memory read operations */
   CpuMemSet((blt_addr)destPtr, 0, len);
 #endif /* XCP_UPLOAD_EN == 1 */
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003abe:	4b0d      	ldr	r3, [pc, #52]	@ (8003af4 <XcpCmdUpload+0x74>)
- 8003ac0:	22ff      	movs	r2, #255	@ 0xff
- 8003ac2:	701a      	strb	r2, [r3, #0]
+ 8003a84:	4b0b      	ldr	r3, [pc, #44]	@ (8003ab4 <XcpCmdUpload+0x6c>)
+ 8003a86:	22ff      	movs	r2, #255	@ 0xff
+ 8003a88:	701a      	strb	r2, [r3, #0]
 
   /* post increment the mta */
   xcpInfo.mta += data[1];
- 8003ac4:	4b0b      	ldr	r3, [pc, #44]	@ (8003af4 <XcpCmdUpload+0x74>)
- 8003ac6:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003aca:	687a      	ldr	r2, [r7, #4]
- 8003acc:	3201      	adds	r2, #1
- 8003ace:	7812      	ldrb	r2, [r2, #0]
- 8003ad0:	4413      	add	r3, r2
- 8003ad2:	4a08      	ldr	r2, [pc, #32]	@ (8003af4 <XcpCmdUpload+0x74>)
- 8003ad4:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8003a8a:	4b0a      	ldr	r3, [pc, #40]	@ (8003ab4 <XcpCmdUpload+0x6c>)
+ 8003a8c:	691b      	ldr	r3, [r3, #16]
+ 8003a8e:	687a      	ldr	r2, [r7, #4]
+ 8003a90:	3201      	adds	r2, #1
+ 8003a92:	7812      	ldrb	r2, [r2, #0]
+ 8003a94:	4413      	add	r3, r2
+ 8003a96:	4a07      	ldr	r2, [pc, #28]	@ (8003ab4 <XcpCmdUpload+0x6c>)
+ 8003a98:	6113      	str	r3, [r2, #16]
 
   /* set packet length */
   xcpInfo.ctoLen = data[1]+1;
- 8003ad8:	687b      	ldr	r3, [r7, #4]
- 8003ada:	3301      	adds	r3, #1
- 8003adc:	781b      	ldrb	r3, [r3, #0]
- 8003ade:	3301      	adds	r3, #1
- 8003ae0:	b29b      	uxth	r3, r3
- 8003ae2:	b21a      	sxth	r2, r3
- 8003ae4:	4b03      	ldr	r3, [pc, #12]	@ (8003af4 <XcpCmdUpload+0x74>)
- 8003ae6:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003a9a:	687b      	ldr	r3, [r7, #4]
+ 8003a9c:	3301      	adds	r3, #1
+ 8003a9e:	781b      	ldrb	r3, [r3, #0]
+ 8003aa0:	3301      	adds	r3, #1
+ 8003aa2:	b29b      	uxth	r3, r3
+ 8003aa4:	b21a      	sxth	r2, r3
+ 8003aa6:	4b03      	ldr	r3, [pc, #12]	@ (8003ab4 <XcpCmdUpload+0x6c>)
+ 8003aa8:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdUpload ***/
- 8003aea:	3710      	adds	r7, #16
- 8003aec:	46bd      	mov	sp, r7
- 8003aee:	bd80      	pop	{r7, pc}
- 8003af0:	20000535 	.word	0x20000535
- 8003af4:	20000534 	.word	0x20000534
+ 8003aaa:	3710      	adds	r7, #16
+ 8003aac:	46bd      	mov	sp, r7
+ 8003aae:	bd80      	pop	{r7, pc}
+ 8003ab0:	200004b9 	.word	0x200004b9
+ 8003ab4:	200004b8 	.word	0x200004b8
 
-08003af8 <XcpCmdShortUpload>:
+08003ab8 <XcpCmdShortUpload>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdShortUpload(blt_int8u *data)
 {
- 8003af8:	b580      	push	{r7, lr}
- 8003afa:	b084      	sub	sp, #16
- 8003afc:	af00      	add	r7, sp, #0
- 8003afe:	6078      	str	r0, [r7, #4]
+ 8003ab8:	b580      	push	{r7, lr}
+ 8003aba:	b084      	sub	sp, #16
+ 8003abc:	af00      	add	r7, sp, #0
+ 8003abe:	6078      	str	r0, [r7, #4]
   blt_int16u len;
   blt_int8u *destPtr;
 
   /* validate length of upload request */
   if (data[1] > (XCP_CTO_PACKET_LEN-1))
- 8003b00:	f7ff fbe0 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003b04:	4603      	mov	r3, r0
- 8003b06:	461a      	mov	r2, r3
- 8003b08:	687b      	ldr	r3, [r7, #4]
- 8003b0a:	3301      	adds	r3, #1
- 8003b0c:	781b      	ldrb	r3, [r3, #0]
- 8003b0e:	429a      	cmp	r2, r3
- 8003b10:	d803      	bhi.n	8003b1a <XcpCmdShortUpload+0x22>
+ 8003ac0:	f7ff fc00 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003ac4:	4603      	mov	r3, r0
+ 8003ac6:	461a      	mov	r2, r3
+ 8003ac8:	687b      	ldr	r3, [r7, #4]
+ 8003aca:	3301      	adds	r3, #1
+ 8003acc:	781b      	ldrb	r3, [r3, #0]
+ 8003ace:	429a      	cmp	r2, r3
+ 8003ad0:	d803      	bhi.n	8003ada <XcpCmdShortUpload+0x22>
   {
     /* requested data length is too long */
     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
- 8003b12:	2022      	movs	r0, #34	@ 0x22
- 8003b14:	f7ff fe84 	bl	8003820 <XcpSetCtoError>
+ 8003ad2:	2022      	movs	r0, #34	@ 0x22
+ 8003ad4:	f7ff fe94 	bl	8003800 <XcpSetCtoError>
     return;
- 8003b18:	e02c      	b.n	8003b74 <XcpCmdShortUpload+0x7c>
+ 8003ad8:	e027      	b.n	8003b2a <XcpCmdShortUpload+0x72>
   }
 
   /* update mta. current implementation ignores address extension */
   xcpInfo.mta = XcpGetOrderedLong(&data[4]);
- 8003b1a:	687b      	ldr	r3, [r7, #4]
- 8003b1c:	3304      	adds	r3, #4
- 8003b1e:	4618      	mov	r0, r3
- 8003b20:	f7ff fe96 	bl	8003850 <XcpGetOrderedLong>
- 8003b24:	4603      	mov	r3, r0
- 8003b26:	4a15      	ldr	r2, [pc, #84]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b28:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8003ada:	687b      	ldr	r3, [r7, #4]
+ 8003adc:	3304      	adds	r3, #4
+ 8003ade:	4618      	mov	r0, r3
+ 8003ae0:	f7ff fea4 	bl	800382c <XcpGetOrderedLong>
+ 8003ae4:	4603      	mov	r3, r0
+ 8003ae6:	4a12      	ldr	r2, [pc, #72]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003ae8:	6113      	str	r3, [r2, #16]
   /* read out the length of the requested upload operation */
   len = data[1];
- 8003b2c:	687b      	ldr	r3, [r7, #4]
- 8003b2e:	3301      	adds	r3, #1
- 8003b30:	781b      	ldrb	r3, [r3, #0]
- 8003b32:	81fb      	strh	r3, [r7, #14]
+ 8003aea:	687b      	ldr	r3, [r7, #4]
+ 8003aec:	3301      	adds	r3, #1
+ 8003aee:	781b      	ldrb	r3, [r3, #0]
+ 8003af0:	81fb      	strh	r3, [r7, #14]
   /* set the destination pointer */
   destPtr = (blt_int8u *)((blt_addr)(blt_int32u)&xcpInfo.ctoData[1]);
- 8003b34:	4b12      	ldr	r3, [pc, #72]	@ (8003b80 <XcpCmdShortUpload+0x88>)
- 8003b36:	60bb      	str	r3, [r7, #8]
+ 8003af2:	4b10      	ldr	r3, [pc, #64]	@ (8003b34 <XcpCmdShortUpload+0x7c>)
+ 8003af4:	60bb      	str	r3, [r7, #8]
     /* copy the data from memory to the data packet */
     CpuMemCopy((blt_addr)destPtr,(blt_addr)xcpInfo.mta, len);
   }
   #else
   /* copy the data from memory to the data packet */
   CpuMemCopy((blt_addr)destPtr,(blt_addr)xcpInfo.mta, len);
- 8003b38:	68bb      	ldr	r3, [r7, #8]
- 8003b3a:	4a10      	ldr	r2, [pc, #64]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b3c:	f8d2 1088 	ldr.w	r1, [r2, #136]	@ 0x88
- 8003b40:	89fa      	ldrh	r2, [r7, #14]
- 8003b42:	4618      	mov	r0, r3
- 8003b44:	f7fe fefe 	bl	8002944 <CpuMemCopy>
+ 8003af6:	68bb      	ldr	r3, [r7, #8]
+ 8003af8:	4a0d      	ldr	r2, [pc, #52]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003afa:	6911      	ldr	r1, [r2, #16]
+ 8003afc:	89fa      	ldrh	r2, [r7, #14]
+ 8003afe:	4618      	mov	r0, r3
+ 8003b00:	f7fe ff20 	bl	8002944 <CpuMemCopy>
   /* uploads are disabled, so return zero values for memory read operations */
   CpuMemSet((blt_addr)destPtr, 0, len);
 #endif /* XCP_UPLOAD_EN == 1 */
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003b48:	4b0c      	ldr	r3, [pc, #48]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b4a:	22ff      	movs	r2, #255	@ 0xff
- 8003b4c:	701a      	strb	r2, [r3, #0]
+ 8003b04:	4b0a      	ldr	r3, [pc, #40]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003b06:	22ff      	movs	r2, #255	@ 0xff
+ 8003b08:	701a      	strb	r2, [r3, #0]
 
   /* post increment the mta */
   xcpInfo.mta += data[1];
- 8003b4e:	4b0b      	ldr	r3, [pc, #44]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b50:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003b54:	687a      	ldr	r2, [r7, #4]
- 8003b56:	3201      	adds	r2, #1
- 8003b58:	7812      	ldrb	r2, [r2, #0]
- 8003b5a:	4413      	add	r3, r2
- 8003b5c:	4a07      	ldr	r2, [pc, #28]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b5e:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8003b0a:	4b09      	ldr	r3, [pc, #36]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003b0c:	691b      	ldr	r3, [r3, #16]
+ 8003b0e:	687a      	ldr	r2, [r7, #4]
+ 8003b10:	3201      	adds	r2, #1
+ 8003b12:	7812      	ldrb	r2, [r2, #0]
+ 8003b14:	4413      	add	r3, r2
+ 8003b16:	4a06      	ldr	r2, [pc, #24]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003b18:	6113      	str	r3, [r2, #16]
 
   /* set packet length */
   xcpInfo.ctoLen = data[1]+1;
- 8003b62:	687b      	ldr	r3, [r7, #4]
- 8003b64:	3301      	adds	r3, #1
- 8003b66:	781b      	ldrb	r3, [r3, #0]
- 8003b68:	3301      	adds	r3, #1
- 8003b6a:	b29b      	uxth	r3, r3
- 8003b6c:	b21a      	sxth	r2, r3
- 8003b6e:	4b03      	ldr	r3, [pc, #12]	@ (8003b7c <XcpCmdShortUpload+0x84>)
- 8003b70:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003b1a:	687b      	ldr	r3, [r7, #4]
+ 8003b1c:	3301      	adds	r3, #1
+ 8003b1e:	781b      	ldrb	r3, [r3, #0]
+ 8003b20:	3301      	adds	r3, #1
+ 8003b22:	b29b      	uxth	r3, r3
+ 8003b24:	b21a      	sxth	r2, r3
+ 8003b26:	4b02      	ldr	r3, [pc, #8]	@ (8003b30 <XcpCmdShortUpload+0x78>)
+ 8003b28:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdShortUpload ***/
- 8003b74:	3710      	adds	r7, #16
- 8003b76:	46bd      	mov	sp, r7
- 8003b78:	bd80      	pop	{r7, pc}
- 8003b7a:	bf00      	nop
- 8003b7c:	20000534 	.word	0x20000534
- 8003b80:	20000535 	.word	0x20000535
+ 8003b2a:	3710      	adds	r7, #16
+ 8003b2c:	46bd      	mov	sp, r7
+ 8003b2e:	bd80      	pop	{r7, pc}
+ 8003b30:	200004b8 	.word	0x200004b8
+ 8003b34:	200004b9 	.word	0x200004b9
 
-08003b84 <XcpCmdBuildCheckSum>:
+08003b38 <XcpCmdBuildCheckSum>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdBuildCheckSum(blt_int8u *data)
 {
- 8003b84:	b580      	push	{r7, lr}
- 8003b86:	b086      	sub	sp, #24
- 8003b88:	af00      	add	r7, sp, #0
- 8003b8a:	6078      	str	r0, [r7, #4]
+ 8003b38:	b580      	push	{r7, lr}
+ 8003b3a:	b086      	sub	sp, #24
+ 8003b3c:	af00      	add	r7, sp, #0
+ 8003b3e:	6078      	str	r0, [r7, #4]
   blt_int32u checksumLen;
   blt_int32u checksumVal = 0;
- 8003b8c:	2300      	movs	r3, #0
- 8003b8e:	60fb      	str	r3, [r7, #12]
+ 8003b40:	2300      	movs	r3, #0
+ 8003b42:	60fb      	str	r3, [r7, #12]
   blt_int8u  checksumType;
   
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003b90:	4b14      	ldr	r3, [pc, #80]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003b92:	22ff      	movs	r2, #255	@ 0xff
- 8003b94:	701a      	strb	r2, [r3, #0]
+ 8003b44:	4b13      	ldr	r3, [pc, #76]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b46:	22ff      	movs	r2, #255	@ 0xff
+ 8003b48:	701a      	strb	r2, [r3, #0]
 
   /* obtain checksum and checksum type */
   checksumLen = XcpGetOrderedLong(&data[4]);
- 8003b96:	687b      	ldr	r3, [r7, #4]
- 8003b98:	3304      	adds	r3, #4
- 8003b9a:	4618      	mov	r0, r3
- 8003b9c:	f7ff fe58 	bl	8003850 <XcpGetOrderedLong>
- 8003ba0:	6178      	str	r0, [r7, #20]
+ 8003b4a:	687b      	ldr	r3, [r7, #4]
+ 8003b4c:	3304      	adds	r3, #4
+ 8003b4e:	4618      	mov	r0, r3
+ 8003b50:	f7ff fe6c 	bl	800382c <XcpGetOrderedLong>
+ 8003b54:	6178      	str	r0, [r7, #20]
   checksumType = XcpComputeChecksum(xcpInfo.mta, checksumLen, &checksumVal);
- 8003ba2:	4b10      	ldr	r3, [pc, #64]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003ba4:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003ba8:	f107 020c 	add.w	r2, r7, #12
- 8003bac:	6979      	ldr	r1, [r7, #20]
- 8003bae:	4618      	mov	r0, r3
- 8003bb0:	f7ff fe07 	bl	80037c2 <XcpComputeChecksum>
- 8003bb4:	4603      	mov	r3, r0
- 8003bb6:	74fb      	strb	r3, [r7, #19]
+ 8003b56:	4b0f      	ldr	r3, [pc, #60]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b58:	691b      	ldr	r3, [r3, #16]
+ 8003b5a:	f107 020c 	add.w	r2, r7, #12
+ 8003b5e:	6979      	ldr	r1, [r7, #20]
+ 8003b60:	4618      	mov	r0, r3
+ 8003b62:	f7ff fe20 	bl	80037a6 <XcpComputeChecksum>
+ 8003b66:	4603      	mov	r3, r0
+ 8003b68:	74fb      	strb	r3, [r7, #19]
   xcpInfo.ctoData[1] = checksumType;
- 8003bb8:	4a0a      	ldr	r2, [pc, #40]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003bba:	7cfb      	ldrb	r3, [r7, #19]
- 8003bbc:	7053      	strb	r3, [r2, #1]
+ 8003b6a:	4a0a      	ldr	r2, [pc, #40]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b6c:	7cfb      	ldrb	r3, [r7, #19]
+ 8003b6e:	7053      	strb	r3, [r2, #1]
   XcpSetOrderedLong(checksumVal, &xcpInfo.ctoData[4]);
- 8003bbe:	68fb      	ldr	r3, [r7, #12]
- 8003bc0:	4909      	ldr	r1, [pc, #36]	@ (8003be8 <XcpCmdBuildCheckSum+0x64>)
- 8003bc2:	4618      	mov	r0, r3
- 8003bc4:	f7ff fe6c 	bl	80038a0 <XcpSetOrderedLong>
+ 8003b70:	68fb      	ldr	r3, [r7, #12]
+ 8003b72:	4909      	ldr	r1, [pc, #36]	@ (8003b98 <XcpCmdBuildCheckSum+0x60>)
+ 8003b74:	4618      	mov	r0, r3
+ 8003b76:	f7ff fe81 	bl	800387c <XcpSetOrderedLong>
 
   /* initialize reserved parameters */
   xcpInfo.ctoData[2] = 0;
- 8003bc8:	4b06      	ldr	r3, [pc, #24]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003bca:	2200      	movs	r2, #0
- 8003bcc:	709a      	strb	r2, [r3, #2]
+ 8003b7a:	4b06      	ldr	r3, [pc, #24]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b7c:	2200      	movs	r2, #0
+ 8003b7e:	709a      	strb	r2, [r3, #2]
   xcpInfo.ctoData[3] = 0;
- 8003bce:	4b05      	ldr	r3, [pc, #20]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003bd0:	2200      	movs	r2, #0
- 8003bd2:	70da      	strb	r2, [r3, #3]
+ 8003b80:	4b04      	ldr	r3, [pc, #16]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b82:	2200      	movs	r2, #0
+ 8003b84:	70da      	strb	r2, [r3, #3]
 
   /* set packet length */
   xcpInfo.ctoLen = 8;
- 8003bd4:	4b03      	ldr	r3, [pc, #12]	@ (8003be4 <XcpCmdBuildCheckSum+0x60>)
- 8003bd6:	2208      	movs	r2, #8
- 8003bd8:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003b86:	4b03      	ldr	r3, [pc, #12]	@ (8003b94 <XcpCmdBuildCheckSum+0x5c>)
+ 8003b88:	2208      	movs	r2, #8
+ 8003b8a:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdBuildCheckSum ***/
- 8003bdc:	bf00      	nop
- 8003bde:	3718      	adds	r7, #24
- 8003be0:	46bd      	mov	sp, r7
- 8003be2:	bd80      	pop	{r7, pc}
- 8003be4:	20000534 	.word	0x20000534
- 8003be8:	20000538 	.word	0x20000538
+ 8003b8c:	bf00      	nop
+ 8003b8e:	3718      	adds	r7, #24
+ 8003b90:	46bd      	mov	sp, r7
+ 8003b92:	bd80      	pop	{r7, pc}
+ 8003b94:	200004b8 	.word	0x200004b8
+ 8003b98:	200004bc 	.word	0x200004bc
 
-08003bec <XcpCmdProgramStart>:
+08003b9c <XcpCmdProgramStart>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgramStart(blt_int8u *data)
 {
- 8003bec:	b580      	push	{r7, lr}
- 8003bee:	b082      	sub	sp, #8
- 8003bf0:	af00      	add	r7, sp, #0
- 8003bf2:	6078      	str	r0, [r7, #4]
+ 8003b9c:	b580      	push	{r7, lr}
+ 8003b9e:	b082      	sub	sp, #8
+ 8003ba0:	af00      	add	r7, sp, #0
+ 8003ba2:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003bf4:	4b0f      	ldr	r3, [pc, #60]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003bf6:	22ff      	movs	r2, #255	@ 0xff
- 8003bf8:	701a      	strb	r2, [r3, #0]
+ 8003ba4:	4b0f      	ldr	r3, [pc, #60]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003ba6:	22ff      	movs	r2, #255	@ 0xff
+ 8003ba8:	701a      	strb	r2, [r3, #0]
 
   /* initialize reserved parameter */
   xcpInfo.ctoData[1] = 0;
- 8003bfa:	4b0e      	ldr	r3, [pc, #56]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003bfc:	2200      	movs	r2, #0
- 8003bfe:	705a      	strb	r2, [r3, #1]
+ 8003baa:	4b0e      	ldr	r3, [pc, #56]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bac:	2200      	movs	r2, #0
+ 8003bae:	705a      	strb	r2, [r3, #1]
 
   /* no special communication mode supported during programming */
   xcpInfo.ctoData[2] = 0;
- 8003c00:	4b0c      	ldr	r3, [pc, #48]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c02:	2200      	movs	r2, #0
- 8003c04:	709a      	strb	r2, [r3, #2]
+ 8003bb0:	4b0c      	ldr	r3, [pc, #48]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bb2:	2200      	movs	r2, #0
+ 8003bb4:	709a      	strb	r2, [r3, #2]
 
   /* cto packet length stays the same during programming */
   xcpInfo.ctoData[3] = (blt_int8u)XCP_CTO_PACKET_LEN;
- 8003c06:	f7ff fb5d 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003c0a:	4603      	mov	r3, r0
- 8003c0c:	b2da      	uxtb	r2, r3
- 8003c0e:	4b09      	ldr	r3, [pc, #36]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c10:	70da      	strb	r2, [r3, #3]
+ 8003bb6:	f7ff fb85 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003bba:	4603      	mov	r3, r0
+ 8003bbc:	b2da      	uxtb	r2, r3
+ 8003bbe:	4b09      	ldr	r3, [pc, #36]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bc0:	70da      	strb	r2, [r3, #3]
 
   /* no block size, st-min time, or queue size supported */
   xcpInfo.ctoData[4] = 0;
- 8003c12:	4b08      	ldr	r3, [pc, #32]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c14:	2200      	movs	r2, #0
- 8003c16:	711a      	strb	r2, [r3, #4]
+ 8003bc2:	4b08      	ldr	r3, [pc, #32]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bc4:	2200      	movs	r2, #0
+ 8003bc6:	711a      	strb	r2, [r3, #4]
   xcpInfo.ctoData[5] = 0;
- 8003c18:	4b06      	ldr	r3, [pc, #24]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c1a:	2200      	movs	r2, #0
- 8003c1c:	715a      	strb	r2, [r3, #5]
+ 8003bc8:	4b06      	ldr	r3, [pc, #24]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bca:	2200      	movs	r2, #0
+ 8003bcc:	715a      	strb	r2, [r3, #5]
   xcpInfo.ctoData[6] = 0;
- 8003c1e:	4b05      	ldr	r3, [pc, #20]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c20:	2200      	movs	r2, #0
- 8003c22:	719a      	strb	r2, [r3, #6]
+ 8003bce:	4b05      	ldr	r3, [pc, #20]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bd0:	2200      	movs	r2, #0
+ 8003bd2:	719a      	strb	r2, [r3, #6]
 
   /* set packet length */
   xcpInfo.ctoLen = 7;
- 8003c24:	4b03      	ldr	r3, [pc, #12]	@ (8003c34 <XcpCmdProgramStart+0x48>)
- 8003c26:	2207      	movs	r2, #7
- 8003c28:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003bd4:	4b03      	ldr	r3, [pc, #12]	@ (8003be4 <XcpCmdProgramStart+0x48>)
+ 8003bd6:	2207      	movs	r2, #7
+ 8003bd8:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdProgramStart ***/
- 8003c2c:	bf00      	nop
- 8003c2e:	3708      	adds	r7, #8
- 8003c30:	46bd      	mov	sp, r7
- 8003c32:	bd80      	pop	{r7, pc}
- 8003c34:	20000534 	.word	0x20000534
+ 8003bda:	bf00      	nop
+ 8003bdc:	3708      	adds	r7, #8
+ 8003bde:	46bd      	mov	sp, r7
+ 8003be0:	bd80      	pop	{r7, pc}
+ 8003be2:	bf00      	nop
+ 8003be4:	200004b8 	.word	0x200004b8
 
-08003c38 <XcpCmdProgramMax>:
+08003be8 <XcpCmdProgramMax>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgramMax(blt_int8u *data)
 {
- 8003c38:	b590      	push	{r4, r7, lr}
- 8003c3a:	b083      	sub	sp, #12
- 8003c3c:	af00      	add	r7, sp, #0
- 8003c3e:	6078      	str	r0, [r7, #4]
+ 8003be8:	b590      	push	{r4, r7, lr}
+ 8003bea:	b083      	sub	sp, #12
+ 8003bec:	af00      	add	r7, sp, #0
+ 8003bee:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* program the data */
   if (NvmWrite((blt_addr)xcpInfo.mta, XCP_CTO_PACKET_LEN-1, &data[1]) == BLT_FALSE)
- 8003c40:	4b14      	ldr	r3, [pc, #80]	@ (8003c94 <XcpCmdProgramMax+0x5c>)
- 8003c42:	f8d3 4088 	ldr.w	r4, [r3, #136]	@ 0x88
- 8003c46:	f7ff fb3d 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003c4a:	4603      	mov	r3, r0
- 8003c4c:	3b01      	subs	r3, #1
- 8003c4e:	4619      	mov	r1, r3
- 8003c50:	687b      	ldr	r3, [r7, #4]
- 8003c52:	3301      	adds	r3, #1
- 8003c54:	461a      	mov	r2, r3
- 8003c56:	4620      	mov	r0, r4
- 8003c58:	f7ff f927 	bl	8002eaa <NvmWrite>
- 8003c5c:	4603      	mov	r3, r0
- 8003c5e:	2b00      	cmp	r3, #0
- 8003c60:	d103      	bne.n	8003c6a <XcpCmdProgramMax+0x32>
+ 8003bf0:	4b12      	ldr	r3, [pc, #72]	@ (8003c3c <XcpCmdProgramMax+0x54>)
+ 8003bf2:	691c      	ldr	r4, [r3, #16]
+ 8003bf4:	f7ff fb66 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003bf8:	4603      	mov	r3, r0
+ 8003bfa:	3b01      	subs	r3, #1
+ 8003bfc:	4619      	mov	r1, r3
+ 8003bfe:	687b      	ldr	r3, [r7, #4]
+ 8003c00:	3301      	adds	r3, #1
+ 8003c02:	461a      	mov	r2, r3
+ 8003c04:	4620      	mov	r0, r4
+ 8003c06:	f7ff f950 	bl	8002eaa <NvmWrite>
+ 8003c0a:	4603      	mov	r3, r0
+ 8003c0c:	2b00      	cmp	r3, #0
+ 8003c0e:	d103      	bne.n	8003c18 <XcpCmdProgramMax+0x30>
   {
     /* error occurred during programming */
     XcpSetCtoError(XCP_ERR_GENERIC);
- 8003c62:	2031      	movs	r0, #49	@ 0x31
- 8003c64:	f7ff fddc 	bl	8003820 <XcpSetCtoError>
+ 8003c10:	2031      	movs	r0, #49	@ 0x31
+ 8003c12:	f7ff fdf5 	bl	8003800 <XcpSetCtoError>
     return;
- 8003c68:	e011      	b.n	8003c8e <XcpCmdProgramMax+0x56>
+ 8003c16:	e00e      	b.n	8003c36 <XcpCmdProgramMax+0x4e>
   }
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003c6a:	4b0a      	ldr	r3, [pc, #40]	@ (8003c94 <XcpCmdProgramMax+0x5c>)
- 8003c6c:	22ff      	movs	r2, #255	@ 0xff
- 8003c6e:	701a      	strb	r2, [r3, #0]
+ 8003c18:	4b08      	ldr	r3, [pc, #32]	@ (8003c3c <XcpCmdProgramMax+0x54>)
+ 8003c1a:	22ff      	movs	r2, #255	@ 0xff
+ 8003c1c:	701a      	strb	r2, [r3, #0]
 
   /* post increment the mta */
   xcpInfo.mta += XCP_CTO_PACKET_LEN-1;
- 8003c70:	f7ff fb28 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003c74:	4603      	mov	r3, r0
- 8003c76:	1e5a      	subs	r2, r3, #1
- 8003c78:	4b06      	ldr	r3, [pc, #24]	@ (8003c94 <XcpCmdProgramMax+0x5c>)
- 8003c7a:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003c7e:	4413      	add	r3, r2
- 8003c80:	4a04      	ldr	r2, [pc, #16]	@ (8003c94 <XcpCmdProgramMax+0x5c>)
- 8003c82:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8003c1e:	f7ff fb51 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003c22:	4603      	mov	r3, r0
+ 8003c24:	1e5a      	subs	r2, r3, #1
+ 8003c26:	4b05      	ldr	r3, [pc, #20]	@ (8003c3c <XcpCmdProgramMax+0x54>)
+ 8003c28:	691b      	ldr	r3, [r3, #16]
+ 8003c2a:	4413      	add	r3, r2
+ 8003c2c:	4a03      	ldr	r2, [pc, #12]	@ (8003c3c <XcpCmdProgramMax+0x54>)
+ 8003c2e:	6113      	str	r3, [r2, #16]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003c86:	4b03      	ldr	r3, [pc, #12]	@ (8003c94 <XcpCmdProgramMax+0x5c>)
- 8003c88:	2201      	movs	r2, #1
- 8003c8a:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003c30:	4b02      	ldr	r3, [pc, #8]	@ (8003c3c <XcpCmdProgramMax+0x54>)
+ 8003c32:	2201      	movs	r2, #1
+ 8003c34:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdProgramMax ***/
- 8003c8e:	370c      	adds	r7, #12
- 8003c90:	46bd      	mov	sp, r7
- 8003c92:	bd90      	pop	{r4, r7, pc}
- 8003c94:	20000534 	.word	0x20000534
+ 8003c36:	370c      	adds	r7, #12
+ 8003c38:	46bd      	mov	sp, r7
+ 8003c3a:	bd90      	pop	{r4, r7, pc}
+ 8003c3c:	200004b8 	.word	0x200004b8
 
-08003c98 <XcpCmdProgram>:
+08003c40 <XcpCmdProgram>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgram(blt_int8u *data)
 {
- 8003c98:	b580      	push	{r7, lr}
- 8003c9a:	b082      	sub	sp, #8
- 8003c9c:	af00      	add	r7, sp, #0
- 8003c9e:	6078      	str	r0, [r7, #4]
+ 8003c40:	b580      	push	{r7, lr}
+ 8003c42:	b082      	sub	sp, #8
+ 8003c44:	af00      	add	r7, sp, #0
+ 8003c46:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* validate length of download request */
   if (data[1] > (XCP_CTO_PACKET_LEN-2))
- 8003ca0:	f7ff fb10 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003ca4:	4603      	mov	r3, r0
- 8003ca6:	3b01      	subs	r3, #1
- 8003ca8:	687a      	ldr	r2, [r7, #4]
- 8003caa:	3201      	adds	r2, #1
- 8003cac:	7812      	ldrb	r2, [r2, #0]
- 8003cae:	4293      	cmp	r3, r2
- 8003cb0:	dc03      	bgt.n	8003cba <XcpCmdProgram+0x22>
+ 8003c48:	f7ff fb3c 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003c4c:	4603      	mov	r3, r0
+ 8003c4e:	3b01      	subs	r3, #1
+ 8003c50:	687a      	ldr	r2, [r7, #4]
+ 8003c52:	3201      	adds	r2, #1
+ 8003c54:	7812      	ldrb	r2, [r2, #0]
+ 8003c56:	4293      	cmp	r3, r2
+ 8003c58:	dc03      	bgt.n	8003c62 <XcpCmdProgram+0x22>
   {
     /* requested data length is too long */
     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
- 8003cb2:	2022      	movs	r0, #34	@ 0x22
- 8003cb4:	f7ff fdb4 	bl	8003820 <XcpSetCtoError>
+ 8003c5a:	2022      	movs	r0, #34	@ 0x22
+ 8003c5c:	f7ff fdd0 	bl	8003800 <XcpSetCtoError>
     return;
- 8003cb8:	e033      	b.n	8003d22 <XcpCmdProgram+0x8a>
+ 8003c60:	e02f      	b.n	8003cc2 <XcpCmdProgram+0x82>
   }
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003cba:	4b1b      	ldr	r3, [pc, #108]	@ (8003d28 <XcpCmdProgram+0x90>)
- 8003cbc:	22ff      	movs	r2, #255	@ 0xff
- 8003cbe:	701a      	strb	r2, [r3, #0]
+ 8003c62:	4b19      	ldr	r3, [pc, #100]	@ (8003cc8 <XcpCmdProgram+0x88>)
+ 8003c64:	22ff      	movs	r2, #255	@ 0xff
+ 8003c66:	701a      	strb	r2, [r3, #0]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003cc0:	4b19      	ldr	r3, [pc, #100]	@ (8003d28 <XcpCmdProgram+0x90>)
- 8003cc2:	2201      	movs	r2, #1
- 8003cc4:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003c68:	4b17      	ldr	r3, [pc, #92]	@ (8003cc8 <XcpCmdProgram+0x88>)
+ 8003c6a:	2201      	movs	r2, #1
+ 8003c6c:	819a      	strh	r2, [r3, #12]
 
   /* end of programming sequence (datasize is 0)? */
   if (data[1] == 0)
- 8003cc8:	687b      	ldr	r3, [r7, #4]
- 8003cca:	3301      	adds	r3, #1
- 8003ccc:	781b      	ldrb	r3, [r3, #0]
- 8003cce:	2b00      	cmp	r3, #0
- 8003cd0:	d108      	bne.n	8003ce4 <XcpCmdProgram+0x4c>
+ 8003c6e:	687b      	ldr	r3, [r7, #4]
+ 8003c70:	3301      	adds	r3, #1
+ 8003c72:	781b      	ldrb	r3, [r3, #0]
+ 8003c74:	2b00      	cmp	r3, #0
+ 8003c76:	d108      	bne.n	8003c8a <XcpCmdProgram+0x4a>
   {
     /* call erase/programming cleanup routine */
     if (NvmDone() == BLT_FALSE)
- 8003cd2:	f7ff f916 	bl	8002f02 <NvmDone>
- 8003cd6:	4603      	mov	r3, r0
- 8003cd8:	2b00      	cmp	r3, #0
- 8003cda:	d121      	bne.n	8003d20 <XcpCmdProgram+0x88>
+ 8003c78:	f7ff f943 	bl	8002f02 <NvmDone>
+ 8003c7c:	4603      	mov	r3, r0
+ 8003c7e:	2b00      	cmp	r3, #0
+ 8003c80:	d11e      	bne.n	8003cc0 <XcpCmdProgram+0x80>
     {
       /* error occurred while finishing up programming */
       XcpSetCtoError(XCP_ERR_GENERIC);
- 8003cdc:	2031      	movs	r0, #49	@ 0x31
- 8003cde:	f7ff fd9f 	bl	8003820 <XcpSetCtoError>
+ 8003c82:	2031      	movs	r0, #49	@ 0x31
+ 8003c84:	f7ff fdbc 	bl	8003800 <XcpSetCtoError>
     }
     return;
- 8003ce2:	e01d      	b.n	8003d20 <XcpCmdProgram+0x88>
+ 8003c88:	e01a      	b.n	8003cc0 <XcpCmdProgram+0x80>
   }
   /* program the data */
   if (NvmWrite((blt_addr)xcpInfo.mta, data[1], &data[2]) == BLT_FALSE)
- 8003ce4:	4b10      	ldr	r3, [pc, #64]	@ (8003d28 <XcpCmdProgram+0x90>)
- 8003ce6:	f8d3 0088 	ldr.w	r0, [r3, #136]	@ 0x88
- 8003cea:	687b      	ldr	r3, [r7, #4]
- 8003cec:	3301      	adds	r3, #1
- 8003cee:	781b      	ldrb	r3, [r3, #0]
- 8003cf0:	4619      	mov	r1, r3
- 8003cf2:	687b      	ldr	r3, [r7, #4]
- 8003cf4:	3302      	adds	r3, #2
- 8003cf6:	461a      	mov	r2, r3
- 8003cf8:	f7ff f8d7 	bl	8002eaa <NvmWrite>
- 8003cfc:	4603      	mov	r3, r0
- 8003cfe:	2b00      	cmp	r3, #0
- 8003d00:	d103      	bne.n	8003d0a <XcpCmdProgram+0x72>
+ 8003c8a:	4b0f      	ldr	r3, [pc, #60]	@ (8003cc8 <XcpCmdProgram+0x88>)
+ 8003c8c:	6918      	ldr	r0, [r3, #16]
+ 8003c8e:	687b      	ldr	r3, [r7, #4]
+ 8003c90:	3301      	adds	r3, #1
+ 8003c92:	781b      	ldrb	r3, [r3, #0]
+ 8003c94:	4619      	mov	r1, r3
+ 8003c96:	687b      	ldr	r3, [r7, #4]
+ 8003c98:	3302      	adds	r3, #2
+ 8003c9a:	461a      	mov	r2, r3
+ 8003c9c:	f7ff f905 	bl	8002eaa <NvmWrite>
+ 8003ca0:	4603      	mov	r3, r0
+ 8003ca2:	2b00      	cmp	r3, #0
+ 8003ca4:	d103      	bne.n	8003cae <XcpCmdProgram+0x6e>
   {
     /* error occurred during programming */
     XcpSetCtoError(XCP_ERR_GENERIC);
- 8003d02:	2031      	movs	r0, #49	@ 0x31
- 8003d04:	f7ff fd8c 	bl	8003820 <XcpSetCtoError>
+ 8003ca6:	2031      	movs	r0, #49	@ 0x31
+ 8003ca8:	f7ff fdaa 	bl	8003800 <XcpSetCtoError>
     return;
- 8003d08:	e00b      	b.n	8003d22 <XcpCmdProgram+0x8a>
+ 8003cac:	e009      	b.n	8003cc2 <XcpCmdProgram+0x82>
   }
 
   /* post increment the mta */
   xcpInfo.mta += data[1];
- 8003d0a:	4b07      	ldr	r3, [pc, #28]	@ (8003d28 <XcpCmdProgram+0x90>)
- 8003d0c:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003d10:	687a      	ldr	r2, [r7, #4]
- 8003d12:	3201      	adds	r2, #1
- 8003d14:	7812      	ldrb	r2, [r2, #0]
- 8003d16:	4413      	add	r3, r2
- 8003d18:	4a03      	ldr	r2, [pc, #12]	@ (8003d28 <XcpCmdProgram+0x90>)
- 8003d1a:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
- 8003d1e:	e000      	b.n	8003d22 <XcpCmdProgram+0x8a>
+ 8003cae:	4b06      	ldr	r3, [pc, #24]	@ (8003cc8 <XcpCmdProgram+0x88>)
+ 8003cb0:	691b      	ldr	r3, [r3, #16]
+ 8003cb2:	687a      	ldr	r2, [r7, #4]
+ 8003cb4:	3201      	adds	r2, #1
+ 8003cb6:	7812      	ldrb	r2, [r2, #0]
+ 8003cb8:	4413      	add	r3, r2
+ 8003cba:	4a03      	ldr	r2, [pc, #12]	@ (8003cc8 <XcpCmdProgram+0x88>)
+ 8003cbc:	6113      	str	r3, [r2, #16]
+ 8003cbe:	e000      	b.n	8003cc2 <XcpCmdProgram+0x82>
     return;
- 8003d20:	bf00      	nop
+ 8003cc0:	bf00      	nop
 } /*** end of XcpCmdProgram ***/
- 8003d22:	3708      	adds	r7, #8
- 8003d24:	46bd      	mov	sp, r7
- 8003d26:	bd80      	pop	{r7, pc}
- 8003d28:	20000534 	.word	0x20000534
+ 8003cc2:	3708      	adds	r7, #8
+ 8003cc4:	46bd      	mov	sp, r7
+ 8003cc6:	bd80      	pop	{r7, pc}
+ 8003cc8:	200004b8 	.word	0x200004b8
 
-08003d2c <XcpCmdProgramClear>:
+08003ccc <XcpCmdProgramClear>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgramClear(blt_int8u *data)
 {
- 8003d2c:	b580      	push	{r7, lr}
- 8003d2e:	b084      	sub	sp, #16
- 8003d30:	af00      	add	r7, sp, #0
- 8003d32:	6078      	str	r0, [r7, #4]
+ 8003ccc:	b580      	push	{r7, lr}
+ 8003cce:	b084      	sub	sp, #16
+ 8003cd0:	af00      	add	r7, sp, #0
+ 8003cd2:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* erase the memory */
   eraseAddr = xcpInfo.mta;
- 8003d34:	4b0f      	ldr	r3, [pc, #60]	@ (8003d74 <XcpCmdProgramClear+0x48>)
- 8003d36:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 8003d3a:	60fb      	str	r3, [r7, #12]
+ 8003cd4:	4b0e      	ldr	r3, [pc, #56]	@ (8003d10 <XcpCmdProgramClear+0x44>)
+ 8003cd6:	691b      	ldr	r3, [r3, #16]
+ 8003cd8:	60fb      	str	r3, [r7, #12]
   eraseLen = XcpGetOrderedLong(&data[4]);
- 8003d3c:	687b      	ldr	r3, [r7, #4]
- 8003d3e:	3304      	adds	r3, #4
- 8003d40:	4618      	mov	r0, r3
- 8003d42:	f7ff fd85 	bl	8003850 <XcpGetOrderedLong>
- 8003d46:	60b8      	str	r0, [r7, #8]
+ 8003cda:	687b      	ldr	r3, [r7, #4]
+ 8003cdc:	3304      	adds	r3, #4
+ 8003cde:	4618      	mov	r0, r3
+ 8003ce0:	f7ff fda4 	bl	800382c <XcpGetOrderedLong>
+ 8003ce4:	60b8      	str	r0, [r7, #8]
   if (NvmErase(eraseAddr, eraseLen) == BLT_FALSE)
- 8003d48:	68b9      	ldr	r1, [r7, #8]
- 8003d4a:	68f8      	ldr	r0, [r7, #12]
- 8003d4c:	f7ff f8bd 	bl	8002eca <NvmErase>
- 8003d50:	4603      	mov	r3, r0
- 8003d52:	2b00      	cmp	r3, #0
- 8003d54:	d103      	bne.n	8003d5e <XcpCmdProgramClear+0x32>
+ 8003ce6:	68b9      	ldr	r1, [r7, #8]
+ 8003ce8:	68f8      	ldr	r0, [r7, #12]
+ 8003cea:	f7ff f8ee 	bl	8002eca <NvmErase>
+ 8003cee:	4603      	mov	r3, r0
+ 8003cf0:	2b00      	cmp	r3, #0
+ 8003cf2:	d103      	bne.n	8003cfc <XcpCmdProgramClear+0x30>
   {
     /* error occurred during erasure */
     XcpSetCtoError(XCP_ERR_GENERIC);
- 8003d56:	2031      	movs	r0, #49	@ 0x31
- 8003d58:	f7ff fd62 	bl	8003820 <XcpSetCtoError>
+ 8003cf4:	2031      	movs	r0, #49	@ 0x31
+ 8003cf6:	f7ff fd83 	bl	8003800 <XcpSetCtoError>
     return;
- 8003d5c:	e006      	b.n	8003d6c <XcpCmdProgramClear+0x40>
+ 8003cfa:	e005      	b.n	8003d08 <XcpCmdProgramClear+0x3c>
   }
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003d5e:	4b05      	ldr	r3, [pc, #20]	@ (8003d74 <XcpCmdProgramClear+0x48>)
- 8003d60:	22ff      	movs	r2, #255	@ 0xff
- 8003d62:	701a      	strb	r2, [r3, #0]
+ 8003cfc:	4b04      	ldr	r3, [pc, #16]	@ (8003d10 <XcpCmdProgramClear+0x44>)
+ 8003cfe:	22ff      	movs	r2, #255	@ 0xff
+ 8003d00:	701a      	strb	r2, [r3, #0]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003d64:	4b03      	ldr	r3, [pc, #12]	@ (8003d74 <XcpCmdProgramClear+0x48>)
- 8003d66:	2201      	movs	r2, #1
- 8003d68:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003d02:	4b03      	ldr	r3, [pc, #12]	@ (8003d10 <XcpCmdProgramClear+0x44>)
+ 8003d04:	2201      	movs	r2, #1
+ 8003d06:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdProgramClear ***/
- 8003d6c:	3710      	adds	r7, #16
- 8003d6e:	46bd      	mov	sp, r7
- 8003d70:	bd80      	pop	{r7, pc}
- 8003d72:	bf00      	nop
- 8003d74:	20000534 	.word	0x20000534
+ 8003d08:	3710      	adds	r7, #16
+ 8003d0a:	46bd      	mov	sp, r7
+ 8003d0c:	bd80      	pop	{r7, pc}
+ 8003d0e:	bf00      	nop
+ 8003d10:	200004b8 	.word	0x200004b8
 
-08003d78 <XcpCmdProgramReset>:
+08003d14 <XcpCmdProgramReset>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgramReset(blt_int8u *data)
 {
- 8003d78:	b580      	push	{r7, lr}
- 8003d7a:	b082      	sub	sp, #8
- 8003d7c:	af00      	add	r7, sp, #0
- 8003d7e:	6078      	str	r0, [r7, #4]
+ 8003d14:	b580      	push	{r7, lr}
+ 8003d16:	b082      	sub	sp, #8
+ 8003d18:	af00      	add	r7, sp, #0
+ 8003d1a:	6078      	str	r0, [r7, #4]
 #endif
 
   /* reset the ecu after programming is done. so basically, just start the newly programmed
    * firmware. it is okay if the code does not return here. 
    */
   CpuStartUserProgram();
- 8003d80:	f7fe fdb0 	bl	80028e4 <CpuStartUserProgram>
+ 8003d1c:	f7fe fde2 	bl	80028e4 <CpuStartUserProgram>
 
   /* set packet id to command response packet */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003d84:	4b05      	ldr	r3, [pc, #20]	@ (8003d9c <XcpCmdProgramReset+0x24>)
- 8003d86:	22ff      	movs	r2, #255	@ 0xff
- 8003d88:	701a      	strb	r2, [r3, #0]
+ 8003d20:	4b04      	ldr	r3, [pc, #16]	@ (8003d34 <XcpCmdProgramReset+0x20>)
+ 8003d22:	22ff      	movs	r2, #255	@ 0xff
+ 8003d24:	701a      	strb	r2, [r3, #0]
 
   /* set packet length */
   xcpInfo.ctoLen = 1;
- 8003d8a:	4b04      	ldr	r3, [pc, #16]	@ (8003d9c <XcpCmdProgramReset+0x24>)
- 8003d8c:	2201      	movs	r2, #1
- 8003d8e:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003d26:	4b03      	ldr	r3, [pc, #12]	@ (8003d34 <XcpCmdProgramReset+0x20>)
+ 8003d28:	2201      	movs	r2, #1
+ 8003d2a:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdProgramReset ***/
- 8003d92:	bf00      	nop
- 8003d94:	3708      	adds	r7, #8
- 8003d96:	46bd      	mov	sp, r7
- 8003d98:	bd80      	pop	{r7, pc}
- 8003d9a:	bf00      	nop
- 8003d9c:	20000534 	.word	0x20000534
+ 8003d2c:	bf00      	nop
+ 8003d2e:	3708      	adds	r7, #8
+ 8003d30:	46bd      	mov	sp, r7
+ 8003d32:	bd80      	pop	{r7, pc}
+ 8003d34:	200004b8 	.word	0x200004b8
 
-08003da0 <XcpCmdProgramPrepare>:
+08003d38 <XcpCmdProgramPrepare>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdProgramPrepare(blt_int8u *data)
 {
- 8003da0:	b580      	push	{r7, lr}
- 8003da2:	b082      	sub	sp, #8
- 8003da4:	af00      	add	r7, sp, #0
- 8003da6:	6078      	str	r0, [r7, #4]
+ 8003d38:	b580      	push	{r7, lr}
+ 8003d3a:	b082      	sub	sp, #8
+ 8003d3c:	af00      	add	r7, sp, #0
+ 8003d3e:	6078      	str	r0, [r7, #4]
     return;
   }
 #endif
 
   /* programming with kernel currently not needed and therefore not supported */
   XcpSetCtoError(XCP_ERR_GENERIC);
- 8003da8:	2031      	movs	r0, #49	@ 0x31
- 8003daa:	f7ff fd39 	bl	8003820 <XcpSetCtoError>
+ 8003d40:	2031      	movs	r0, #49	@ 0x31
+ 8003d42:	f7ff fd5d 	bl	8003800 <XcpSetCtoError>
   return;
- 8003dae:	bf00      	nop
+ 8003d46:	bf00      	nop
 } /*** end of XcpCmdProgramPrepare ***/
- 8003db0:	3708      	adds	r7, #8
- 8003db2:	46bd      	mov	sp, r7
- 8003db4:	bd80      	pop	{r7, pc}
+ 8003d48:	3708      	adds	r7, #8
+ 8003d4a:	46bd      	mov	sp, r7
+ 8003d4c:	bd80      	pop	{r7, pc}
 
-08003db6 <XcpCmdUser>:
+08003d4e <XcpCmdUser>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUser(blt_int8u *data)
 {
- 8003db6:	b580      	push	{r7, lr}
- 8003db8:	b084      	sub	sp, #16
- 8003dba:	af00      	add	r7, sp, #0
- 8003dbc:	6078      	str	r0, [r7, #4]
+ 8003d4e:	b580      	push	{r7, lr}
+ 8003d50:	b084      	sub	sp, #16
+ 8003d52:	af00      	add	r7, sp, #0
+ 8003d54:	6078      	str	r0, [r7, #4]
   blt_int8u subCommand;
 
   /* Read out the sub command code. */
   subCommand = data[1];
- 8003dbe:	687b      	ldr	r3, [r7, #4]
- 8003dc0:	785b      	ldrb	r3, [r3, #1]
- 8003dc2:	73fb      	strb	r3, [r7, #15]
+ 8003d56:	687b      	ldr	r3, [r7, #4]
+ 8003d58:	785b      	ldrb	r3, [r3, #1]
+ 8003d5a:	73fb      	strb	r3, [r7, #15]
 
   /* Dispatch sub command handling. */
   switch (subCommand)
- 8003dc4:	7bfb      	ldrb	r3, [r7, #15]
- 8003dc6:	2b17      	cmp	r3, #23
- 8003dc8:	d103      	bne.n	8003dd2 <XcpCmdUser+0x1c>
+ 8003d5c:	7bfb      	ldrb	r3, [r7, #15]
+ 8003d5e:	2b17      	cmp	r3, #23
+ 8003d60:	d103      	bne.n	8003d6a <XcpCmdUser+0x1c>
   {
 #if (BOOT_INFO_TABLE_ENABLE > 0)
   case XCP_CMD_USER_SUB_INFOTABLE:
     XcpCmdUserSubCmdInfoTable(data);
- 8003dca:	6878      	ldr	r0, [r7, #4]
- 8003dcc:	f000 f809 	bl	8003de2 <XcpCmdUserSubCmdInfoTable>
+ 8003d62:	6878      	ldr	r0, [r7, #4]
+ 8003d64:	f000 f809 	bl	8003d7a <XcpCmdUserSubCmdInfoTable>
     break;
- 8003dd0:	e003      	b.n	8003dda <XcpCmdUser+0x24>
+ 8003d68:	e003      	b.n	8003d72 <XcpCmdUser+0x24>
 #endif
 
   default:
     XcpSetCtoError(XCP_ERR_CMD_UNKNOWN);
- 8003dd2:	2020      	movs	r0, #32
- 8003dd4:	f7ff fd24 	bl	8003820 <XcpSetCtoError>
+ 8003d6a:	2020      	movs	r0, #32
+ 8003d6c:	f7ff fd48 	bl	8003800 <XcpSetCtoError>
     break;
- 8003dd8:	bf00      	nop
+ 8003d70:	bf00      	nop
   }
 } /*** end of XcpCmdUser ***/
- 8003dda:	bf00      	nop
- 8003ddc:	3710      	adds	r7, #16
- 8003dde:	46bd      	mov	sp, r7
- 8003de0:	bd80      	pop	{r7, pc}
+ 8003d72:	bf00      	nop
+ 8003d74:	3710      	adds	r7, #16
+ 8003d76:	46bd      	mov	sp, r7
+ 8003d78:	bd80      	pop	{r7, pc}
 
-08003de2 <XcpCmdUserSubCmdInfoTable>:
+08003d7a <XcpCmdUserSubCmdInfoTable>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUserSubCmdInfoTable(blt_int8u *data)
 {
- 8003de2:	b580      	push	{r7, lr}
- 8003de4:	b084      	sub	sp, #16
- 8003de6:	af00      	add	r7, sp, #0
- 8003de8:	6078      	str	r0, [r7, #4]
+ 8003d7a:	b580      	push	{r7, lr}
+ 8003d7c:	b084      	sub	sp, #16
+ 8003d7e:	af00      	add	r7, sp, #0
+ 8003d80:	6078      	str	r0, [r7, #4]
   blt_int8u commandId;
 
   /* Read out the command ID. */
   commandId = data[2];
- 8003dea:	687b      	ldr	r3, [r7, #4]
- 8003dec:	789b      	ldrb	r3, [r3, #2]
- 8003dee:	73fb      	strb	r3, [r7, #15]
+ 8003d82:	687b      	ldr	r3, [r7, #4]
+ 8003d84:	789b      	ldrb	r3, [r3, #2]
+ 8003d86:	73fb      	strb	r3, [r7, #15]
 
   /* Dispatch info table command ID handling. */
   switch (commandId)
- 8003df0:	7bfb      	ldrb	r3, [r7, #15]
- 8003df2:	2b08      	cmp	r3, #8
- 8003df4:	d00e      	beq.n	8003e14 <XcpCmdUserSubCmdInfoTable+0x32>
- 8003df6:	2b08      	cmp	r3, #8
- 8003df8:	dc10      	bgt.n	8003e1c <XcpCmdUserSubCmdInfoTable+0x3a>
- 8003dfa:	2b04      	cmp	r3, #4
- 8003dfc:	d002      	beq.n	8003e04 <XcpCmdUserSubCmdInfoTable+0x22>
- 8003dfe:	2b06      	cmp	r3, #6
- 8003e00:	d004      	beq.n	8003e0c <XcpCmdUserSubCmdInfoTable+0x2a>
- 8003e02:	e00b      	b.n	8003e1c <XcpCmdUserSubCmdInfoTable+0x3a>
+ 8003d88:	7bfb      	ldrb	r3, [r7, #15]
+ 8003d8a:	2b08      	cmp	r3, #8
+ 8003d8c:	d00e      	beq.n	8003dac <XcpCmdUserSubCmdInfoTable+0x32>
+ 8003d8e:	2b08      	cmp	r3, #8
+ 8003d90:	dc10      	bgt.n	8003db4 <XcpCmdUserSubCmdInfoTable+0x3a>
+ 8003d92:	2b04      	cmp	r3, #4
+ 8003d94:	d002      	beq.n	8003d9c <XcpCmdUserSubCmdInfoTable+0x22>
+ 8003d96:	2b06      	cmp	r3, #6
+ 8003d98:	d004      	beq.n	8003da4 <XcpCmdUserSubCmdInfoTable+0x2a>
+ 8003d9a:	e00b      	b.n	8003db4 <XcpCmdUserSubCmdInfoTable+0x3a>
   {
   case XCP_CMD_IT_CID_GETINFO:
     XcpCmdUserSubCmdInfoTableCidGetInfo(data);
- 8003e04:	6878      	ldr	r0, [r7, #4]
- 8003e06:	f000 f811 	bl	8003e2c <XcpCmdUserSubCmdInfoTableCidGetInfo>
+ 8003d9c:	6878      	ldr	r0, [r7, #4]
+ 8003d9e:	f000 f811 	bl	8003dc4 <XcpCmdUserSubCmdInfoTableCidGetInfo>
     break;
- 8003e0a:	e00b      	b.n	8003e24 <XcpCmdUserSubCmdInfoTable+0x42>
+ 8003da2:	e00b      	b.n	8003dbc <XcpCmdUserSubCmdInfoTable+0x42>
 
   case XCP_CMD_IT_CID_DOWNLOAD:
     XcpCmdUserSubCmdInfoTableCidDownload(data);
- 8003e0c:	6878      	ldr	r0, [r7, #4]
- 8003e0e:	f000 f841 	bl	8003e94 <XcpCmdUserSubCmdInfoTableCidDownload>
+ 8003da4:	6878      	ldr	r0, [r7, #4]
+ 8003da6:	f000 f83f 	bl	8003e28 <XcpCmdUserSubCmdInfoTableCidDownload>
     break;
- 8003e12:	e007      	b.n	8003e24 <XcpCmdUserSubCmdInfoTable+0x42>
+ 8003daa:	e007      	b.n	8003dbc <XcpCmdUserSubCmdInfoTable+0x42>
 
   case XCP_CMD_IT_CID_CHECK:
     XcpCmdUserSubCmdInfoTableCidCheck(data);
- 8003e14:	6878      	ldr	r0, [r7, #4]
- 8003e16:	f000 f86d 	bl	8003ef4 <XcpCmdUserSubCmdInfoTableCidCheck>
+ 8003dac:	6878      	ldr	r0, [r7, #4]
+ 8003dae:	f000 f86b 	bl	8003e88 <XcpCmdUserSubCmdInfoTableCidCheck>
     break;
- 8003e1a:	e003      	b.n	8003e24 <XcpCmdUserSubCmdInfoTable+0x42>
+ 8003db2:	e003      	b.n	8003dbc <XcpCmdUserSubCmdInfoTable+0x42>
 
   default:
     XcpSetCtoError(XCP_ERR_CMD_UNKNOWN);
- 8003e1c:	2020      	movs	r0, #32
- 8003e1e:	f7ff fcff 	bl	8003820 <XcpSetCtoError>
+ 8003db4:	2020      	movs	r0, #32
+ 8003db6:	f7ff fd23 	bl	8003800 <XcpSetCtoError>
     break;
- 8003e22:	bf00      	nop
+ 8003dba:	bf00      	nop
   }
 } /*** end of XcpCmdUserSubCmdInfoTable ***/
- 8003e24:	bf00      	nop
- 8003e26:	3710      	adds	r7, #16
- 8003e28:	46bd      	mov	sp, r7
- 8003e2a:	bd80      	pop	{r7, pc}
+ 8003dbc:	bf00      	nop
+ 8003dbe:	3710      	adds	r7, #16
+ 8003dc0:	46bd      	mov	sp, r7
+ 8003dc2:	bd80      	pop	{r7, pc}
 
-08003e2c <XcpCmdUserSubCmdInfoTableCidGetInfo>:
+08003dc4 <XcpCmdUserSubCmdInfoTableCidGetInfo>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUserSubCmdInfoTableCidGetInfo(blt_int8u *data)
 {
- 8003e2c:	b580      	push	{r7, lr}
- 8003e2e:	b084      	sub	sp, #16
- 8003e30:	af00      	add	r7, sp, #0
- 8003e32:	6078      	str	r0, [r7, #4]
+ 8003dc4:	b580      	push	{r7, lr}
+ 8003dc6:	b084      	sub	sp, #16
+ 8003dc8:	af00      	add	r7, sp, #0
+ 8003dca:	6078      	str	r0, [r7, #4]
 
   /* Suppress compiler warning for unused parameter. */
   data = data;
 
   /* Set table length and base address information. */
   tableLen = InfoTableCurrentSize(INFO_TABLE_ID_FIRMWARE_NVM);
- 8003e34:	2001      	movs	r0, #1
- 8003e36:	f7ff fb31 	bl	800349c <InfoTableCurrentSize>
- 8003e3a:	4603      	mov	r3, r0
- 8003e3c:	81fb      	strh	r3, [r7, #14]
+ 8003dcc:	2001      	movs	r0, #1
+ 8003dce:	f7ff fb65 	bl	800349c <InfoTableCurrentSize>
+ 8003dd2:	4603      	mov	r3, r0
+ 8003dd4:	81fb      	strh	r3, [r7, #14]
   tableAddr = InfoTableGetPtr(INFO_TABLE_ID_FIRMWARE_NVM);
- 8003e3e:	2001      	movs	r0, #1
- 8003e40:	f7ff faea 	bl	8003418 <InfoTableGetPtr>
- 8003e44:	4603      	mov	r3, r0
- 8003e46:	60bb      	str	r3, [r7, #8]
+ 8003dd6:	2001      	movs	r0, #1
+ 8003dd8:	f7ff fb1e 	bl	8003418 <InfoTableGetPtr>
+ 8003ddc:	4603      	mov	r3, r0
+ 8003dde:	60bb      	str	r3, [r7, #8]
   /* Clear the info table in the internal RAM buffer and reset its write pointer. */
   InfoTableClear(INFO_TABLE_ID_INTERNAL_RAM);
- 8003e48:	2000      	movs	r0, #0
- 8003e4a:	f7ff fafd 	bl	8003448 <InfoTableClear>
+ 8003de0:	2000      	movs	r0, #0
+ 8003de2:	f7ff fb31 	bl	8003448 <InfoTableClear>
 
   /* Set packet id to command response packet. */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003e4e:	4b0e      	ldr	r3, [pc, #56]	@ (8003e88 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x5c>)
- 8003e50:	22ff      	movs	r2, #255	@ 0xff
- 8003e52:	701a      	strb	r2, [r3, #0]
+ 8003de6:	4b0d      	ldr	r3, [pc, #52]	@ (8003e1c <XcpCmdUserSubCmdInfoTableCidGetInfo+0x58>)
+ 8003de8:	22ff      	movs	r2, #255	@ 0xff
+ 8003dea:	701a      	strb	r2, [r3, #0]
   /* Set the command ID that this is a response for. */
   xcpInfo.ctoData[1] = XCP_CMD_IT_CID_GETINFO;
- 8003e54:	4b0c      	ldr	r3, [pc, #48]	@ (8003e88 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x5c>)
- 8003e56:	2204      	movs	r2, #4
- 8003e58:	705a      	strb	r2, [r3, #1]
+ 8003dec:	4b0b      	ldr	r3, [pc, #44]	@ (8003e1c <XcpCmdUserSubCmdInfoTableCidGetInfo+0x58>)
+ 8003dee:	2204      	movs	r2, #4
+ 8003df0:	705a      	strb	r2, [r3, #1]
   /* Store the table length. */
   CpuMemCopy((blt_addr)(&xcpInfo.ctoData[2]), (blt_addr)&tableLen, sizeof(tableLen));
- 8003e5a:	480c      	ldr	r0, [pc, #48]	@ (8003e8c <XcpCmdUserSubCmdInfoTableCidGetInfo+0x60>)
- 8003e5c:	f107 030e 	add.w	r3, r7, #14
- 8003e60:	2202      	movs	r2, #2
- 8003e62:	4619      	mov	r1, r3
- 8003e64:	f7fe fd6e 	bl	8002944 <CpuMemCopy>
+ 8003df2:	480b      	ldr	r0, [pc, #44]	@ (8003e20 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x5c>)
+ 8003df4:	f107 030e 	add.w	r3, r7, #14
+ 8003df8:	2202      	movs	r2, #2
+ 8003dfa:	4619      	mov	r1, r3
+ 8003dfc:	f7fe fda2 	bl	8002944 <CpuMemCopy>
   /* Store the table base address. */
   CpuMemCopy((blt_addr)(&xcpInfo.ctoData[4]), (blt_addr)&tableAddr, sizeof(tableAddr));
- 8003e68:	4809      	ldr	r0, [pc, #36]	@ (8003e90 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x64>)
- 8003e6a:	f107 0308 	add.w	r3, r7, #8
- 8003e6e:	2204      	movs	r2, #4
- 8003e70:	4619      	mov	r1, r3
- 8003e72:	f7fe fd67 	bl	8002944 <CpuMemCopy>
+ 8003e00:	4808      	ldr	r0, [pc, #32]	@ (8003e24 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x60>)
+ 8003e02:	f107 0308 	add.w	r3, r7, #8
+ 8003e06:	2204      	movs	r2, #4
+ 8003e08:	4619      	mov	r1, r3
+ 8003e0a:	f7fe fd9b 	bl	8002944 <CpuMemCopy>
   /* Set packet length. */
   xcpInfo.ctoLen = 8;
- 8003e76:	4b04      	ldr	r3, [pc, #16]	@ (8003e88 <XcpCmdUserSubCmdInfoTableCidGetInfo+0x5c>)
- 8003e78:	2208      	movs	r2, #8
- 8003e7a:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003e0e:	4b03      	ldr	r3, [pc, #12]	@ (8003e1c <XcpCmdUserSubCmdInfoTableCidGetInfo+0x58>)
+ 8003e10:	2208      	movs	r2, #8
+ 8003e12:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdUserSubCmdInfoTableCidGetInfo ***/
- 8003e7e:	bf00      	nop
- 8003e80:	3710      	adds	r7, #16
- 8003e82:	46bd      	mov	sp, r7
- 8003e84:	bd80      	pop	{r7, pc}
- 8003e86:	bf00      	nop
- 8003e88:	20000534 	.word	0x20000534
- 8003e8c:	20000536 	.word	0x20000536
- 8003e90:	20000538 	.word	0x20000538
+ 8003e14:	bf00      	nop
+ 8003e16:	3710      	adds	r7, #16
+ 8003e18:	46bd      	mov	sp, r7
+ 8003e1a:	bd80      	pop	{r7, pc}
+ 8003e1c:	200004b8 	.word	0x200004b8
+ 8003e20:	200004ba 	.word	0x200004ba
+ 8003e24:	200004bc 	.word	0x200004bc
 
-08003e94 <XcpCmdUserSubCmdInfoTableCidDownload>:
+08003e28 <XcpCmdUserSubCmdInfoTableCidDownload>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUserSubCmdInfoTableCidDownload(blt_int8u *data)
 {
- 8003e94:	b580      	push	{r7, lr}
- 8003e96:	b082      	sub	sp, #8
- 8003e98:	af00      	add	r7, sp, #0
- 8003e9a:	6078      	str	r0, [r7, #4]
+ 8003e28:	b580      	push	{r7, lr}
+ 8003e2a:	b082      	sub	sp, #8
+ 8003e2c:	af00      	add	r7, sp, #0
+ 8003e2e:	6078      	str	r0, [r7, #4]
   /* Validate length of download request */
   if (data[3] > (XCP_CTO_PACKET_LEN-4))
- 8003e9c:	f7ff fa12 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
- 8003ea0:	4603      	mov	r3, r0
- 8003ea2:	3b03      	subs	r3, #3
- 8003ea4:	687a      	ldr	r2, [r7, #4]
- 8003ea6:	3203      	adds	r2, #3
- 8003ea8:	7812      	ldrb	r2, [r2, #0]
- 8003eaa:	4293      	cmp	r3, r2
- 8003eac:	dc03      	bgt.n	8003eb6 <XcpCmdUserSubCmdInfoTableCidDownload+0x22>
+ 8003e30:	f7ff fa48 	bl	80032c4 <ComGetActiveInterfaceMaxRxLen>
+ 8003e34:	4603      	mov	r3, r0
+ 8003e36:	3b03      	subs	r3, #3
+ 8003e38:	687a      	ldr	r2, [r7, #4]
+ 8003e3a:	3203      	adds	r2, #3
+ 8003e3c:	7812      	ldrb	r2, [r2, #0]
+ 8003e3e:	4293      	cmp	r3, r2
+ 8003e40:	dc03      	bgt.n	8003e4a <XcpCmdUserSubCmdInfoTableCidDownload+0x22>
   {
     /* Specified data length is too long. */
     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
- 8003eae:	2022      	movs	r0, #34	@ 0x22
- 8003eb0:	f7ff fcb6 	bl	8003820 <XcpSetCtoError>
+ 8003e42:	2022      	movs	r0, #34	@ 0x22
+ 8003e44:	f7ff fcdc 	bl	8003800 <XcpSetCtoError>
     return;
- 8003eb4:	e019      	b.n	8003eea <XcpCmdUserSubCmdInfoTableCidDownload+0x56>
+ 8003e48:	e018      	b.n	8003e7c <XcpCmdUserSubCmdInfoTableCidDownload+0x54>
   }
 
   /* Attempt to store the newly received data in the info table. */
   if (InfoTableAddData(INFO_TABLE_ID_INTERNAL_RAM, &data[4], data[3]) == BLT_FALSE)
- 8003eb6:	687b      	ldr	r3, [r7, #4]
- 8003eb8:	1d19      	adds	r1, r3, #4
- 8003eba:	687b      	ldr	r3, [r7, #4]
- 8003ebc:	3303      	adds	r3, #3
- 8003ebe:	781b      	ldrb	r3, [r3, #0]
- 8003ec0:	461a      	mov	r2, r3
- 8003ec2:	2000      	movs	r0, #0
- 8003ec4:	f7ff fb0e 	bl	80034e4 <InfoTableAddData>
- 8003ec8:	4603      	mov	r3, r0
- 8003eca:	2b00      	cmp	r3, #0
- 8003ecc:	d103      	bne.n	8003ed6 <XcpCmdUserSubCmdInfoTableCidDownload+0x42>
+ 8003e4a:	687b      	ldr	r3, [r7, #4]
+ 8003e4c:	1d19      	adds	r1, r3, #4
+ 8003e4e:	687b      	ldr	r3, [r7, #4]
+ 8003e50:	3303      	adds	r3, #3
+ 8003e52:	781b      	ldrb	r3, [r3, #0]
+ 8003e54:	461a      	mov	r2, r3
+ 8003e56:	2000      	movs	r0, #0
+ 8003e58:	f7ff fb44 	bl	80034e4 <InfoTableAddData>
+ 8003e5c:	4603      	mov	r3, r0
+ 8003e5e:	2b00      	cmp	r3, #0
+ 8003e60:	d103      	bne.n	8003e6a <XcpCmdUserSubCmdInfoTableCidDownload+0x42>
   {
     /* Data does not fit in the info table RAM buffer. */
     XcpSetCtoError(XCP_ERR_OUT_OF_RANGE);
- 8003ece:	2022      	movs	r0, #34	@ 0x22
- 8003ed0:	f7ff fca6 	bl	8003820 <XcpSetCtoError>
+ 8003e62:	2022      	movs	r0, #34	@ 0x22
+ 8003e64:	f7ff fccc 	bl	8003800 <XcpSetCtoError>
     return;
- 8003ed4:	e009      	b.n	8003eea <XcpCmdUserSubCmdInfoTableCidDownload+0x56>
+ 8003e68:	e008      	b.n	8003e7c <XcpCmdUserSubCmdInfoTableCidDownload+0x54>
   }
 
   /* Set packet id to command response packet. */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003ed6:	4b06      	ldr	r3, [pc, #24]	@ (8003ef0 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
- 8003ed8:	22ff      	movs	r2, #255	@ 0xff
- 8003eda:	701a      	strb	r2, [r3, #0]
+ 8003e6a:	4b06      	ldr	r3, [pc, #24]	@ (8003e84 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
+ 8003e6c:	22ff      	movs	r2, #255	@ 0xff
+ 8003e6e:	701a      	strb	r2, [r3, #0]
   /* Set the command ID that this is a response for. */
   xcpInfo.ctoData[1] = XCP_CMD_IT_CID_DOWNLOAD;
- 8003edc:	4b04      	ldr	r3, [pc, #16]	@ (8003ef0 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
- 8003ede:	2206      	movs	r2, #6
- 8003ee0:	705a      	strb	r2, [r3, #1]
+ 8003e70:	4b04      	ldr	r3, [pc, #16]	@ (8003e84 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
+ 8003e72:	2206      	movs	r2, #6
+ 8003e74:	705a      	strb	r2, [r3, #1]
   /* Set packet length. */
   xcpInfo.ctoLen = 2;
- 8003ee2:	4b03      	ldr	r3, [pc, #12]	@ (8003ef0 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
- 8003ee4:	2202      	movs	r2, #2
- 8003ee6:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003e76:	4b03      	ldr	r3, [pc, #12]	@ (8003e84 <XcpCmdUserSubCmdInfoTableCidDownload+0x5c>)
+ 8003e78:	2202      	movs	r2, #2
+ 8003e7a:	819a      	strh	r2, [r3, #12]
 } /*** end of XcpCmdUserSubCmdInfoTableCidDownload ***/
- 8003eea:	3708      	adds	r7, #8
- 8003eec:	46bd      	mov	sp, r7
- 8003eee:	bd80      	pop	{r7, pc}
- 8003ef0:	20000534 	.word	0x20000534
+ 8003e7c:	3708      	adds	r7, #8
+ 8003e7e:	46bd      	mov	sp, r7
+ 8003e80:	bd80      	pop	{r7, pc}
+ 8003e82:	bf00      	nop
+ 8003e84:	200004b8 	.word	0x200004b8
 
-08003ef4 <XcpCmdUserSubCmdInfoTableCidCheck>:
+08003e88 <XcpCmdUserSubCmdInfoTableCidCheck>:
 ** \param     data Pointer to a byte buffer with the packet data.
 ** \return    none
 **
 ****************************************************************************************/
 static void XcpCmdUserSubCmdInfoTableCidCheck(blt_int8u *data)
 {
- 8003ef4:	b590      	push	{r4, r7, lr}
- 8003ef6:	b083      	sub	sp, #12
- 8003ef8:	af00      	add	r7, sp, #0
- 8003efa:	6078      	str	r0, [r7, #4]
+ 8003e88:	b590      	push	{r4, r7, lr}
+ 8003e8a:	b083      	sub	sp, #12
+ 8003e8c:	af00      	add	r7, sp, #0
+ 8003e8e:	6078      	str	r0, [r7, #4]
   /* Set packet id to command response packet. */
   xcpInfo.ctoData[0] = XCP_PID_RES;
- 8003efc:	4b13      	ldr	r3, [pc, #76]	@ (8003f4c <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
- 8003efe:	22ff      	movs	r2, #255	@ 0xff
- 8003f00:	701a      	strb	r2, [r3, #0]
+ 8003e90:	4b13      	ldr	r3, [pc, #76]	@ (8003ee0 <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
+ 8003e92:	22ff      	movs	r2, #255	@ 0xff
+ 8003e94:	701a      	strb	r2, [r3, #0]
   /* Set the command ID that this is a response for. */
   xcpInfo.ctoData[1] = XCP_CMD_IT_CID_CHECK;
- 8003f02:	4b12      	ldr	r3, [pc, #72]	@ (8003f4c <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
- 8003f04:	2208      	movs	r2, #8
- 8003f06:	705a      	strb	r2, [r3, #1]
+ 8003e96:	4b12      	ldr	r3, [pc, #72]	@ (8003ee0 <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
+ 8003e98:	2208      	movs	r2, #8
+ 8003e9a:	705a      	strb	r2, [r3, #1]
   /* Set packet length. */
   xcpInfo.ctoLen = 3;
- 8003f08:	4b10      	ldr	r3, [pc, #64]	@ (8003f4c <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
- 8003f0a:	2203      	movs	r2, #3
- 8003f0c:	f8a3 2086 	strh.w	r2, [r3, #134]	@ 0x86
+ 8003e9c:	4b10      	ldr	r3, [pc, #64]	@ (8003ee0 <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
+ 8003e9e:	2203      	movs	r2, #3
+ 8003ea0:	819a      	strh	r2, [r3, #12]
 
   /* Verify that the contents of the internal RAM info table has the same size as the
    * one in non-volatile memory.
    */
   if (InfoTableCurrentSize(INFO_TABLE_ID_INTERNAL_RAM) !=
- 8003f10:	2000      	movs	r0, #0
- 8003f12:	f7ff fac3 	bl	800349c <InfoTableCurrentSize>
- 8003f16:	4603      	mov	r3, r0
- 8003f18:	461c      	mov	r4, r3
+ 8003ea2:	2000      	movs	r0, #0
+ 8003ea4:	f7ff fafa 	bl	800349c <InfoTableCurrentSize>
+ 8003ea8:	4603      	mov	r3, r0
+ 8003eaa:	461c      	mov	r4, r3
       InfoTableCurrentSize(INFO_TABLE_ID_FIRMWARE_NVM))
- 8003f1a:	2001      	movs	r0, #1
- 8003f1c:	f7ff fabe 	bl	800349c <InfoTableCurrentSize>
- 8003f20:	4603      	mov	r3, r0
+ 8003eac:	2001      	movs	r0, #1
+ 8003eae:	f7ff faf5 	bl	800349c <InfoTableCurrentSize>
+ 8003eb2:	4603      	mov	r3, r0
   if (InfoTableCurrentSize(INFO_TABLE_ID_INTERNAL_RAM) !=
- 8003f22:	429c      	cmp	r4, r3
- 8003f24:	d003      	beq.n	8003f2e <XcpCmdUserSubCmdInfoTableCidCheck+0x3a>
+ 8003eb4:	429c      	cmp	r4, r3
+ 8003eb6:	d003      	beq.n	8003ec0 <XcpCmdUserSubCmdInfoTableCidCheck+0x38>
   {
     /* Content of the internal RAM buffer were not yet fully downloaded. */
     XcpSetCtoError(XCP_ERR_SEQUENCE);
- 8003f26:	2029      	movs	r0, #41	@ 0x29
- 8003f28:	f7ff fc7a 	bl	8003820 <XcpSetCtoError>
+ 8003eb8:	2029      	movs	r0, #41	@ 0x29
+ 8003eba:	f7ff fca1 	bl	8003800 <XcpSetCtoError>
     return;
- 8003f2c:	e00b      	b.n	8003f46 <XcpCmdUserSubCmdInfoTableCidCheck+0x52>
+ 8003ebe:	e00b      	b.n	8003ed8 <XcpCmdUserSubCmdInfoTableCidCheck+0x50>
   }
 
   /* Request bootloader application to perform the info table check. */
   if (InfoTableCheck() == BLT_TRUE)
- 8003f2e:	f7ff fa55 	bl	80033dc <InfoTableCheck>
- 8003f32:	4603      	mov	r3, r0
- 8003f34:	2b01      	cmp	r3, #1
- 8003f36:	d103      	bne.n	8003f40 <XcpCmdUserSubCmdInfoTableCidCheck+0x4c>
+ 8003ec0:	f7ff fa8c 	bl	80033dc <InfoTableCheck>
+ 8003ec4:	4603      	mov	r3, r0
+ 8003ec6:	2b01      	cmp	r3, #1
+ 8003ec8:	d103      	bne.n	8003ed2 <XcpCmdUserSubCmdInfoTableCidCheck+0x4a>
   {
     /* Info table check passed. Firmware update is allow to proceed. */
     xcpInfo.ctoData[2] = 1;
- 8003f38:	4b04      	ldr	r3, [pc, #16]	@ (8003f4c <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
- 8003f3a:	2201      	movs	r2, #1
- 8003f3c:	709a      	strb	r2, [r3, #2]
- 8003f3e:	e002      	b.n	8003f46 <XcpCmdUserSubCmdInfoTableCidCheck+0x52>
+ 8003eca:	4b05      	ldr	r3, [pc, #20]	@ (8003ee0 <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
+ 8003ecc:	2201      	movs	r2, #1
+ 8003ece:	709a      	strb	r2, [r3, #2]
+ 8003ed0:	e002      	b.n	8003ed8 <XcpCmdUserSubCmdInfoTableCidCheck+0x50>
   }
   else
   {
     /* Info table check failed. Firmware update should be aborted. */
     xcpInfo.ctoData[2] = 0;
- 8003f40:	4b02      	ldr	r3, [pc, #8]	@ (8003f4c <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
- 8003f42:	2200      	movs	r2, #0
- 8003f44:	709a      	strb	r2, [r3, #2]
+ 8003ed2:	4b03      	ldr	r3, [pc, #12]	@ (8003ee0 <XcpCmdUserSubCmdInfoTableCidCheck+0x58>)
+ 8003ed4:	2200      	movs	r2, #0
+ 8003ed6:	709a      	strb	r2, [r3, #2]
   }
 } /*** end of XcpCmdUserSubCmdInfoTableCidCheck ***/
- 8003f46:	370c      	adds	r7, #12
- 8003f48:	46bd      	mov	sp, r7
- 8003f4a:	bd90      	pop	{r4, r7, pc}
- 8003f4c:	20000534 	.word	0x20000534
+ 8003ed8:	370c      	adds	r7, #12
+ 8003eda:	46bd      	mov	sp, r7
+ 8003edc:	bd90      	pop	{r4, r7, pc}
+ 8003ede:	bf00      	nop
+ 8003ee0:	200004b8 	.word	0x200004b8
 
-08003f50 <__libc_init_array>:
- 8003f50:	b570      	push	{r4, r5, r6, lr}
- 8003f52:	4d0d      	ldr	r5, [pc, #52]	@ (8003f88 <__libc_init_array+0x38>)
- 8003f54:	4c0d      	ldr	r4, [pc, #52]	@ (8003f8c <__libc_init_array+0x3c>)
- 8003f56:	1b64      	subs	r4, r4, r5
- 8003f58:	10a4      	asrs	r4, r4, #2
- 8003f5a:	2600      	movs	r6, #0
- 8003f5c:	42a6      	cmp	r6, r4
- 8003f5e:	d109      	bne.n	8003f74 <__libc_init_array+0x24>
- 8003f60:	4d0b      	ldr	r5, [pc, #44]	@ (8003f90 <__libc_init_array+0x40>)
- 8003f62:	4c0c      	ldr	r4, [pc, #48]	@ (8003f94 <__libc_init_array+0x44>)
- 8003f64:	f000 f818 	bl	8003f98 <_init>
- 8003f68:	1b64      	subs	r4, r4, r5
- 8003f6a:	10a4      	asrs	r4, r4, #2
- 8003f6c:	2600      	movs	r6, #0
- 8003f6e:	42a6      	cmp	r6, r4
- 8003f70:	d105      	bne.n	8003f7e <__libc_init_array+0x2e>
- 8003f72:	bd70      	pop	{r4, r5, r6, pc}
- 8003f74:	f855 3b04 	ldr.w	r3, [r5], #4
- 8003f78:	4798      	blx	r3
- 8003f7a:	3601      	adds	r6, #1
- 8003f7c:	e7ee      	b.n	8003f5c <__libc_init_array+0xc>
- 8003f7e:	f855 3b04 	ldr.w	r3, [r5], #4
- 8003f82:	4798      	blx	r3
- 8003f84:	3601      	adds	r6, #1
- 8003f86:	e7f2      	b.n	8003f6e <__libc_init_array+0x1e>
- 8003f88:	08004084 	.word	0x08004084
- 8003f8c:	08004084 	.word	0x08004084
- 8003f90:	08004084 	.word	0x08004084
- 8003f94:	08004088 	.word	0x08004088
+08003ee4 <__libc_init_array>:
+ 8003ee4:	b570      	push	{r4, r5, r6, lr}
+ 8003ee6:	4d0d      	ldr	r5, [pc, #52]	@ (8003f1c <__libc_init_array+0x38>)
+ 8003ee8:	4c0d      	ldr	r4, [pc, #52]	@ (8003f20 <__libc_init_array+0x3c>)
+ 8003eea:	1b64      	subs	r4, r4, r5
+ 8003eec:	10a4      	asrs	r4, r4, #2
+ 8003eee:	2600      	movs	r6, #0
+ 8003ef0:	42a6      	cmp	r6, r4
+ 8003ef2:	d109      	bne.n	8003f08 <__libc_init_array+0x24>
+ 8003ef4:	4d0b      	ldr	r5, [pc, #44]	@ (8003f24 <__libc_init_array+0x40>)
+ 8003ef6:	4c0c      	ldr	r4, [pc, #48]	@ (8003f28 <__libc_init_array+0x44>)
+ 8003ef8:	f000 f818 	bl	8003f2c <_init>
+ 8003efc:	1b64      	subs	r4, r4, r5
+ 8003efe:	10a4      	asrs	r4, r4, #2
+ 8003f00:	2600      	movs	r6, #0
+ 8003f02:	42a6      	cmp	r6, r4
+ 8003f04:	d105      	bne.n	8003f12 <__libc_init_array+0x2e>
+ 8003f06:	bd70      	pop	{r4, r5, r6, pc}
+ 8003f08:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8003f0c:	4798      	blx	r3
+ 8003f0e:	3601      	adds	r6, #1
+ 8003f10:	e7ee      	b.n	8003ef0 <__libc_init_array+0xc>
+ 8003f12:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8003f16:	4798      	blx	r3
+ 8003f18:	3601      	adds	r6, #1
+ 8003f1a:	e7f2      	b.n	8003f02 <__libc_init_array+0x1e>
+ 8003f1c:	08004018 	.word	0x08004018
+ 8003f20:	08004018 	.word	0x08004018
+ 8003f24:	08004018 	.word	0x08004018
+ 8003f28:	0800401c 	.word	0x0800401c
 
-08003f98 <_init>:
- 8003f98:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8003f9a:	bf00      	nop
- 8003f9c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8003f9e:	bc08      	pop	{r3}
- 8003fa0:	469e      	mov	lr, r3
- 8003fa2:	4770      	bx	lr
+08003f2c <_init>:
+ 8003f2c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8003f2e:	bf00      	nop
+ 8003f30:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8003f32:	bc08      	pop	{r3}
+ 8003f34:	469e      	mov	lr, r3
+ 8003f36:	4770      	bx	lr
 
-08003fa4 <_fini>:
- 8003fa4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8003fa6:	bf00      	nop
- 8003fa8:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8003faa:	bc08      	pop	{r3}
- 8003fac:	469e      	mov	lr, r3
- 8003fae:	4770      	bx	lr
+08003f38 <_fini>:
+ 8003f38:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8003f3a:	bf00      	nop
+ 8003f3c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8003f3e:	bc08      	pop	{r3}
+ 8003f40:	469e      	mov	lr, r3
+ 8003f42:	4770      	bx	lr
