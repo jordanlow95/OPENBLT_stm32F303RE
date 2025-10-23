@@ -1,0 +1,10 @@
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:535:22:LL_APB1_GRP1_EnableClock	24	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:667:22:LL_APB1_GRP1_DisableClock	16	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:732:22:LL_APB1_GRP1_ForceReset	16	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:797:22:LL_APB1_GRP1_ReleaseReset	16	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_rcc.h:1387:26:LL_RCC_GetAPB1Prescaler	4	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/timer.c:69:6:TimerInit	32	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/timer.c:109:6:TimerReset	8	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/timer.c:130:6:TimerUpdate	16	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/timer.c:162:12:TimerGet	8	static
+C:/Users/User/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/timer.c:182:10:HAL_GetTick	8	static
