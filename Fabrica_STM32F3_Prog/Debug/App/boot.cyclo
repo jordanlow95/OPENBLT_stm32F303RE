@@ -4,4 +4,4 @@
 ../App/boot.c:85:6:BootActivate	0
 ../App/boot.c:337:22:CanGetSpeedConfig	5
 ../App/boot.c:375:13:BootComCanInit	2
-../App/boot.c:445:13:BootComCanCheckActivationRequest	10
+../App/boot.c:449:13:BootComCanCheckActivationRequest	10

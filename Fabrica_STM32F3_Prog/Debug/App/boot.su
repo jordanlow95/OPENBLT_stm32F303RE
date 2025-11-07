@@ -4,4 +4,4 @@
 ../App/boot.c:85:6:BootActivate	8	static
 ../App/boot.c:337:22:CanGetSpeedConfig	32	static
 ../App/boot.c:375:13:BootComCanInit	64	static
-../App/boot.c:445:13:BootComCanCheckActivationRequest	56	static
+../App/boot.c:449:13:BootComCanCheckActivationRequest	56	static

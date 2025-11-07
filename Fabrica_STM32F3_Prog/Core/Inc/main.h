@@ -28,16 +28,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f3xx_hal.h"
-#include "stm32f3xx_ll_rcc.h"
-#include "stm32f3xx_ll_bus.h"
-#include "stm32f3xx_ll_system.h"
-#include "stm32f3xx_ll_exti.h"
-#include "stm32f3xx_ll_cortex.h"
-#include "stm32f3xx_ll_utils.h"
-#include "stm32f3xx_ll_pwr.h"
-#include "stm32f3xx_ll_dma.h"
-#include "stm32f3xx_ll_usart.h"
-#include "stm32f3xx_ll_gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -61,8 +51,6 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-void MX_CAN_Init(void);
-void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -71,21 +59,56 @@ void MX_USART2_UART_Init(void);
 /* Private defines -----------------------------------------------------------*/
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
-#define USART_TX_Pin GPIO_PIN_2
-#define USART_TX_GPIO_Port GPIOA
-#define USART_RX_Pin GPIO_PIN_3
-#define USART_RX_GPIO_Port GPIOA
+#define Bootloader_ctrl_Pin GPIO_PIN_0
+#define Bootloader_ctrl_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define ENC_COM_3_Pin GPIO_PIN_6
+#define ENC_COM_3_GPIO_Port GPIOA
+#define ENC_8_3_Pin GPIO_PIN_7
+#define ENC_8_3_GPIO_Port GPIOA
+#define ENC_1_1_Pin GPIO_PIN_4
+#define ENC_1_1_GPIO_Port GPIOC
+#define ENC_2_2_Pin GPIO_PIN_1
+#define ENC_2_2_GPIO_Port GPIOB
+#define ENC_4_2_Pin GPIO_PIN_2
+#define ENC_4_2_GPIO_Port GPIOB
+#define ENC_BUT_3_Pin GPIO_PIN_10
+#define ENC_BUT_3_GPIO_Port GPIOB
+#define ENC_8_2_Pin GPIO_PIN_11
+#define ENC_8_2_GPIO_Port GPIOB
+#define ENC_COM_2_Pin GPIO_PIN_12
+#define ENC_COM_2_GPIO_Port GPIOB
+#define ENC_BUT_1_Pin GPIO_PIN_13
+#define ENC_BUT_1_GPIO_Port GPIOB
+#define ENC_BUT_2_Pin GPIO_PIN_14
+#define ENC_BUT_2_GPIO_Port GPIOB
+#define ENC_1_2_Pin GPIO_PIN_15
+#define ENC_1_2_GPIO_Port GPIOB
+#define ENC_4_3_Pin GPIO_PIN_7
+#define ENC_4_3_GPIO_Port GPIOC
+#define ENC_1_3_Pin GPIO_PIN_8
+#define ENC_1_3_GPIO_Port GPIOA
+#define ENC_2_3_Pin GPIO_PIN_9
+#define ENC_2_3_GPIO_Port GPIOA
+#define ENC_2_1_Pin GPIO_PIN_10
+#define ENC_2_1_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
-#define TCK_Pin GPIO_PIN_14
-#define TCK_GPIO_Port GPIOA
-#define SWO_Pin GPIO_PIN_3
-#define SWO_GPIO_Port GPIOB
+#define ENC_4_1_Pin GPIO_PIN_3
+#define ENC_4_1_GPIO_Port GPIOB
+#define ENC_COM_1_Pin GPIO_PIN_4
+#define ENC_COM_1_GPIO_Port GPIOB
+#define ENC_8_1_Pin GPIO_PIN_5
+#define ENC_8_1_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+extern uint8_t pos1;
+extern uint8_t pos2;
+extern uint8_t pos3;
+extern uint8_t but1;
+extern uint8_t but2;
+extern uint8_t but3;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

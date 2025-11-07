@@ -64,8 +64,8 @@ all: main-build
 main-build: Fabrica_STM32F3_Prog.elf secondary-outputs
 
 # Tool invocations
-Fabrica_STM32F3_Prog.elf Fabrica_STM32F3_Prog.map: $(OBJS) $(USER_OBJS) C:\Users\User\Desktop\openblt_Test\Fabrica_STM32F3_Prog\STM32F303RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Fabrica_STM32F3_Prog.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\User\Desktop\openblt_Test\Fabrica_STM32F3_Prog\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Fabrica_STM32F3_Prog.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Fabrica_STM32F3_Prog.elf Fabrica_STM32F3_Prog.map: $(OBJS) $(USER_OBJS) C:\Users\jorda\Documents\GitHub\OPENBLT_stm32F303RE\Fabrica_STM32F3_Prog\STM32F303RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Fabrica_STM32F3_Prog.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jorda\Documents\GitHub\OPENBLT_stm32F303RE\Fabrica_STM32F3_Prog\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Fabrica_STM32F3_Prog.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

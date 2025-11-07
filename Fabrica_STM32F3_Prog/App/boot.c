@@ -321,7 +321,7 @@ static const tCanBusTiming canTiming[] =
 * Local data declarations
 ****************************************************************************************/
 /** \brief CAN handle to be used in API calls. */
-static CAN_HandleTypeDef canHandle;
+CAN_HandleTypeDef canHandle;
 
 
 /************************************************************************************//**
@@ -422,10 +422,14 @@ static void BootComCanInit(void)
   filterConfig.FilterBank = 0;
   filterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
   filterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-  filterConfig.FilterIdHigh = (rxFilterId >> 16) & 0x0000FFFFu;
-  filterConfig.FilterIdLow = rxFilterId & 0x0000FFFFu;
-  filterConfig.FilterMaskIdHigh = (rxFilterMask >> 16) & 0x0000FFFFu;
-  filterConfig.FilterMaskIdLow = rxFilterMask & 0x0000FFFFu;
+//  filterConfig.FilterIdHigh = (rxFilterId >> 16) & 0x0000FFFFu;
+//  filterConfig.FilterIdLow = rxFilterId & 0x0000FFFFu;
+//  filterConfig.FilterMaskIdHigh = (rxFilterMask >> 16) & 0x0000FFFFu;
+//  filterConfig.FilterMaskIdLow = rxFilterMask & 0x0000FFFFu;
+  filterConfig.FilterIdHigh = 0x0000;
+  filterConfig.FilterIdLow = 0x0000;
+  filterConfig.FilterMaskIdHigh = 0x0000;
+  filterConfig.FilterMaskIdLow = 0x0000;
   filterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
   filterConfig.FilterActivation = ENABLE;
   filterConfig.SlaveStartFilterBank = 14;

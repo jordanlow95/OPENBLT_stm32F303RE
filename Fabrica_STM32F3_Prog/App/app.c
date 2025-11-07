@@ -29,6 +29,7 @@
 /****************************************************************************************
 * Include files
 ****************************************************************************************/
+#include "info_table.h"
 #include "header.h"                                    /* generic header               */
 
 
@@ -39,12 +40,12 @@
  *         typecast the pointers to in the bootloader's InfoTableCheckHook() function.
  *         Feel free to add more or less information to this info table as you see fit.
  */
-typedef struct t_firmware_info_table
-{
-  unsigned long tableId;         /**< fixed value for identification as an info table. */
-  unsigned long productId;       /**< product identification. E.g. 1234 = Airpump.     */
-  unsigned long firmwareVersion; /**< firmware version. E.g. 10429 = v1.4.29           */
-} tFirmwareInfoTable;
+//typedef struct t_firmware_info_table
+//{
+//  unsigned long tableId;         /**< fixed value for identification as an info table. */
+//  unsigned long productId;       /**< product identification. E.g. 1234 = Airpump.     */
+//  unsigned long firmwareVersion; /**< firmware version. E.g. 10429 = v1.4.29           */
+//} tFirmwareInfoTable;
 
 
 /****************************************************************************************
@@ -85,8 +86,9 @@ const tFirmwareInfoTable firmwareInfoTable __attribute__ ((section (".infoTable"
 {
   .tableId = 0x9A4B8107UL,
   .productId = 1234UL,
-  .firmwareVersion = 10429UL
+  .firmwareVersion = 10431UL
 };
+
 
 
 /************************************************************************************//**
@@ -95,6 +97,8 @@ const tFirmwareInfoTable firmwareInfoTable __attribute__ ((section (".infoTable"
 ** \return    none.
 **
 ****************************************************************************************/
+
+
 void AppInit(void)
 {
   /* Initialize the timer driver. */
@@ -103,6 +107,9 @@ void AppInit(void)
   LedInit();
   /* initialize the bootloader interface */
   BootComInit();
+
+
+
 } /*** end of AppInit ***/
 
 
@@ -119,6 +126,7 @@ void AppTask(void)
   /* check for bootloader activation request */
   BootComCheckActivationRequest();
 } /*** end of AppTask ***/
+
 
 
 /*********************************** end of app.c **************************************/

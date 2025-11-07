@@ -1,4 +1,5 @@
-App/app.o: ../App/app.c ../App/header.h ../App/blt_conf.h \
+App/app.o: ../App/app.c ../App/info_table.h ../App/header.h \
+ ../App/blt_conf.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -27,6 +28,7 @@ App/app.o: ../App/app.c ../App/header.h ../App/blt_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h ../App/app.h \
  ../App/boot.h ../App/led.h ../App/timer.h
+../App/info_table.h:
 ../App/header.h:
 ../App/blt_conf.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:

@@ -1,0 +1,4 @@
+../Core/Src/8421_ENC.c:59:10:readEncoderPos	2
+../Core/Src/8421_ENC.c:69:10:readEncoderbutton	1
+../Core/Src/8421_ENC.c:76:6:SetEncoderCom	1
+../Core/Src/8421_ENC.c:80:10:readEncoderCom	1

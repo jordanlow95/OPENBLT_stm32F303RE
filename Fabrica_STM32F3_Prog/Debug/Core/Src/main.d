@@ -26,22 +26,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_rcc.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_system.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_exti.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_cortex.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_utils.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_pwr.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/header.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/blt_conf.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/app.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/boot.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/led.h \
- C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/timer.h
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/header.h \
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/blt_conf.h \
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/app.h \
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/boot.h \
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/led.h \
+ C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/timer.h \
+ ../Core/Inc/I2C_Slave.h ../Core/Inc/8421_ENC.h ../Core/Inc/main.h \
+ ../Core/Inc/can_operation.h ../Core/Inc/state_flow.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -70,19 +62,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_rcc.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_system.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_exti.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_cortex.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_utils.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_pwr.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/header.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/blt_conf.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/app.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/boot.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/led.h:
-C:/Users/User/Desktop/openblt_Test/Fabrica_STM32F3_Prog/App/timer.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/header.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/blt_conf.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/app.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/boot.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/led.h:
+C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3_Prog/App/timer.h:
+../Core/Inc/I2C_Slave.h:
+../Core/Inc/8421_ENC.h:
+../Core/Inc/main.h:
+../Core/Inc/can_operation.h:
+../Core/Inc/state_flow.h:
