@@ -1493,7 +1493,7 @@ void CAN_Update_ErrorCount(uint8_t *error_Count, uint8_t size){
  800aadc:	f107 030c 	add.w	r3, r7, #12
  800aae0:	461a      	mov	r2, r3
  800aae2:	2103      	movs	r1, #3
- 800aae4:	f44f 60cc 	mov.w	r0, #1632	@ 0x660
+ 800aae4:	f240 6064 	movw	r0, #1636	@ 0x664
  800aae8:	f7ff fec4 	bl	800a874 <CAN_Send>
 
 }

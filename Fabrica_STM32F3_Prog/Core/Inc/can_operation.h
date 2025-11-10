@@ -13,7 +13,7 @@
 #define KNOBSTATE 0x661
 #define ERRORSTATE 0x662
 #define FIRMWARE_VER 0x663
-#define ERROR_COUNT_STATE 0x660
+#define ERROR_COUNT_STATE 0x664
 #define KNOBCOMMAND 0x665
 
 extern CAN_HandleTypeDef canHandle;
