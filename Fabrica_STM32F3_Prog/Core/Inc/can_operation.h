@@ -13,6 +13,7 @@
 #define KNOBSTATE 0x661
 #define ERRORSTATE 0x662
 #define FIRMWARE_VER 0x663
+#define ERROR_COUNT_STATE 0x660
 #define KNOBCOMMAND 0x665
 
 extern CAN_HandleTypeDef canHandle;
@@ -29,4 +30,5 @@ void CAN_Update_ErrorState(uint8_t *error);
 uint8_t gpio_flag_check();
 void gpio_flag_reset(void);
 void CAN_Update_Firmware_Ver(void);
+void CAN_Update_ErrorCount(uint8_t *error_Count, uint8_t size);
 #endif /* INC_CAN_OPERATION_H_ */

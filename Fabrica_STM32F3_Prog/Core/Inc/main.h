@@ -93,8 +93,6 @@ void Error_Handler(void);
 #define ENC_2_3_GPIO_Port GPIOA
 #define ENC_2_1_Pin GPIO_PIN_10
 #define ENC_2_1_GPIO_Port GPIOA
-#define TMS_Pin GPIO_PIN_13
-#define TMS_GPIO_Port GPIOA
 #define ENC_4_1_Pin GPIO_PIN_3
 #define ENC_4_1_GPIO_Port GPIOB
 #define ENC_COM_1_Pin GPIO_PIN_4
@@ -103,12 +101,7 @@ void Error_Handler(void);
 #define ENC_8_1_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-extern uint8_t pos1;
-extern uint8_t pos2;
-extern uint8_t pos3;
-extern uint8_t but1;
-extern uint8_t but2;
-extern uint8_t but3;
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

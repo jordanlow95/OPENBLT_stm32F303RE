@@ -72,15 +72,15 @@ static void VectorBase_Config(void)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t pos1 =0;
-uint8_t but1 =0;
-uint8_t pos2 =0;
-uint8_t but2 =0;
-uint8_t pos3 =0;
-uint8_t but3 =0;
-uint8_t com_1=0;
-uint8_t com_2=0;
-uint8_t com_3=0;
+//uint8_t pos1 =0;
+//uint8_t but1 =0;
+//uint8_t pos2 =0;
+//uint8_t but2 =0;
+//uint8_t pos3 =0;
+//uint8_t but3 =0;
+//uint8_t com_1=0;
+//uint8_t com_2=0;
+//uint8_t com_3=0;
 /* USER CODE END 0 */
 
 /**
@@ -119,14 +119,14 @@ int main(void)
 
 //  HAL_CAN_Start(&hcan);
 
-  TxHeader.StdId =0x010;
-  TxHeader.IDE= CAN_ID_STD;
-  TxHeader.RTR=CAN_RTR_DATA;
-  TxHeader.DLC=8;
-  TxHeader.TransmitGlobalTime=DISABLE;
-  CANInitTxHeader();
- uint8_t CAN_Txdata[8] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x07, 0x01};
-  int TimerCount =0;
+//  TxHeader.StdId =0x010;
+//  TxHeader.IDE= CAN_ID_STD;
+//  TxHeader.RTR=CAN_RTR_DATA;
+//  TxHeader.DLC=8;
+//  TxHeader.TransmitGlobalTime=DISABLE;
+//  CANInitTxHeader();
+// uint8_t CAN_Txdata[8] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x07, 0x01};
+//  int TimerCount =0;
 
 
   if(HAL_I2C_EnableListen_IT(&hi2c1)!=HAL_OK){
@@ -335,9 +335,6 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LD2_Pin|ENC_COM_3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
@@ -348,13 +345,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PC3 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Bootloader_ctrl_Pin */
   GPIO_InitStruct.Pin = Bootloader_ctrl_Pin;

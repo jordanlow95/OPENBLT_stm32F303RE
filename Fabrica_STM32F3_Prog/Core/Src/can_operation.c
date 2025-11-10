@@ -9,6 +9,7 @@
 #include "8421_ENC.h"
 #include "header.h"
 #include "info_table.h"
+#include <string.h>
 extern CAN_HandleTypeDef canHandle;
 CAN_TxHeaderTypeDef TxHeader;
 uint32_t TxMailbox;
@@ -33,6 +34,12 @@ void CANInitTxHeader(){
 
 HAL_StatusTypeDef CAN_Send(uint16_t canid, uint8_t dlc, uint8_t *data)
 {
+	uint32_t can_timeout = HAL_GetTick() +10;
+	while(HAL_CAN_GetTxMailboxesFreeLevel(&canHandle)==0){
+		if(HAL_GetTick()>can_timeout){
+			return HAL_ERROR;
+		}
+	}
     TxHeader.StdId = canid;
     TxHeader.DLC = dlc;
 	return HAL_CAN_AddTxMessage(&canHandle, &TxHeader, data, &TxMailbox);
@@ -105,5 +112,17 @@ void CAN_Update_Firmware_Ver(){
 	    CAN_TxData[1] = (fw >> 8) & 0xFF;
 	    CAN_TxData[2] = (fw >> 16) & 0xFF;
 	    CAN_TxData[3] = (fw >> 24) & 0xFF;
-	CAN_Send(FIRMWARE_VER, 4, &CAN_TxData);
+	CAN_Send(FIRMWARE_VER, 4, CAN_TxData);
+}
+
+void CAN_Update_ErrorCount(uint8_t *error_Count, uint8_t size){
+	int array_size = size;
+	uint8_t CAN_TxData[3];
+	uint8_t Error_Count[3];
+	memcpy(Error_Count,error_Count,array_size);
+	for(int i=0; i<array_size; i++){
+	CAN_TxData[i] = Error_Count[i];
+	}
+	CAN_Send(ERROR_COUNT_STATE, 3, CAN_TxData);
+
 }
