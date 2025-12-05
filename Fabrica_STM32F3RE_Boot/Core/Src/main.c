@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +56,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+extern CAN_HandleTypeDef canHandle;
 /* USER CODE END 0 */
 
 /**
@@ -89,6 +90,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 AppInit();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -113,7 +115,6 @@ void SystemClock_Config(void)
   while(LL_FLASH_GetLatency()!= LL_FLASH_LATENCY_2)
   {
   }
-  LL_RCC_HSE_EnableBypass();
   LL_RCC_HSE_Enable();
 
    /* Wait till HSE is ready */
@@ -121,6 +122,7 @@ void SystemClock_Config(void)
   {
 
   }
+  LL_RCC_HSE_EnableCSS();
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLL_MUL_9, LL_RCC_PREDIV_DIV_1);
   LL_RCC_PLL_Enable();
 

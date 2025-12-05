@@ -54,10 +54,10 @@ blt_bool CpuUserProgramStartHook(void)
   /* additional and optional backdoor entry through the D2 (PA0) digital input on the
    * board. to force the bootloader to stay active after reset, connect D2 to ground.
    */
-  if (LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_0) == 0)
-  {
-    return BLT_FALSE;
-  }
+//  if (LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_0) == 0)
+//  {
+//    return BLT_FALSE;
+//  }
   /* clean up the LED driver */
   LedBlinkExit();
   /*  okay to start the user program.*/

@@ -96,7 +96,7 @@ void Operation_run(){
 		timer_count = HAL_GetTick();
 		//read from message, set gpio output based on can received
 		if((timer_count-last_timer_running_gpio_update)>=INTERVAL_GPIO){
-			if(gpio_flag_check()){
+			if(gpio_flag_check()==1){
 				  SetEncoderCom(encoders[0], (gpio_status>>0) & 0x01);
 				  SetEncoderCom(encoders[1], ((gpio_status>>1) & 0x01));
 				  SetEncoderCom(encoders[2], ((gpio_status>>2) & 0x01));

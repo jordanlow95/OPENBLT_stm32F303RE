@@ -19,11 +19,11 @@ CAN_RxHeaderTypeDef RxHeader;
 uint8_t CAN_Rxdata[8];
 uint8_t gpio_status;
 uint8_t Update_count =0;
-uint8_t gpio_command_update =0;
+static uint8_t gpio_command_update =0;
 
 
 void CANInitTxHeader(){
-	TxHeader.StdId =0x010;
+//	TxHeader.StdId =0x010;
 	TxHeader.IDE= CAN_ID_STD;
 	TxHeader.RTR=CAN_RTR_DATA;
 	TxHeader.DLC=8;
@@ -57,9 +57,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 	  if(RxHeader.StdId==KNOBCOMMAND){
 		   gpio_status = CAN_Rxdata[7];
 		   gpio_command_update = 1;
-//		  SetEncoderCom(encoders[0], (GPIO_Status>>0) & 0x01);
-//		  SetEncoderCom(encoders[1], ((GPIO_Status>>1) & 0x01));
-//		  SetEncoderCom(encoders[2], ((GPIO_Status>>2) & 0x01));
+//		  SetEncoderCom(encoders[0], (gpio_status>>0) & 0x01);
+//		  SetEncoderCom(encoders[1], ((gpio_status>>1) & 0x01));
+//		  SetEncoderCom(encoders[2], ((gpio_status>>2) & 0x01));
 	  }
 }
 
@@ -72,9 +72,9 @@ void CAN_Update_KnobState(uint8_t *comState, uint8_t *State){
 	 uint8_t val1 = *comState;
 	  CAN_Txdata[0] = encoders[0]->pos;
 	  CAN_Txdata[1] = encoders[0]->but_state;
-	  CAN_Txdata[2] = encoders[1]->pos;;
+	  CAN_Txdata[2] = encoders[1]->pos;
 	  CAN_Txdata[3] = encoders[1]->but_state;
-	  CAN_Txdata[4] = encoders[2]->pos;;
+	  CAN_Txdata[4] = encoders[2]->pos;
 	  CAN_Txdata[5] = encoders[2]->but_state;
 	  CAN_Txdata[6] = (val<<4)| (val1 & 0x0F) ;
 	  CAN_Txdata[7] = Update_count;

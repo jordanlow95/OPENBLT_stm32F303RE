@@ -124,7 +124,7 @@ int main(void)
 //  TxHeader.RTR=CAN_RTR_DATA;
 //  TxHeader.DLC=8;
 //  TxHeader.TransmitGlobalTime=DISABLE;
-//  CANInitTxHeader();
+  CANInitTxHeader();
 // uint8_t CAN_Txdata[8] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x07, 0x01};
 //  int TimerCount =0;
 
