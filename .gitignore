@@ -1,0 +1,11 @@
+**/build
+*.d
+*.o
+*.srec
+*.bin
+*.hex
+*.lst
+*.cyclo
+*.su
+*.idx
+**/compile_commands.json
