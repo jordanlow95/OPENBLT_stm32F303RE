@@ -18,8 +18,17 @@ extern I2C_HandleTypeDef hi2c1;
 uint8_t RXdata[RXSIZE];
 uint8_t Txdata[6];
 uint8_t Rev_I2C[1];
+#define I2C_TIMEOUT_MS 1000
+static uint32_t i2cStartTick = 0;
+
+
+void I2C_StartListening(void){
+	HAL_I2C_EnableListen_IT(&hi2c1);
+//	i2cStartTick= HAL_GetTick();
+}
 
 void HAL_I2C_ListenCpltCallback(I2C_HandleTypeDef *hi2c){
+	i2cStartTick = HAL_GetTick();
 	HAL_I2C_EnableListen_IT(&hi2c1);
 }
 
@@ -52,6 +61,7 @@ void processData(){
 }
 
 void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode){
+	i2cStartTick = HAL_GetTick();
 	if(TransferDirection==I2C_DIRECTION_TRANSMIT){
 		HAL_I2C_Slave_Seq_Receive_IT(&hi2c1, RXdata, 1, I2C_FIRST_AND_LAST_FRAME);
 		Rev_I2C[0] = RXdata[0];
@@ -64,8 +74,22 @@ void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, ui
 //		HAL_I2C_Slave_Transmit_IT(&hi2c1, RXdata, RXSIZE);
 	}
 }
-void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c){
-	HAL_I2C_EnableListen_IT(&hi2c1);
+void I2C_TimeOutHandler(void){
+	if((HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6))||(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_7)))
+		i2cStartTick = HAL_GetTick();
+	if((HAL_GetTick()-i2cStartTick)>I2C_TIMEOUT_MS){
+//		HAL_I2C_EnableListen_IT(&hi2c1);
+		HAL_I2C_DeInit(&hi2c1);
+		HAL_I2C_Init(&hi2c1);
+		I2C_StartListening();
+		}
 }
+
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c){
+		HAL_I2CEx_DisableWakeUp(&hi2c1);
+	    I2C_StartListening();   // re-enable immediately
+
+}
+
 
 

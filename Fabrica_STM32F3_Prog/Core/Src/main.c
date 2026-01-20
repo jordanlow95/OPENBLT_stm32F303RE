@@ -141,6 +141,7 @@ int main(void)
   {
 	  AppTask();
 	  Operation_run();
+	  I2C_TimeOutHandler();
 //	  if(TimerCount>=100000){
 //	  CAN_Txdata[7] += 1;
 //	  if(CAN_Txdata[7]>=255)
