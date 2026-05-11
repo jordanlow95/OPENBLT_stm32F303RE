@@ -223,7 +223,7 @@
  * priveleges.
  */
 /** \brief Enable (1) or disable (0) the info table feature. */
-#define BOOT_INFO_TABLE_ENABLE         (1)
+#define BOOT_INFO_TABLE_ENABLE         (0)
 
 /** \brief Configure the length of your firmware's info table in bytes. */
 #define BOOT_INFO_TABLE_LEN            (12)

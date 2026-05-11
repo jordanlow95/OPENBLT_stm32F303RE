@@ -1,6 +1,0 @@
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:62:6:InfoTableInit	8	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:83:10:InfoTableCheck	24	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:125:10:InfoTableGetPtr	24	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:157:6:InfoTableClear	24	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:189:12:InfoTableCurrentSize	24	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/infotable.c:225:10:InfoTableAddData	24	static

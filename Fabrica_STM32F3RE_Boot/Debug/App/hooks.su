@@ -1,4 +1,3 @@
 ../App/hooks.c:52:10:CpuUserProgramStartHook	8	static
 ../App/hooks.c:140:6:CopInitHook	8	static
 ../App/hooks.c:157:6:CopServiceHook	8	static
-../App/hooks.c:473:10:InfoTableCheckHook	32	static

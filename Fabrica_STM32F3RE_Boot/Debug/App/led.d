@@ -4,6 +4,7 @@ App/led.o: ../App/led.c \
  C:/Users/jorda/Documents/GitHub/openblt/Target/Source/asserts.h \
  C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3RE_Boot/App/blt_conf.h \
  C:/Users/jorda/Documents/GitHub/openblt/Target/Source/plausibility.h \
+ C:/Users/jorda/Documents/GitHub/openblt/Target/Source/events.h \
  C:/Users/jorda/Documents/GitHub/openblt/Target/Source/cpu.h \
  C:/Users/jorda/Documents/GitHub/openblt/Target/Source/cop.h \
  C:/Users/jorda/Documents/GitHub/openblt/Target/Source/nvm.h \
@@ -46,6 +47,7 @@ C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/types.h:
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/asserts.h:
 C:/Users/jorda/Documents/GitHub/OPENBLT_stm32F303RE/Fabrica_STM32F3RE_Boot/App/blt_conf.h:
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/plausibility.h:
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/events.h:
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/cpu.h:
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/cop.h:
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/nvm.h:

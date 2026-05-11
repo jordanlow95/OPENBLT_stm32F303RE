@@ -47,9 +47,9 @@ MEMORY
 {
   CCMRAM    (xrw)    : ORIGIN = 0x10000000,   LENGTH = 16K
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 64K
-  VECTAB     (rx)    : ORIGIN = 0x0800A000,   LENGTH = 512 /* 0x200 boot block */
-  INFO_TABLE (rx)    : ORIGIN = 0x0800A200,   LENGTH = 12
-  FLASH    (rx)    : ORIGIN = 0x800A2C0,   LENGTH = 512K - 40K - 512 - 12
+  VECTAB     (rx)    : ORIGIN = 0x08003800,   LENGTH = 512 /* 0x200 boot block */
+  INFO_TABLE (rx)    : ORIGIN = 0x08004000,   LENGTH = 12
+  FLASH    (rx)    : ORIGIN = 0x80042C0,   LENGTH = 512K - 40K - 512 - 12
 }
 
 /* Sections */

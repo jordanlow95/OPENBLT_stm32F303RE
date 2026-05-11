@@ -44,19 +44,19 @@ static const tFlashSector flashLayout[] =
   /* { 0x08002000, 0x00800 },           flash sector  4 - 2kb (reserved for bootloader)*/
   /* { 0x08002800, 0x00800 },           flash sector  5 - 2kb (reserved for bootloader)*/
   /* { 0x08003000, 0x00800 },           flash sector  6 - 2kb (reserved for bootloader)*/
-  /* { 0x08003800, 0x00800 },           flash sector  7 - 2kb (reserved for bootloader)*/
-  /* { 0x08004000, 0x00800 },           flash sector  8 - 2kb (reserved for bootloader)*/
-  /* { 0x08004800, 0x00800 },           flash sector  9 - 2kb (reserved for bootloader)*/
-  /* { 0x08005000, 0x00800 },           flash sector 10 - 2kb (reserved for bootloader)*/
-  /* { 0x08005800, 0x00800 },           flash sector 11 - 2kb (reserved for bootloader)*/
-  /* { 0x08006000, 0x00800 },           flash sector 12 - 2kb (reserved for bootloader)*/
-  /* { 0x08006800, 0x00800 },           flash sector 13 - 2kb (reserved for bootloader)*/
-  /* { 0x08007000, 0x00800 },           flash sector 14 - 2kb (reserved for bootloader)*/
-  /* { 0x08007800, 0x00800 },           flash sector 15 - 2kb (reserved for bootloader)*/
-  /* { 0x08008000, 0x00800 },           flash sector 16 - 2kb (reserved for bootloader)*/
-  /* { 0x08008800, 0x00800 },           flash sector 17 - 2kb (reserved for bootloader)*/
-  /* { 0x08009000, 0x00800 },           flash sector 18 - 2kb (reserved for bootloader)*/
-  /* { 0x08009800, 0x00800 },           flash sector 19 - 2kb (reserved for bootloader)*/
+   { 0x08003800, 0x00800 },           	/* flash sector  7 - 2kb (reserved for bootloader)*/
+   { 0x08004000, 0x00800 },           	/*flash sector  8 - 2kb (reserved for bootloader)*/
+   { 0x08004800, 0x00800 },           	/*flash sector  9 - 2kb (reserved for bootloader)*/
+   { 0x08005000, 0x00800 },           	/*flash sector 10 - 2kb (reserved for bootloader)*/
+   { 0x08005800, 0x00800 },           	/*flash sector 11 - 2kb (reserved for bootloader)*/
+   { 0x08006000, 0x00800 },          	/*flash sector 12 - 2kb (reserved for bootloader)*/
+   { 0x08006800, 0x00800 },           	/*flash sector 13 - 2kb (reserved for bootloader)*/
+   { 0x08007000, 0x00800 },           	/*flash sector 14 - 2kb (reserved for bootloader)*/
+   { 0x08007800, 0x00800 },           	/*flash sector 15 - 2kb (reserved for bootloader)*/
+   { 0x08008000, 0x00800 },           	/*flash sector 16 - 2kb (reserved for bootloader)*/
+   { 0x08008800, 0x00800 },           	/*flash sector 17 - 2kb (reserved for bootloader)*/
+   { 0x08009000, 0x00800 },           	/*flash sector 18 - 2kb (reserved for bootloader)*/
+   { 0x08009800, 0x00800 },           	/*flash sector 19 - 2kb (reserved for bootloader)*/
   { 0x0800A000, 0x00800 },              /* flash sector 20 - 2kb                       */
   { 0x0800A800, 0x00800 },              /* flash sector 21 - 2kb                       */
   { 0x0800B000, 0x00800 },              /* flash sector 22 - 2kb                       */

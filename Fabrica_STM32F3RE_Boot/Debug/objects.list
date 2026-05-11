@@ -42,6 +42,7 @@
 "./Source/boot.o"
 "./Source/com.o"
 "./Source/cop.o"
+"./Source/events.o"
 "./Source/file.o"
 "./Source/infotable.o"
 "./Source/mb.o"
