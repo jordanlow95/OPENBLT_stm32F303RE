@@ -6,5 +6,4 @@
 ../Core/Src/can_operation.c:92:6:CAN_Update_ErrorState	1
 ../Core/Src/can_operation.c:99:9:gpio_flag_check	1
 ../Core/Src/can_operation.c:103:6:gpio_flag_reset	1
-../Core/Src/can_operation.c:107:6:CAN_Update_Firmware_Ver	1
 ../Core/Src/can_operation.c:118:6:CAN_Update_ErrorCount	2

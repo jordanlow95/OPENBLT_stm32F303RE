@@ -126,7 +126,7 @@ void Operation_run(){
 
 
 					CAN_Update_ErrorState(&error_state);
-					CAN_Update_Firmware_Ver();
+//					CAN_Update_Firmware_Ver();
 
 
 					last_timer_running_state_update1 = HAL_GetTick();

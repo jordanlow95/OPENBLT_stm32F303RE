@@ -56,6 +56,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Fabrica_STM32F3RE_Boot.list \
 
+OBJCOPY_SREC += \
+Fabrica_STM32F3RE_Boot.srec \
+
 
 # All Target
 all: main-build
@@ -79,12 +82,17 @@ Fabrica_STM32F3RE_Boot.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOO
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Fabrica_STM32F3RE_Boot.srec: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O srec $(EXECUTABLES) "Fabrica_STM32F3RE_Boot.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) Fabrica_STM32F3RE_Boot.elf Fabrica_STM32F3RE_Boot.list Fabrica_STM32F3RE_Boot.map default.size.stdout
+	-$(RM) Fabrica_STM32F3RE_Boot.elf Fabrica_STM32F3RE_Boot.list Fabrica_STM32F3RE_Boot.map Fabrica_STM32F3RE_Boot.srec default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_SREC)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

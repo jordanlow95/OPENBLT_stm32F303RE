@@ -1,4 +1,4 @@
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:58:6:CpuInit	8	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:75:6:CpuStartUserProgram	16	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:169:6:CpuMemCopy	32	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:196:6:CpuMemSet	24	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:58:6:CpuInit	0	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:75:6:CpuStartUserProgram	8	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:169:6:CpuMemCopy	24	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/cpu.c:196:6:CpuMemSet	16	static

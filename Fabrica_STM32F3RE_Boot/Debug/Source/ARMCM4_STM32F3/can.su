@@ -1,4 +1,3 @@
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:113:17:CanGetSpeedConfig	48	static
 C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:154:6:CanInit	64	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:242:6:CanTransmitPacket	56	static
-C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:299:10:CanReceivePacket	56	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:242:6:CanTransmitPacket	40	static
+C:/Users/jorda/Documents/GitHub/openblt/Target/Source/ARMCM4_STM32F3/can.c:299:10:CanReceivePacket	40	static
